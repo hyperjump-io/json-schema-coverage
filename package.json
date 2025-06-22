@@ -1,0 +1,39 @@
+{
+  "name": "@hyperjump/json-schema-coverage",
+  "version": "0.0.1",
+  "description": "Test coverage for JSON Schema",
+  "keywords": [
+    "JSON Schema",
+    "test",
+    "coverage"
+  ],
+  "author": "Jason Desrosiers <jdesrosi@gmail.com>",
+  "license": "MIT",
+  "repository": "github:hyperjump-io/json-schema-coverage",
+  "funding": {
+    "type": "github",
+    "url": "https://github.com/sponsors/jdesrosiers"
+  },
+  "type": "module",
+  "exports": {
+    ".": "./src/index.js"
+  },
+  "scripts": {
+    "lint": "eslint src",
+    "test": "vitest --watch=false",
+    "type-check": "tsc --noEmit",
+    "docs": "typedoc --excludeExternals"
+  },
+  "devDependencies": {
+    "@stylistic/eslint-plugin": "*",
+    "@types/node": "*",
+    "eslint-import-resolver-typescript": "*",
+    "eslint-plugin-import": "*",
+    "typedoc": "*",
+    "typescript-eslint": "*",
+    "vitest": "*"
+  },
+  "dependencies": {
+    "@hyperjump/json-schema": "^1.16.0"
+  }
+}

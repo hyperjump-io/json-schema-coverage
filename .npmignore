@@ -1,0 +1,9 @@
+.github/
+.gitattributes
+coverage.png
+eslint.config.js
+**/*.test.js
+tsconfig.json
+scratch/
+docs/
+TODO.md

@@ -1,0 +1,10 @@
+node_modules/
+package-lock.json
+
+docs/
+
+scratch/
+TODO.md
+
+.nyc_output
+coverage
