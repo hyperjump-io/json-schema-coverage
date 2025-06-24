@@ -1,4 +1,5 @@
 import { randomUUID } from "node:crypto";
+import { existsSync } from "node:fs";
 import { writeFile } from "node:fs/promises";
 import { expect } from "vitest";
 import { registerSchema, unregisterSchema, validate } from "@hyperjump/json-schema/draft-2020-12";
@@ -18,7 +19,10 @@ expect.extend({
     /** @type OutputUnit */
     let output;
 
-    const testCoveragePlugin = new TestCoverageEvaluationPlugin();
+    const isCoverageEnabled = existsSync(".json-schema-coverage");
+    const plugins = isCoverageEnabled
+      ? [new TestCoverageEvaluationPlugin()]
+      : [];
 
     if (typeof uriOrSchema === "string") {
       const uri = uriOrSchema;
@@ -26,7 +30,7 @@ expect.extend({
       // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
       output = await validate(uri, instance, {
         outputFormat: BASIC,
-        plugins: [testCoveragePlugin]
+        plugins: plugins
       });
     } else {
       const schema = uriOrSchema;
@@ -36,14 +40,17 @@ expect.extend({
         // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
         output = await validate(uri, instance, {
           outputFormat: BASIC,
-          plugins: [testCoveragePlugin]
+          plugins: plugins
         });
       } finally {
         unregisterSchema(uri);
       }
     }
 
-    await writeFile(`.nyc_output/${randomUUID()}.json`, JSON.stringify(testCoveragePlugin.coverageMap, null, "  "));
+    if (isCoverageEnabled) {
+      const testCoveragePlugin = plugins[0];
+      await writeFile(`.json-schema-coverage/${randomUUID()}.json`, JSON.stringify(testCoveragePlugin.coverageMap, null, "  "));
+    }
 
     return {
       pass: output.valid,
