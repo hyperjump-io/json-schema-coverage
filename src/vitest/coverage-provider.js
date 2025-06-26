@@ -1,6 +1,6 @@
 import { existsSync, readdirSync } from "node:fs";
 import * as fs from "node:fs/promises";
-import { createCoverageMap } from "istanbul-lib-coverage";
+import coverage from "istanbul-lib-coverage";
 import libReport from "istanbul-lib-report";
 import reports from "istanbul-reports";
 import { resolve } from "pathe";
@@ -28,7 +28,7 @@ const JsonSchemaCoverageProviderModule = {
 
 /** @implements CoverageProvider */
 class JsonSchemaCoverageProvider {
-  name = "../src/vitest/json-schema-coverage-provider.js";
+  name = "@hyperjump/json-schema-coverage/vitest-coverage-provider";
 
   ctx = /** @type Vitest */ ({});
   options = /** @type ResolvedCoverageOptions<"custom"> */ ({});
@@ -142,7 +142,7 @@ class JsonSchemaCoverageProvider {
 
   /** @type () => CoverageMap */
   createCoverageMap() {
-    return createCoverageMap({});
+    return coverage.createCoverageMap({});
   }
 
   /** @type CoverageProvider["onAfterSuiteRun"] */

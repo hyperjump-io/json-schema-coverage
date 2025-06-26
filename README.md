@@ -37,7 +37,7 @@ export default defineConfig({
   test: {
     coverage: {
       provider: "custom",
-      customProviderModule: "@hyperjump/json-schema-coverage/vitest"
+      customProviderModule: "@hyperjump/json-schema-coverage/vitest-coverage-provider"
     }
   }
 });
@@ -49,7 +49,7 @@ tests.
 
 ```JavaScript
 import { describe, expect, test } from "vitest";
-import "@hyperjump/json-schema-coverage/vitest";
+import "@hyperjump/json-schema-coverage/vitest-matchers";
 
 describe("Worksheet", () => {
   test("matches with uri", async () => {
@@ -67,7 +67,7 @@ file-based schemas.
 
 ```JavaScript
 import { describe, expect, test } from "vitest";
-import "@hyperjump/json-schema-coverage/vitest";
+import "@hyperjump/json-schema-coverage/vitest-matchers";
 
 describe("Worksheet", () => {
   test("matches with schema", async () => {
