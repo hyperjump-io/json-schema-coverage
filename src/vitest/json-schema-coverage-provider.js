@@ -1,14 +1,20 @@
 import { existsSync, readdirSync } from "node:fs";
 import * as fs from "node:fs/promises";
 import { createCoverageMap } from "istanbul-lib-coverage";
-import { resolve } from "pathe";
-import c from "tinyrainbow";
 import libReport from "istanbul-lib-report";
 import reports from "istanbul-reports";
+import { resolve } from "pathe";
+import c from "tinyrainbow";
 import { coverageConfigDefaults } from "vitest/config";
 
 /**
- * @import { BaseCoverageOptions, CoverageProvider, CoverageProviderModule, ResolvedCoverageOptions, Vitest} from "vitest"
+ * @import {
+ *   BaseCoverageOptions,
+ *   CoverageProvider,
+ *   CoverageProviderModule,
+ *   ResolvedCoverageOptions,
+ *   Vitest
+ * } from "vitest"
  * @import { CoverageMap, CoverageMapData } from "istanbul-lib-coverage"
  */
 
@@ -48,8 +54,7 @@ class JsonSchemaCoverageProvider {
         ctx.config.root,
         config.reportsDirectory || coverageConfigDefaults.reportsDirectory
       ),
-      reporter: resolveCoverageReporters(config.reporter || coverageConfigDefaults.reporter),
-      extension: ".schema.json"
+      reporter: resolveCoverageReporters(config.reporter || coverageConfigDefaults.reporter)
     };
 
     this.coverageFilesDirectory = "./.json-schema-coverage";
@@ -111,9 +116,7 @@ class JsonSchemaCoverageProvider {
     });
 
     if (this.hasTerminalReporter(this.options.reporter)) {
-      this.ctx.logger.log(
-        c.blue(" % ") + c.dim("Coverage report from ") + c.yellow(this.name)
-      );
+      this.ctx.logger.log(c.blue(" % ") + c.dim("Coverage report from ") + c.yellow(this.name));
     }
 
     for (const reporter of this.options.reporter) {
@@ -129,13 +132,12 @@ class JsonSchemaCoverageProvider {
 
   /** @type (reporters: ResolvedCoverageOptions["reporter"])=> boolean */
   hasTerminalReporter(reporters) {
-    return reporters.some(
-      ([reporter]) =>
-        reporter === "text"
+    return reporters.some(([reporter]) => {
+      return reporter === "text"
         || reporter === "text-summary"
         || reporter === "text-lcov"
-        || reporter === "teamcity"
-    );
+        || reporter === "teamcity";
+    });
   }
 
   /** @type () => CoverageMap */

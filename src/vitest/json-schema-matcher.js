@@ -11,50 +11,53 @@ import { BASIC } from "@hyperjump/json-schema/experimental";
 import { TestCoverageEvaluationPlugin } from "../test-coverage-evaluation-plugin.js";
 
 /**
- * @import { OutputUnit } from "@hyperjump/json-schema"
+ * @import { OutputUnit, SchemaObject } from "@hyperjump/json-schema"
+ * @import { AsyncExpectationResult } from "@vitest/expect"
  */
 
-expect.extend({
-  async matchJsonSchema(instance, uriOrSchema) {
-    /** @type OutputUnit */
-    let output;
+/** @type (instance: any, uriOrSchema: string | SchemaObject | boolean) => AsyncExpectationResult */
+const schemaMatcher = async (instance, uriOrSchema) => {
+  /** @type OutputUnit */
+  let output;
 
-    const isCoverageEnabled = existsSync(".json-schema-coverage");
-    const plugins = isCoverageEnabled
-      ? [new TestCoverageEvaluationPlugin()]
-      : [];
+  if (typeof uriOrSchema === "string") {
+    const uri = uriOrSchema;
 
-    if (typeof uriOrSchema === "string") {
-      const uri = uriOrSchema;
+    if (existsSync(".json-schema-coverage")) {
+      const testCoveragePlugin = new TestCoverageEvaluationPlugin();
 
       // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
       output = await validate(uri, instance, {
         outputFormat: BASIC,
-        plugins: plugins
+        plugins: [testCoveragePlugin]
       });
+
+      const coverageMapPath = `.json-schema-coverage/${randomUUID()}.json`;
+      const coverageMapJson = JSON.stringify(testCoveragePlugin.coverageMap);
+      await writeFile(coverageMapPath, coverageMapJson);
     } else {
-      const schema = uriOrSchema;
-      const uri = `urn:uuid:${randomUUID()}`;
-      registerSchema(schema, uri, "https://json-schema.org/draft/2020-12/schema");
-      try {
-        // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
-        output = await validate(uri, instance, {
-          outputFormat: BASIC,
-          plugins: plugins
-        });
-      } finally {
-        unregisterSchema(uri);
-      }
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
+      output = await validate(uri, instance, BASIC);
     }
-
-    if (isCoverageEnabled) {
-      const testCoveragePlugin = plugins[0];
-      await writeFile(`.json-schema-coverage/${randomUUID()}.json`, JSON.stringify(testCoveragePlugin.coverageMap, null, "  "));
+  } else {
+    const schema = uriOrSchema;
+    const uri = `urn:uuid:${randomUUID()}`;
+    registerSchema(schema, uri, "https://json-schema.org/draft/2020-12/schema");
+    try {
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
+      output = await validate(uri, instance, BASIC);
+    } finally {
+      unregisterSchema(uri);
     }
-
-    return {
-      pass: output.valid,
-      message: () => JSON.stringify(output, null, "  ")
-    };
   }
+
+  return {
+    pass: output.valid,
+    message: () => JSON.stringify(output, null, "  ")
+  };
+};
+
+expect.extend({
+  matchJsonSchema: schemaMatcher,
+  toMatchJsonSchema: schemaMatcher
 });

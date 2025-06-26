@@ -61,6 +61,7 @@ export type JsonObjectNode = {
   position: Position;
 };
 
+// eslint-disable-next-line @stylistic/operator-linebreak
 export type JsonNode =
   | JsonObjectNode
   | JsonArrayNode

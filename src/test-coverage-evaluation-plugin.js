@@ -43,6 +43,7 @@ export class TestCoverageEvaluationPlugin {
     }
 
     const schemaPath = fileURLToPath(schemaUri);
+    this.coverageMap[schemaPath].s[schemaUri]++;
     this.coverageMap[schemaPath].f[schemaUri]++;
   }
 
@@ -83,11 +84,17 @@ export class TestCoverageEvaluationPlugin {
             end: { line: node.position.start.line, column: node.position.start.column - 1 }
           };
 
+      const locRange = positionToRange(node.position);
+
+      // Create statement
+      this.coverageMap[schemaPath].statementMap[schemaLocation] = locRange;
+      this.coverageMap[schemaPath].s[schemaLocation] = 0;
+
       // Create function
       this.coverageMap[schemaPath].fnMap[schemaLocation] = {
         name: schemaLocation,
         decl: declRange,
-        loc: positionToRange(node.position),
+        loc: locRange,
         line: node.position.start.line
       };
       this.coverageMap[schemaPath].f[schemaLocation] = 0;

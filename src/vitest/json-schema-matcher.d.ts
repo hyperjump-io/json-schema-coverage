@@ -3,6 +3,7 @@ import "vitest";
 
 declare module "vitest" {
   interface Matchers<R = unknown> {
-    matchJsonSchema: (uriOrSchema: string | SchemaObject) => Promise<R>;
+    matchJsonSchema: (uriOrSchema: string | SchemaObject | boolean) => Promise<R>;
+    toMatchJsonSchema: (uriOrSchema: string | SchemaObject | boolean) => Promise<R>;
   }
 }
