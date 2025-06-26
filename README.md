@@ -26,8 +26,9 @@ All files    |   81.81 |    66.66 |      80 |   88.88 |
 
 ## Vitest
 
-Integration with vitest is provided as `@hyperjump/json-schema-coverage/vitest`.
-You'll need a vitest config specifically for running schema coverage.
+Integration with vitest is provided. You'll need a vitest config specifically
+for running schema coverage. You can't run with coverage for both your js/ts
+code and schema at the same time.
 
 `vitest-schema.config.js`
 ```JavaScript
@@ -41,6 +42,10 @@ export default defineConfig({
     }
   }
 });
+```
+
+```bash
+vitest run --config=vitest-schema.config.js --coverage
 ```
 
 When you use the provided custom matcher `matchJsonSchema`/`toMatchJsonSchema`,
