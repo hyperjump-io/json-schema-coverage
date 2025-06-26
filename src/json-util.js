@@ -13,48 +13,48 @@ import { JsonLexer } from "./json-lexer.js";
  * } from "./jsonast.d.ts"
  */
 
-/** @type (json: string, location?: string) => JsonNode */
-export const fromJson = (json, location = "") => {
+/** @type (json: string, uri?: string) => JsonNode */
+export const fromJson = (json, uri = "") => {
   const lexer = new JsonLexer(json);
 
   const token = lexer.nextToken();
-  const jsonValue = parseValue(token, lexer, undefined, `${location}#`);
+  const jsonValue = parseValue(token, lexer, undefined, uri, "");
 
   lexer.done();
 
   return jsonValue;
 };
 
-/** @type (token: JsonToken, lexer: JsonLexer, key: string | undefined, location: string) => JsonNode */
-const parseValue = (token, lexer, _key, location) => {
+/** @type (token: JsonToken, lexer: JsonLexer, key: string | undefined, uri: string, pointer: string) => JsonNode */
+const parseValue = (token, lexer, _key, uri, pointer) => {
   switch (token.type) {
     case "null":
     case "boolean":
     case "number":
     case "string":
-      return parseScalar(token, location);
+      return parseScalar(token, uri, pointer);
     case "[":
-      return parseArray(token, lexer, location);
+      return parseArray(token, lexer, uri, pointer);
     case "{":
-      return parseObject(token, lexer, location);
+      return parseObject(token, lexer, uri, pointer);
     default:
       throw lexer.syntaxError("Expected a JSON value", token);
   }
 };
 
-/** @type (token: JsonToken<"null" | "boolean" | "number" | "string">, location: string) => JsonNode */
-const parseScalar = (token, location) => {
+/** @type (token: JsonToken<"null" | "boolean" | "number" | "string">, uri: string, pointer: string) => JsonNode */
+const parseScalar = (token, uri, pointer) => {
   return {
     type: "json",
     jsonType: token.type,
     value: JSON.parse(token.value), // eslint-disable-line @typescript-eslint/no-unsafe-assignment
-    location: location,
+    location: `${uri}#${encodeURI(pointer)}`,
     position: tokenPosition(token)
   };
 };
 
-/** @type (token: JsonToken, lexer: JsonLexer, key: string, location: string) => JsonPropertyNode */
-const parseProperty = (token, lexer, _key, location) => {
+/** @type (token: JsonToken, lexer: JsonLexer, key: string, uri: string, pointer: string) => JsonPropertyNode */
+const parseProperty = (token, lexer, _key, uri, pointer) => {
   if (token.type !== "string") {
     throw lexer.syntaxError("Expected a propertry", token);
   }
@@ -71,7 +71,7 @@ const parseProperty = (token, lexer, _key, location) => {
     throw lexer.syntaxError("Expected :", token);
   }
 
-  const valueNode = parseValue(lexer.nextToken(), lexer, keyNode.value, JsonPointer.append(keyNode.value, location));
+  const valueNode = parseValue(lexer.nextToken(), lexer, keyNode.value, uri, JsonPointer.append(keyNode.value, pointer));
 
   return {
     type: "json-property",
@@ -90,11 +90,11 @@ const parseProperty = (token, lexer, _key, location) => {
 
 /**
  * @type <P extends ParentNode<C>, C extends JsonNode | JsonPropertyNode>(
- *   parseChild: (token: JsonToken, lexer: JsonLexer, key: string, location: string) => C,
+ *   parseChild: (token: JsonToken, lexer: JsonLexer, key: string, uri: string, pointer: string) => C,
  *   endToken: string
- * ) => (lexer: JsonLexer, node: P, location: string) => P
+ * ) => (lexer: JsonLexer, node: P, uri: string, pointer: string) => P
  */
-const parseCommaSeparated = (parseChild, endToken) => (lexer, node, location) => {
+const parseCommaSeparated = (parseChild, endToken) => (lexer, node, uri, pointer) => {
   for (let index = 0; true; index++) {
     let token = lexer.nextToken();
 
@@ -111,44 +111,44 @@ const parseCommaSeparated = (parseChild, endToken) => (lexer, node, location) =>
       }
     }
 
-    const childNode = parseChild(token, lexer, `${index}`, location);
+    const childNode = parseChild(token, lexer, `${index}`, uri, pointer);
     if (childNode) {
       node.children.push(childNode);
     }
   }
 };
 
-/** @type (openToken: JsonToken, lexer: JsonLexer, location: string) => JsonArrayNode */
-const parseArray = (openToken, lexer, location) => {
+/** @type (openToken: JsonToken, lexer: JsonLexer, uri: string, pointer: string) => JsonArrayNode */
+const parseArray = (openToken, lexer, uri, pointer) => {
   return parseItems(lexer, {
     type: "json",
     jsonType: "array",
     children: [],
-    location: location,
+    location: `${uri}#${encodeURI(pointer)}`,
     position: tokenPosition(openToken)
-  }, location);
+  }, uri, pointer);
 };
 
-/** @type (token: JsonToken, lexer: JsonLexer, key: string, location: string) => JsonNode */
-const parseItem = (token, lexer, key, location) => {
-  return parseValue(token, lexer, key, JsonPointer.append(key, location));
+/** @type (token: JsonToken, lexer: JsonLexer, key: string, uri: string, pointer: string) => JsonNode */
+const parseItem = (token, lexer, key, uri, pointer) => {
+  return parseValue(token, lexer, key, uri, JsonPointer.append(key, pointer));
 };
 
-/** @type (lexer: JsonLexer, node: { type: "json" } & JsonArrayNode, location: string) => JsonArrayNode */
+/** @type (lexer: JsonLexer, node: { type: "json" } & JsonArrayNode, uri: string, pointer: string) => JsonArrayNode */
 const parseItems = parseCommaSeparated(parseItem, "]");
 
-/** @type (openToken: JsonToken, lexer: JsonLexer, location: string) => JsonObjectNode */
-const parseObject = (openToken, lexer, location) => {
+/** @type (openToken: JsonToken, lexer: JsonLexer, uri: string, pointer: string) => JsonObjectNode */
+const parseObject = (openToken, lexer, uri, pointer) => {
   return parseProperties(lexer, {
     type: "json",
     jsonType: "object",
     children: [],
-    location: location,
+    location: `${uri}#${encodeURI(pointer)}`,
     position: tokenPosition(openToken)
-  }, location);
+  }, uri, pointer);
 };
 
-/** @type (lexer: JsonLexer, node: { type: "json" } & JsonObjectNode, location: string) => JsonObjectNode */
+/** @type (lexer: JsonLexer, node: { type: "json" } & JsonObjectNode, uri: string, pointer: string) => JsonObjectNode */
 const parseProperties = parseCommaSeparated(parseProperty, "}");
 
 /** @type (startToken: JsonToken, endToken?: JsonToken) => Position */

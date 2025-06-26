@@ -74,7 +74,7 @@ export class TestCoverageEvaluationPlugin {
       }
 
       const tree = this.#schemaCache[schemaPath];
-      const pointer = parseIri(schemaLocation).fragment ?? "";
+      const pointer = decodeURI(parseIri(schemaLocation).fragment ?? "");
       const node = getNodeFromPointer(tree, pointer);
 
       const declRange = node.type === "json-property"
@@ -108,7 +108,7 @@ export class TestCoverageEvaluationPlugin {
               continue;
             }
 
-            const pointer = parseIri(keywordLocation).fragment ?? "";
+            const pointer = decodeURI(parseIri(keywordLocation).fragment ?? "");
             const node = getNodeFromPointer(tree, pointer);
             const range = positionToRange(node.position);
 
