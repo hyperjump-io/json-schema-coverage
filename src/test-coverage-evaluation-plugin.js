@@ -33,7 +33,7 @@ export class TestCoverageEvaluationPlugin {
 
     const schemaPath = fileURLToPath(keywordLocation);
     this.coverageMap[schemaPath].s[keywordLocation]++;
-    this.coverageMap[schemaPath].b[keywordLocation][Number(valid)]++;
+    this.coverageMap[schemaPath].b[keywordLocation][Number(!valid)]++;
   }
 
   /** @type NonNullable<EvaluationPlugin["afterSchema"]> */
@@ -102,7 +102,7 @@ export class TestCoverageEvaluationPlugin {
       if (Array.isArray(ast[schemaLocation])) {
         for (const keywordNode of ast[schemaLocation]) {
           if (Array.isArray(keywordNode)) {
-            const [, keywordLocation] = keywordNode;
+            const [keywordUri, keywordLocation] = keywordNode;
 
             if (keywordLocation in this.coverageMap[schemaPath].branchMap) {
               continue;
@@ -117,13 +117,23 @@ export class TestCoverageEvaluationPlugin {
             this.coverageMap[schemaPath].s[keywordLocation] = 0;
 
             // Create branch
-            this.coverageMap[schemaPath].branchMap[keywordLocation] = {
-              line: range.start.line,
-              type: "keyword",
-              loc: range,
-              locations: [range, range]
-            };
-            this.coverageMap[schemaPath].b[keywordLocation] = [0, 0];
+            if (annotationKeywords.has(keywordUri)) {
+              this.coverageMap[schemaPath].branchMap[keywordLocation] = {
+                line: range.start.line,
+                type: "keyword",
+                loc: range,
+                locations: [range]
+              };
+              this.coverageMap[schemaPath].b[keywordLocation] = [0];
+            } else {
+              this.coverageMap[schemaPath].branchMap[keywordLocation] = {
+                line: range.start.line,
+                type: "keyword",
+                loc: range,
+                locations: [range, range]
+              };
+              this.coverageMap[schemaPath].b[keywordLocation] = [0, 0];
+            }
           }
         }
       }
@@ -138,3 +148,14 @@ const positionToRange = (position) => {
     end: { line: position.end.line, column: position.end.column - 1 }
   };
 };
+
+const annotationKeywords = new Set([
+  "https://json-schema.org/keyword/title",
+  "https://json-schema.org/keyword/description",
+  "https://json-schema.org/keyword/default",
+  "https://json-schema.org/keyword/deprecated",
+  "https://json-schema.org/keyword/readOnly",
+  "https://json-schema.org/keyword/writeOnly",
+  "https://json-schema.org/keyword/examples",
+  "https://json-schema.org/keyword/format"
+]);
