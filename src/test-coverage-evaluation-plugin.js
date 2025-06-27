@@ -77,27 +77,29 @@ export class TestCoverageEvaluationPlugin {
       const pointer = decodeURI(parseIri(schemaLocation).fragment ?? "");
       const node = getNodeFromPointer(tree, pointer);
 
-      const declRange = node.type === "json-property"
-        ? positionToRange(node.children[0].position)
-        : {
-            start: { line: node.position.start.line, column: node.position.start.column - 1 },
-            end: { line: node.position.start.line, column: node.position.start.column - 1 }
-          };
+      if (!(schemaLocation in this.coverageMap[schemaPath].fnMap)) {
+        const declRange = node.type === "json-property"
+          ? positionToRange(node.children[0].position)
+          : {
+              start: { line: node.position.start.line, column: node.position.start.column - 1 },
+              end: { line: node.position.start.line, column: node.position.start.column - 1 }
+            };
 
-      const locRange = positionToRange(node.position);
+        const locRange = positionToRange(node.position);
 
-      // Create statement
-      this.coverageMap[schemaPath].statementMap[schemaLocation] = locRange;
-      this.coverageMap[schemaPath].s[schemaLocation] = 0;
+        // Create statement
+        this.coverageMap[schemaPath].statementMap[schemaLocation] = locRange;
+        this.coverageMap[schemaPath].s[schemaLocation] = 0;
 
-      // Create function
-      this.coverageMap[schemaPath].fnMap[schemaLocation] = {
-        name: schemaLocation,
-        decl: declRange,
-        loc: locRange,
-        line: node.position.start.line
-      };
-      this.coverageMap[schemaPath].f[schemaLocation] = 0;
+        // Create function
+        this.coverageMap[schemaPath].fnMap[schemaLocation] = {
+          name: schemaLocation,
+          decl: declRange,
+          loc: locRange,
+          line: node.position.start.line
+        };
+        this.coverageMap[schemaPath].f[schemaLocation] = 0;
+      }
 
       if (Array.isArray(ast[schemaLocation])) {
         for (const keywordNode of ast[schemaLocation]) {
@@ -150,6 +152,7 @@ const positionToRange = (position) => {
 };
 
 const annotationKeywords = new Set([
+  "https://json-schema.org/keyword/comment",
   "https://json-schema.org/keyword/title",
   "https://json-schema.org/keyword/description",
   "https://json-schema.org/keyword/default",
