@@ -150,6 +150,7 @@ const positionToRange = (position) => {
 
 const annotationKeywords = new Set([
   "https://json-schema.org/keyword/comment",
+  "https://json-schema.org/keyword/definitions",
   "https://json-schema.org/keyword/title",
   "https://json-schema.org/keyword/description",
   "https://json-schema.org/keyword/default",
