@@ -1,6 +1,7 @@
 import { readFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { parseIri } from "@hyperjump/uri";
+import { getKeyword } from "@hyperjump/json-schema/experimental";
 import { fromJson, getNodeFromPointer } from "./json-util.js";
 
 /**
@@ -33,7 +34,9 @@ export class TestCoverageEvaluationPlugin {
 
     const schemaPath = fileURLToPath(keywordLocation);
     this.coverageMap[schemaPath].s[keywordLocation]++;
-    this.coverageMap[schemaPath].b[keywordLocation][Number(!valid)]++;
+    if (keywordLocation in this.coverageMap[schemaPath].b) {
+      this.coverageMap[schemaPath].b[keywordLocation][Number(valid)]++;
+    }
   }
 
   /** @type NonNullable<EvaluationPlugin["afterSchema"]> */
@@ -106,7 +109,7 @@ export class TestCoverageEvaluationPlugin {
           if (Array.isArray(keywordNode)) {
             const [keywordUri, keywordLocation] = keywordNode;
 
-            if (keywordLocation in this.coverageMap[schemaPath].branchMap) {
+            if (keywordLocation in this.coverageMap[schemaPath].statementMap) {
               continue;
             }
 
@@ -118,24 +121,18 @@ export class TestCoverageEvaluationPlugin {
             this.coverageMap[schemaPath].statementMap[keywordLocation] = range;
             this.coverageMap[schemaPath].s[keywordLocation] = 0;
 
-            // Create branch
-            if (annotationKeywords.has(keywordUri)) {
-              this.coverageMap[schemaPath].branchMap[keywordLocation] = {
-                line: range.start.line,
-                type: "keyword",
-                loc: range,
-                locations: [range]
-              };
-              this.coverageMap[schemaPath].b[keywordLocation] = [0];
-            } else {
-              this.coverageMap[schemaPath].branchMap[keywordLocation] = {
-                line: range.start.line,
-                type: "keyword",
-                loc: range,
-                locations: [range, range]
-              };
-              this.coverageMap[schemaPath].b[keywordLocation] = [0, 0];
+            if (annotationKeywords.has(keywordUri) || getKeyword(keywordUri).simpleApplicator) {
+              continue;
             }
+
+            // Create branch
+            this.coverageMap[schemaPath].branchMap[keywordLocation] = {
+              line: range.start.line,
+              type: "keyword",
+              loc: range,
+              locations: [range, range]
+            };
+            this.coverageMap[schemaPath].b[keywordLocation] = [0, 0];
           }
         }
       }
