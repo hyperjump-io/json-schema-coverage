@@ -24,6 +24,21 @@ All files    |   81.81 |    66.66 |      80 |   88.88 |
 - **Branches** = true/false branches for each keyword
 - **Functions** = Subschemas
 
+## Limitations
+
+The following are know limitations I'm hopeful can be addressed.
+
+- Coverage can only be reported for `**/*.schema.json` and `**/schema.json`
+  files.
+- Coverage can't be reported for embedded schemas.
+- Schemas in YAML aren't supported.
+- Custom vocabularies aren't supported.
+- There's no way to load schemas.
+- Invalid schemas cause an error to be thrown.
+- Coverage maps are generated in the order they're loaded from the filesystem.
+  If one references a schema that hasn't been generated yet, an error will be
+  thrown.
+
 ## Vitest
 
 Integration with vitest is provided. You'll need a vitest config specifically
