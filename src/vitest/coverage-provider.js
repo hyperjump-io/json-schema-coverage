@@ -1,11 +1,23 @@
+import { createHash } from "node:crypto";
 import { existsSync, readdirSync } from "node:fs";
 import * as fs from "node:fs/promises";
+import path from "node:path";
 import coverage from "istanbul-lib-coverage";
 import libReport from "istanbul-lib-report";
 import reports from "istanbul-reports";
+import ignore from "ignore";
+import { glob } from "tinyglobby";
 import { resolve } from "pathe";
 import c from "tinyrainbow";
 import { coverageConfigDefaults } from "vitest/config";
+import "@hyperjump/json-schema/draft-2020-12";
+import "@hyperjump/json-schema/draft-2019-09";
+import "@hyperjump/json-schema/draft-07";
+import "@hyperjump/json-schema/draft-06";
+import "@hyperjump/json-schema/draft-04";
+import { compile, getSchema } from "@hyperjump/json-schema/experimental";
+import { astToCoverageMap } from "../coverage-util.js";
+import { fromJson } from "../json-util.js";
 
 /**
  * @import {
@@ -31,8 +43,16 @@ class JsonSchemaCoverageProvider {
   name = "@hyperjump/json-schema-coverage/vitest-coverage-provider";
 
   ctx = /** @type Vitest */ ({});
+
   options = /** @type ResolvedCoverageOptions<"custom"> */ ({});
+
+  /** @type Map<string, boolean> */
+  globCache = new Map();
+
   coverageFilesDirectory = "";
+
+  /** @type string[] */
+  roots = [];
 
   /** @type CoverageProvider["initialize"] */
   initialize(ctx) {
@@ -58,6 +78,11 @@ class JsonSchemaCoverageProvider {
     };
 
     this.coverageFilesDirectory = "./.json-schema-coverage";
+
+    // If --project filter is set pick only roots of resolved projects
+    this.roots = ctx.config.project?.length
+      ? [...new Set(ctx.projects.map((project) => project.config.root))]
+      : [ctx.config.root];
   }
 
   /** @type CoverageProvider["resolveOptions"] */
@@ -84,6 +109,30 @@ class JsonSchemaCoverageProvider {
     }
 
     await fs.mkdir(this.coverageFilesDirectory, { recursive: true });
+
+    for (const root of this.roots) {
+      let includedFiles = await glob(["**/*.schema.json", "**/schema.json"], {
+        cwd: root,
+        dot: true,
+        onlyFiles: true
+      });
+      const gitignorePath = path.resolve(root, ".gitignore");
+      const gitignore = await fs.readFile(gitignorePath, "utf-8");
+      const files = ignore()
+        .add(gitignore)
+        .filter(includedFiles);
+
+      for (const file of files) {
+        const schema = await getSchema(file);
+        const compiledSchema = await compile(schema);
+        const json = await fs.readFile(file, "utf-8");
+        const tree = fromJson(json);
+        const coverageMap = astToCoverageMap(compiledSchema, path.resolve(root, file), tree);
+        const fileHash = createHash("md5").update(compiledSchema.schemaUri).digest("hex");
+        const coverageFilePath = path.resolve(this.coverageFilesDirectory, fileHash);
+        await fs.writeFile(coverageFilePath, JSON.stringify(coverageMap));
+      }
+    }
   }
 
   /** @type () => Promise<void> */

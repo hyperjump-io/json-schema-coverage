@@ -1,20 +1,17 @@
-import { readFileSync } from "node:fs";
-import { fileURLToPath } from "node:url";
-import { parseIri } from "@hyperjump/uri";
-import { getKeyword } from "@hyperjump/json-schema/experimental";
-import { fromJson, getNodeFromPointer } from "./json-util.js";
+import { existsSync, readFileSync } from "node:fs";
+import { toAbsoluteIri } from "@hyperjump/uri";
+import { createHash } from "node:crypto";
+import { resolve } from "node:path";
 
 /**
- * @import { Position } from "unist"
- * @import { CoverageMapData, Range } from "istanbul-lib-coverage"
- * @import { AST, EvaluationPlugin } from "@hyperjump/json-schema/experimental"
- * @import { JsonNode } from "./jsonast.js"
+ * @import { CoverageMapData } from "istanbul-lib-coverage"
+ * @import { EvaluationPlugin } from "@hyperjump/json-schema/experimental"
  */
 
 /** @implements EvaluationPlugin */
 export class TestCoverageEvaluationPlugin {
-  /** @type Record<string, JsonNode> */
-  #schemaCache = {};
+  /** @type Record<string, string> */
+  #filePathFor = {};
 
   constructor() {
     /** @type CoverageMapData */
@@ -22,141 +19,49 @@ export class TestCoverageEvaluationPlugin {
   }
 
   /** @type NonNullable<EvaluationPlugin["beforeSchema"]> */
-  beforeSchema(_schemaUri, _instance, context) {
-    this.#buildCoverageMap(context.ast);
+  beforeSchema(schemaUri) {
+    const schemaLocation = toAbsoluteIri(schemaUri);
+    if (!(schemaLocation in this.#filePathFor)) {
+      const fileHash = createHash("md5").update(`${schemaLocation}#`).digest("hex");
+      const coverageFilePath = resolve(".json-schema-coverage", fileHash);
+
+      if (existsSync(coverageFilePath)) {
+        const json = readFileSync(coverageFilePath, "utf-8");
+        /** @type CoverageMapData */
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+        const coverageMapData = JSON.parse(json);
+        const fileCoveragePath = Object.keys(coverageMapData)[0];
+        Object.assign(this.coverageMap, coverageMapData);
+        this.#filePathFor[schemaLocation] = fileCoveragePath;
+      }
+    }
   }
 
   /** @type NonNullable<EvaluationPlugin["afterKeyword"]> */
   afterKeyword([, keywordLocation], _instance, _context, valid) {
-    if (!keywordLocation.startsWith("file:")) {
+    const schemaLocation = toAbsoluteIri(keywordLocation);
+    const filePath = this.#filePathFor[schemaLocation];
+    if (!(filePath in this.coverageMap)) {
       return;
     }
 
-    const schemaPath = fileURLToPath(keywordLocation);
-    this.coverageMap[schemaPath].s[keywordLocation]++;
-    if (keywordLocation in this.coverageMap[schemaPath].b) {
-      this.coverageMap[schemaPath].b[keywordLocation][Number(valid)]++;
+    const fileCoverage = this.coverageMap[filePath];
+    fileCoverage.s[keywordLocation]++;
+    if (keywordLocation in fileCoverage.b) {
+      fileCoverage.b[keywordLocation][Number(valid)]++;
     }
   }
 
   /** @type NonNullable<EvaluationPlugin["afterSchema"]> */
   afterSchema(schemaUri) {
-    if (!schemaUri.startsWith("file:")) {
+    const schemaLocation = toAbsoluteIri(schemaUri);
+    const filePath = this.#filePathFor[schemaLocation];
+    if (!(filePath in this.coverageMap)) {
       return;
     }
 
-    const schemaPath = fileURLToPath(schemaUri);
-    this.coverageMap[schemaPath].s[schemaUri]++;
-    this.coverageMap[schemaPath].f[schemaUri]++;
-  }
-
-  /** @type (ast: AST) => void */
-  #buildCoverageMap(ast) {
-    for (const schemaLocation in ast) {
-      if (schemaLocation === "metaData" || schemaLocation === "plugins" || !schemaLocation.startsWith("file:")) {
-        continue;
-      }
-
-      const schemaPath = fileURLToPath(schemaLocation);
-
-      if (!(schemaPath in this.coverageMap)) {
-        this.coverageMap[schemaPath] = {
-          path: schemaPath,
-          statementMap: {},
-          fnMap: {},
-          branchMap: {},
-          s: {},
-          f: {},
-          b: {}
-        };
-      }
-
-      if (!(schemaPath in this.#schemaCache)) {
-        const file = readFileSync(schemaPath, "utf8");
-        this.#schemaCache[schemaPath] = fromJson(file);
-      }
-
-      const tree = this.#schemaCache[schemaPath];
-      const pointer = decodeURI(parseIri(schemaLocation).fragment ?? "");
-      const node = getNodeFromPointer(tree, pointer);
-
-      if (!(schemaLocation in this.coverageMap[schemaPath].fnMap)) {
-        const declRange = node.type === "json-property"
-          ? positionToRange(node.children[0].position)
-          : {
-              start: { line: node.position.start.line, column: node.position.start.column - 1 },
-              end: { line: node.position.start.line, column: node.position.start.column - 1 }
-            };
-
-        const locRange = positionToRange(node.position);
-
-        // Create statement
-        this.coverageMap[schemaPath].statementMap[schemaLocation] = locRange;
-        this.coverageMap[schemaPath].s[schemaLocation] = 0;
-
-        // Create function
-        this.coverageMap[schemaPath].fnMap[schemaLocation] = {
-          name: schemaLocation,
-          decl: declRange,
-          loc: locRange,
-          line: node.position.start.line
-        };
-        this.coverageMap[schemaPath].f[schemaLocation] = 0;
-      }
-
-      if (Array.isArray(ast[schemaLocation])) {
-        for (const keywordNode of ast[schemaLocation]) {
-          if (Array.isArray(keywordNode)) {
-            const [keywordUri, keywordLocation] = keywordNode;
-
-            if (keywordLocation in this.coverageMap[schemaPath].statementMap) {
-              continue;
-            }
-
-            const pointer = decodeURI(parseIri(keywordLocation).fragment ?? "");
-            const node = getNodeFromPointer(tree, pointer);
-            const range = positionToRange(node.position);
-
-            // Create statement
-            this.coverageMap[schemaPath].statementMap[keywordLocation] = range;
-            this.coverageMap[schemaPath].s[keywordLocation] = 0;
-
-            if (annotationKeywords.has(keywordUri) || getKeyword(keywordUri).simpleApplicator) {
-              continue;
-            }
-
-            // Create branch
-            this.coverageMap[schemaPath].branchMap[keywordLocation] = {
-              line: range.start.line,
-              type: "keyword",
-              loc: range,
-              locations: [range, range]
-            };
-            this.coverageMap[schemaPath].b[keywordLocation] = [0, 0];
-          }
-        }
-      }
-    }
+    const fileCoverage = this.coverageMap[filePath];
+    fileCoverage.s[schemaUri]++;
+    fileCoverage.f[schemaUri]++;
   }
 }
-
-/** @type (position: Position) => Range */
-const positionToRange = (position) => {
-  return {
-    start: { line: position.start.line, column: position.start.column - 1 },
-    end: { line: position.end.line, column: position.end.column - 1 }
-  };
-};
-
-const annotationKeywords = new Set([
-  "https://json-schema.org/keyword/comment",
-  "https://json-schema.org/keyword/definitions",
-  "https://json-schema.org/keyword/title",
-  "https://json-schema.org/keyword/description",
-  "https://json-schema.org/keyword/default",
-  "https://json-schema.org/keyword/deprecated",
-  "https://json-schema.org/keyword/readOnly",
-  "https://json-schema.org/keyword/writeOnly",
-  "https://json-schema.org/keyword/examples",
-  "https://json-schema.org/keyword/format"
-]);
