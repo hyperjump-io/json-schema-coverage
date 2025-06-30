@@ -28,9 +28,9 @@ All files    |   81.81 |    66.66 |      80 |   88.88 |
 
 The following are known limitations I'm hopeful can be addressed.
 
+- Coverage can't be reported for embedded schemas.
 - Coverage can only be reported for `**/*.schema.json` and `**/schema.json`
   files.
-- Coverage can't be reported for embedded schemas.
 - Schemas in YAML aren't supported.
 
 ## Vitest
@@ -76,8 +76,35 @@ describe("Worksheet", () => {
 });
 ```
 
+Instead of referring to the file path, you can register the schema and use its
+`$id`. Another reason to register a schema is if your schema references another
+schema.
+
+```JavaScript
+import { describe, expect, test } from "vitest";
+import { registerSchema, unregisterSchema } from "@hyperjump/json-schema-coverage/vitest-matchers";
+
+describe("Worksheet", () => {
+  beforeEach(() => {
+    registerSchema("./schema.json");
+  });
+
+  afterEach(() => {
+    unregisterSchema("./schema.json");
+  });
+
+  test("matches with uri", async () => {
+    await expect({ foo: 42 }).toMatchJsonSchema("https://example.com/main");
+  });
+
+  test("doesn't match with uri", async () => {
+    await expect({ foo: null }).not.toMatchJsonSchema("https://example.com/main");
+  });
+});
+```
+
 You can also use the matcher with inline schemas, but you only get coverage for
-file-based schemas.
+schemas from files in your code base.
 
 ```JavaScript
 import { describe, expect, test } from "vitest";

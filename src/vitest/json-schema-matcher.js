@@ -1,7 +1,11 @@
 import { randomUUID } from "node:crypto";
 import { existsSync } from "node:fs";
-import { writeFile } from "node:fs/promises";
-import { registerSchema, unregisterSchema, validate } from "@hyperjump/json-schema/draft-2020-12";
+import { readFile, writeFile } from "node:fs/promises";
+import {
+  registerSchema as register,
+  unregisterSchema,
+  validate
+} from "@hyperjump/json-schema/draft-2020-12";
 import "@hyperjump/json-schema/draft-2019-09";
 import "@hyperjump/json-schema/draft-07";
 import "@hyperjump/json-schema/draft-06";
@@ -13,10 +17,10 @@ import { TestCoverageEvaluationPlugin } from "../test-coverage-evaluation-plugin
 
 /**
  * @import { OutputUnit, SchemaObject } from "@hyperjump/json-schema"
- * @import { AsyncExpectationResult } from "@vitest/expect"
+ * @import * as API from "./json-schema-matcher.d.ts"
  */
 
-/** @type (instance: any, uriOrSchema: string | SchemaObject | boolean) => AsyncExpectationResult */
+/** @type API.matchJsonSchema */
 export const matchJsonSchema = async (instance, uriOrSchema) => {
   /** @type OutputUnit */
   let output;
@@ -43,7 +47,7 @@ export const matchJsonSchema = async (instance, uriOrSchema) => {
   } else {
     const schema = uriOrSchema;
     const uri = `urn:uuid:${randomUUID()}`;
-    registerSchema(schema, uri, "https://json-schema.org/draft/2020-12/schema");
+    register(schema, uri, "https://json-schema.org/draft/2020-12/schema");
     try {
       // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
       output = await validate(uri, instance, BASIC);
@@ -59,5 +63,15 @@ export const matchJsonSchema = async (instance, uriOrSchema) => {
 };
 
 export const toMatchJsonSchema = matchJsonSchema;
-export { registerSchema, unregisterSchema } from "@hyperjump/json-schema/draft-2020-12";
+
+/** @type API.registerSchema */
+export const registerSchema = async (filePath) => {
+  const json = await readFile(filePath, "utf-8");
+  /** @type SchemaObject */
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+  const schema = JSON.parse(json);
+  register(schema);
+};
+
+export { unregisterSchema } from "@hyperjump/json-schema/draft-2020-12";
 export { loadDialect, defineVocabulary, addKeyword } from "@hyperjump/json-schema/experimental";
