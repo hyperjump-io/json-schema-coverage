@@ -5,3 +5,5 @@ expect.extend({
   matchJsonSchema: matchJsonSchema,
   toMatchJsonSchema: matchJsonSchema
 });
+
+export * from "./json-schema-matcher.js";

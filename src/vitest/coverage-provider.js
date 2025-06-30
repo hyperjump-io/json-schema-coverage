@@ -15,6 +15,8 @@ import "@hyperjump/json-schema/draft-2019-09";
 import "@hyperjump/json-schema/draft-07";
 import "@hyperjump/json-schema/draft-06";
 import "@hyperjump/json-schema/draft-04";
+import "@hyperjump/json-schema/openapi-3-0";
+import "@hyperjump/json-schema/openapi-3-1";
 import { compile, getSchema } from "@hyperjump/json-schema/experimental";
 import { astToCoverageMap } from "../coverage-util.js";
 import { fromJson } from "../json-util.js";

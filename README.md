@@ -26,14 +26,12 @@ All files    |   81.81 |    66.66 |      80 |   88.88 |
 
 ## Limitations
 
-The following are know limitations I'm hopeful can be addressed.
+The following are known limitations I'm hopeful can be addressed.
 
 - Coverage can only be reported for `**/*.schema.json` and `**/schema.json`
   files.
 - Coverage can't be reported for embedded schemas.
 - Schemas in YAML aren't supported.
-- Custom vocabularies aren't supported.
-- There's no way to load schemas.
 
 ## Vitest
 

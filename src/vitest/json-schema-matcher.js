@@ -6,6 +6,8 @@ import "@hyperjump/json-schema/draft-2019-09";
 import "@hyperjump/json-schema/draft-07";
 import "@hyperjump/json-schema/draft-06";
 import "@hyperjump/json-schema/draft-04";
+import "@hyperjump/json-schema/openapi-3-0";
+import "@hyperjump/json-schema/openapi-3-1";
 import { BASIC } from "@hyperjump/json-schema/experimental";
 import { TestCoverageEvaluationPlugin } from "../test-coverage-evaluation-plugin.js";
 
@@ -57,3 +59,5 @@ export const matchJsonSchema = async (instance, uriOrSchema) => {
 };
 
 export const toMatchJsonSchema = matchJsonSchema;
+export { registerSchema, unregisterSchema } from "@hyperjump/json-schema/draft-2020-12";
+export { loadDialect, defineVocabulary, addKeyword } from "@hyperjump/json-schema/experimental";

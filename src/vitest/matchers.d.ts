@@ -7,3 +7,5 @@ declare module "vitest" {
     toMatchJsonSchema: (uriOrSchema: string | SchemaObject | boolean) => Promise<R>;
   }
 }
+
+export * from "./json-schema-matcher.d.ts";
