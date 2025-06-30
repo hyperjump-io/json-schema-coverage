@@ -34,10 +34,6 @@ The following are know limitations I'm hopeful can be addressed.
 - Schemas in YAML aren't supported.
 - Custom vocabularies aren't supported.
 - There's no way to load schemas.
-- Invalid schemas cause an error to be thrown.
-- Coverage maps are generated in the order they're loaded from the filesystem.
-  If one references a schema that hasn't been generated yet, an error will be
-  thrown.
 
 ## Vitest
 

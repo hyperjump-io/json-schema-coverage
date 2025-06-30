@@ -10,7 +10,7 @@ import { glob } from "tinyglobby";
 import { resolve } from "pathe";
 import c from "tinyrainbow";
 import { coverageConfigDefaults } from "vitest/config";
-import "@hyperjump/json-schema/draft-2020-12";
+import { registerSchema } from "@hyperjump/json-schema/draft-2020-12";
 import "@hyperjump/json-schema/draft-2019-09";
 import "@hyperjump/json-schema/draft-07";
 import "@hyperjump/json-schema/draft-06";
@@ -28,6 +28,7 @@ import { fromJson } from "../json-util.js";
  *   Vitest
  * } from "vitest"
  * @import { CoverageMap, CoverageMapData } from "istanbul-lib-coverage"
+ * @import { SchemaObject } from "@hyperjump/json-schema"
  */
 
 /** @type CoverageProviderModule */
@@ -122,14 +123,28 @@ class JsonSchemaCoverageProvider {
         .add(gitignore)
         .filter(includedFiles);
 
+      // Register all schemas
       for (const file of files) {
-        const schema = await getSchema(file);
+        try {
+          const schemaPath = path.resolve(root, file);
+          const json = await fs.readFile(schemaPath, "utf-8");
+          /** @type SchemaObject */
+          // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+          const schema = JSON.parse(json);
+          registerSchema(schema);
+        } catch (_error) {
+        }
+      }
+
+      for (const file of files) {
+        const schemaPath = path.resolve(root, file);
+        const schema = await getSchema(schemaPath);
         const compiledSchema = await compile(schema);
-        const json = await fs.readFile(file, "utf-8");
-        const tree = fromJson(json);
-        const coverageMap = astToCoverageMap(compiledSchema, path.resolve(root, file), tree);
         const fileHash = createHash("md5").update(compiledSchema.schemaUri).digest("hex");
         const coverageFilePath = path.resolve(this.coverageFilesDirectory, fileHash);
+        const json = await fs.readFile(schemaPath, "utf-8");
+        const tree = fromJson(json);
+        const coverageMap = astToCoverageMap(compiledSchema, path.resolve(root, file), tree);
         await fs.writeFile(coverageFilePath, JSON.stringify(coverageMap));
       }
     }
@@ -147,7 +162,7 @@ class JsonSchemaCoverageProvider {
 
   /** @type CoverageProvider["reportCoverage"] */
   async reportCoverage(coverageMap) {
-    this.generateReports(/** @type CoverageMap */ (coverageMap) ?? this.createCoverageMap());
+    this.generateReports(/** @type CoverageMap */ (coverageMap) ?? coverage.createCoverageMap());
 
     // In watch mode we need to preserve the previous results if cleanOnRerun is disabled
     const keepResults = !this.options.cleanOnRerun && this.ctx.config.watch;
@@ -189,11 +204,6 @@ class JsonSchemaCoverageProvider {
     });
   }
 
-  /** @type () => CoverageMap */
-  createCoverageMap() {
-    return coverage.createCoverageMap({});
-  }
-
   /** @type CoverageProvider["onAfterSuiteRun"] */
   onAfterSuiteRun() {
     // The method is required by the interface, but doesn't seem to ever be called
@@ -202,7 +212,7 @@ class JsonSchemaCoverageProvider {
 
   /** @type CoverageProvider["generateCoverage"] */
   async generateCoverage() {
-    const coverageMap = this.createCoverageMap();
+    const coverageMap = coverage.createCoverageMap();
 
     for (const file of await fs.readdir(this.coverageFilesDirectory, { recursive: true, withFileTypes: true })) {
       const path = resolve(file.parentPath, file.name);
