@@ -20,8 +20,8 @@ export class TestCoverageEvaluationPlugin {
 
   /** @type NonNullable<EvaluationPlugin["beforeSchema"]> */
   beforeSchema(schemaUri) {
-    const schemaLocation = toAbsoluteIri(schemaUri);
-    if (!(schemaLocation in this.#filePathFor)) {
+    if (!(schemaUri in this.#filePathFor)) {
+      const schemaLocation = toAbsoluteIri(schemaUri);
       const fileHash = createHash("md5").update(`${schemaLocation}#`).digest("hex");
       const coverageFilePath = resolve(".json-schema-coverage", fileHash);
 
@@ -30,17 +30,19 @@ export class TestCoverageEvaluationPlugin {
         /** @type CoverageMapData */
         // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
         const coverageMapData = JSON.parse(json);
-        const fileCoveragePath = Object.keys(coverageMapData)[0];
-        Object.assign(this.coverageMap, coverageMapData);
-        this.#filePathFor[schemaLocation] = fileCoveragePath;
+        for (const fileCoveragePath in coverageMapData) {
+          this.coverageMap[fileCoveragePath] = coverageMapData[fileCoveragePath];
+          for (const location in this.coverageMap[fileCoveragePath].s) {
+            this.#filePathFor[location] = fileCoveragePath;
+          }
+        }
       }
     }
   }
 
   /** @type NonNullable<EvaluationPlugin["afterKeyword"]> */
   afterKeyword([, keywordLocation], _instance, _context, valid) {
-    const schemaLocation = toAbsoluteIri(keywordLocation);
-    const filePath = this.#filePathFor[schemaLocation];
+    const filePath = this.#filePathFor[keywordLocation];
     if (!(filePath in this.coverageMap)) {
       return;
     }
@@ -54,8 +56,7 @@ export class TestCoverageEvaluationPlugin {
 
   /** @type NonNullable<EvaluationPlugin["afterSchema"]> */
   afterSchema(schemaUri) {
-    const schemaLocation = toAbsoluteIri(schemaUri);
-    const filePath = this.#filePathFor[schemaLocation];
+    const filePath = this.#filePathFor[schemaUri];
     if (!(filePath in this.coverageMap)) {
       return;
     }

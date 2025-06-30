@@ -18,8 +18,10 @@ import "@hyperjump/json-schema/draft-04";
 import "@hyperjump/json-schema/openapi-3-0";
 import "@hyperjump/json-schema/openapi-3-1";
 import { compile, getSchema } from "@hyperjump/json-schema/experimental";
+import * as JsonPointer from "@hyperjump/json-pointer";
+import { jrefTypeOf, Reference } from "@hyperjump/browser/jref";
 import { astToCoverageMap } from "../coverage-util.js";
-import { fromJson } from "../json-util.js";
+import { fromJson, getNodeFromPointer } from "../json-util.js";
 
 /**
  * @import {
@@ -31,6 +33,8 @@ import { fromJson } from "../json-util.js";
  * } from "vitest"
  * @import { CoverageMap, CoverageMapData } from "istanbul-lib-coverage"
  * @import { SchemaObject } from "@hyperjump/json-schema"
+ * @import { JRef } from "@hyperjump/browser/jref"
+ * @import { JsonNode } from "../jsonast.js"
  */
 
 /** @type CoverageProviderModule */
@@ -142,14 +146,58 @@ class JsonSchemaCoverageProvider {
         const schemaPath = path.resolve(root, file);
         const schema = await getSchema(schemaPath);
         const compiledSchema = await compile(schema);
-        const fileHash = createHash("md5").update(compiledSchema.schemaUri).digest("hex");
-        const coverageFilePath = path.resolve(this.coverageFilesDirectory, fileHash);
+
         const json = await fs.readFile(schemaPath, "utf-8");
         const tree = fromJson(json);
-        const coverageMap = astToCoverageMap(compiledSchema, path.resolve(root, file), tree);
+        /** @type Record<string, JsonNode> */
+        const schemaNodes = {};
+        for (const schemaUri in schema.document.embedded ?? {}) {
+          const pointer = this.#findEmbedded(schema.document.root, schemaUri);
+          schemaNodes[schemaUri] = getNodeFromPointer(tree, pointer);
+        }
+        const coverageMap = astToCoverageMap(compiledSchema, schemaPath, schemaNodes);
+
+        const fileHash = createHash("md5").update(compiledSchema.schemaUri).digest("hex");
+        const coverageFilePath = path.resolve(this.coverageFilesDirectory, fileHash);
         await fs.writeFile(coverageFilePath, JSON.stringify(coverageMap));
       }
     }
+  }
+
+  /** @type (node: JRef, uri: string, pointer?: string) => Generator<[string, JRef]> */
+  * #allSchemaNodes(node, uri, pointer = "") {
+    yield [pointer, node];
+
+    switch (jrefTypeOf(node)) {
+      case "object":
+        const jrefObject = /** @type Record<string, JRef> */ (node);
+        for (const key in jrefObject) {
+          yield* this.#allSchemaNodes(jrefObject[key], uri, JsonPointer.append(key, pointer));
+        }
+        break;
+
+      case "array":
+        const jrefArray = /** @type JRef[] */ (node);
+        let index = 0;
+        for (const item of jrefArray) {
+          yield* this.#allSchemaNodes(item, uri, JsonPointer.append(`${index++}`, pointer));
+        }
+        break;
+    }
+  }
+
+  /** @type (root: JRef, uri: string) => string */
+  #findEmbedded(root, uri) {
+    for (const [pointer, node] of this.#allSchemaNodes(root, uri)) {
+      if (node instanceof Reference) {
+        const json = node.toJSON();
+        if (typeof json === "object" && json !== null && !("$ref" in json) && node.href === uri) {
+          return pointer;
+        }
+      }
+    }
+
+    return "";
   }
 
   /** @type () => Promise<void> */

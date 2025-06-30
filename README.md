@@ -28,7 +28,6 @@ All files    |   81.81 |    66.66 |      80 |   88.88 |
 
 The following are known limitations I'm hopeful can be addressed.
 
-- Coverage can't be reported for embedded schemas.
 - Coverage can only be reported for `**/*.schema.json` and `**/schema.json`
   files.
 - Schemas in YAML aren't supported.

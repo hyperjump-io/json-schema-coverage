@@ -1,5 +1,5 @@
 import { getKeyword } from "@hyperjump/json-schema/experimental";
-import { parseIri } from "@hyperjump/uri";
+import { parseIri, toAbsoluteIri } from "@hyperjump/uri";
 import { getNodeFromPointer } from "./json-util.js";
 
 /**
@@ -9,8 +9,8 @@ import { getNodeFromPointer } from "./json-util.js";
  * @import { JsonNode } from "./jsonast.js"
  */
 
-/** @type (compiledSchema: CompiledSchema, schemaPath: string, tree: JsonNode) => CoverageMapData */
-export const astToCoverageMap = (compiledSchema, schemaPath, tree) => {
+/** @type (compiledSchema: CompiledSchema, schemaPath: string, schemaNodes: Record<string, JsonNode>) => CoverageMapData */
+export const astToCoverageMap = (compiledSchema, schemaPath, schemaNodes) => {
   /** @type FileCoverageData */
   const fileCoverage = {
     path: schemaPath,
@@ -23,12 +23,16 @@ export const astToCoverageMap = (compiledSchema, schemaPath, tree) => {
   };
 
   for (const schemaLocation in compiledSchema.ast) {
-    if (schemaLocation === "metaData" || schemaLocation === "plugins" || !schemaLocation.startsWith(compiledSchema.schemaUri)) {
+    if (schemaLocation === "metaData" || schemaLocation === "plugins") {
+      continue;
+    }
+
+    if (!(toAbsoluteIri(schemaLocation) in schemaNodes)) {
       continue;
     }
 
     const pointer = decodeURI(parseIri(schemaLocation).fragment ?? "");
-    const node = getNodeFromPointer(tree, pointer);
+    const node = getNodeFromPointer(schemaNodes[toAbsoluteIri(schemaLocation)], pointer, true);
 
     const declRange = node.type === "json-property"
       ? positionToRange(node.children[0].position)
@@ -58,7 +62,7 @@ export const astToCoverageMap = (compiledSchema, schemaPath, tree) => {
           const [keywordUri, keywordLocation] = keywordNode;
 
           const pointer = decodeURI(parseIri(keywordLocation).fragment ?? "");
-          const node = getNodeFromPointer(tree, pointer);
+          const node = getNodeFromPointer(schemaNodes[toAbsoluteIri(keywordLocation)], pointer, true);
           const range = positionToRange(node.position);
 
           // Create statement

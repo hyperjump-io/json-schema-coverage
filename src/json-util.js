@@ -169,8 +169,24 @@ const tokenPosition = (startToken, endToken) => {
   };
 };
 
-/** @type (tree: JsonNode, pointer: string) => JsonNode | JsonPropertyNode */
-export const getNodeFromPointer = (tree, pointer) => {
+/**
+ * @overload
+ * @param {JsonNode} tree
+ * @param {string} pointer
+ * @param {true} returnProperty
+ * @return {JsonNode | JsonPropertyNode}
+ *
+ * @overload
+ * @param {JsonNode} tree
+ * @param {string} pointer
+ * @return {JsonNode}
+ *
+ * @param {JsonNode} tree
+ * @param {string} pointer
+ * @param {true} [returnProperty]
+ * @return {JsonNode | JsonPropertyNode}
+ */
+export const getNodeFromPointer = (tree, pointer, returnProperty) => {
   /** @type JsonNode | JsonPropertyNode | undefined */
   let node = tree;
 
@@ -193,5 +209,5 @@ export const getNodeFromPointer = (tree, pointer) => {
     }
   }
 
-  return node;
+  return node.type === "json-property" && !returnProperty ? node.children[1] : node;
 };
