@@ -66,6 +66,10 @@ export const astToCoverageMap = (compiledSchema, schemaPath, schemaNodes) => {
         if (Array.isArray(keywordNode)) {
           const [keywordUri, keywordLocation] = keywordNode;
 
+          if (keywordUri === "https://json-schema.org/keyword/comment") {
+            continue;
+          }
+
           const pointer = decodeURI(parseIri(keywordLocation).fragment ?? "");
           const node = getNodeFromPointer(schemaNodes[toAbsoluteIri(keywordLocation)], pointer, true);
           const range = positionToRange(node.position);
@@ -103,7 +107,6 @@ const positionToRange = (position) => {
 };
 
 const annotationKeywords = new Set([
-  "https://json-schema.org/keyword/comment",
   "https://json-schema.org/keyword/definitions",
   "https://json-schema.org/keyword/title",
   "https://json-schema.org/keyword/description",
