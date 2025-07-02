@@ -78,7 +78,7 @@ export const astToCoverageMap = (compiledSchema, schemaPath, schemaNodes) => {
           fileCoverage.statementMap[keywordLocation] = range;
           fileCoverage.s[keywordLocation] = 0;
 
-          if (annotationKeywords.has(keywordUri) || getKeyword(keywordUri).simpleApplicator) {
+          if (nonBranchingKeywords.has(keywordUri) || getKeyword(keywordUri).simpleApplicator) {
             continue;
           }
 
@@ -106,7 +106,7 @@ const positionToRange = (position) => {
   };
 };
 
-const annotationKeywords = new Set([
+const nonBranchingKeywords = new Set([
   "https://json-schema.org/keyword/definitions",
   "https://json-schema.org/keyword/title",
   "https://json-schema.org/keyword/description",
@@ -115,7 +115,8 @@ const annotationKeywords = new Set([
   "https://json-schema.org/keyword/readOnly",
   "https://json-schema.org/keyword/writeOnly",
   "https://json-schema.org/keyword/examples",
-  "https://json-schema.org/keyword/format"
+  "https://json-schema.org/keyword/format",
+  "https://json-schema.org/keyword/if"
 ]);
 
 /** @type API.registerSchema */
