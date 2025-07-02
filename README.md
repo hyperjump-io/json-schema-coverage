@@ -29,6 +29,10 @@ All files    |   81.81 |    66.66 |      80 |   88.88 |
 The following are known limitations I'm hopeful can be addressed.
 
 - Coverage can only be reported for `*.schema.(json|yaml|yml)` files.
+- Keywords can pass/fail for multiple reasons, but not all branches are captured
+  - Example: `type: ["object", "boolean"]`. If you test with an object and a
+    number, you've covered pass/fail, but haven't tested that a boolean should
+    pass.
 
 ## Vitest
 
