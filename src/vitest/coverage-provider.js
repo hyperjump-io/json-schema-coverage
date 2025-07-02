@@ -10,18 +10,11 @@ import { glob } from "tinyglobby";
 import { resolve } from "pathe";
 import c from "tinyrainbow";
 import { coverageConfigDefaults } from "vitest/config";
-import { registerSchema } from "@hyperjump/json-schema/draft-2020-12";
-import "@hyperjump/json-schema/draft-2019-09";
-import "@hyperjump/json-schema/draft-07";
-import "@hyperjump/json-schema/draft-06";
-import "@hyperjump/json-schema/draft-04";
-import "@hyperjump/json-schema/openapi-3-0";
-import "@hyperjump/json-schema/openapi-3-1";
 import { compile, getSchema } from "@hyperjump/json-schema/experimental";
 import * as JsonPointer from "@hyperjump/json-pointer";
 import { jrefTypeOf, Reference } from "@hyperjump/browser/jref";
-import { astToCoverageMap } from "../coverage-util.js";
-import { fromJson, getNodeFromPointer } from "../json-util.js";
+import { astToCoverageMap, parseToAst, registerSchema } from "../coverage-util.js";
+import { getNodeFromPointer } from "../json-util.js";
 
 /**
  * @import {
@@ -60,6 +53,8 @@ class JsonSchemaCoverageProvider {
 
   /** @type string[] */
   roots = [];
+
+  include = ["**/*.schema.json", "**/*.schema.yaml", "**/*.schema.yml"];
 
   /** @type CoverageProvider["initialize"] */
   initialize(ctx) {
@@ -118,7 +113,7 @@ class JsonSchemaCoverageProvider {
     await fs.mkdir(this.coverageFilesDirectory, { recursive: true });
 
     for (const root of this.roots) {
-      let includedFiles = await glob(["**/*.schema.json", "**/schema.json"], {
+      let includedFiles = await glob(this.include, {
         cwd: root,
         dot: true,
         onlyFiles: true
@@ -133,11 +128,7 @@ class JsonSchemaCoverageProvider {
       for (const file of files) {
         try {
           const schemaPath = path.resolve(root, file);
-          const json = await fs.readFile(schemaPath, "utf-8");
-          /** @type SchemaObject */
-          // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-          const schema = JSON.parse(json);
-          registerSchema(schema);
+          await registerSchema(schemaPath);
         } catch (_error) {
         }
       }
@@ -147,8 +138,8 @@ class JsonSchemaCoverageProvider {
         const schema = await getSchema(schemaPath);
         const compiledSchema = await compile(schema);
 
-        const json = await fs.readFile(schemaPath, "utf-8");
-        const tree = fromJson(json);
+        const tree = await parseToAst(schemaPath);
+
         /** @type Record<string, JsonNode> */
         const schemaNodes = {};
         for (const schemaUri in schema.document.embedded ?? {}) {

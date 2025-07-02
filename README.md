@@ -1,9 +1,9 @@
 # Hyperjump - JSON Schema Test Coverage
 
 This package provides tools for testing JSON Schemas and providing test coverage
-for schema files in your code base. Integration is provided for Vitest, but the
-component for collecting the coverage data is also exposed if you want to
-do some other integration.
+for schema files in JSON or YAML in your code base. Integration is provided for
+Vitest, but the component for collecting the coverage data is also exposed if
+you want to do some other integration.
 
 Validation is done by `@hyperjump/json-schema`, so you can use any version of
 JSON Schema supported by that package.
@@ -28,9 +28,7 @@ All files    |   81.81 |    66.66 |      80 |   88.88 |
 
 The following are known limitations I'm hopeful can be addressed.
 
-- Coverage can only be reported for `**/*.schema.json` and `**/schema.json`
-  files.
-- Schemas in YAML aren't supported.
+- Coverage can only be reported for `*.schema.(json|yaml|yml)` files.
 
 ## Vitest
 

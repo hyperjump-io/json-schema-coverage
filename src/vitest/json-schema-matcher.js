@@ -1,22 +1,12 @@
 import { randomUUID } from "node:crypto";
 import { existsSync } from "node:fs";
-import { readFile, writeFile } from "node:fs/promises";
-import {
-  registerSchema as register,
-  unregisterSchema,
-  validate
-} from "@hyperjump/json-schema/draft-2020-12";
-import "@hyperjump/json-schema/draft-2019-09";
-import "@hyperjump/json-schema/draft-07";
-import "@hyperjump/json-schema/draft-06";
-import "@hyperjump/json-schema/draft-04";
-import "@hyperjump/json-schema/openapi-3-0";
-import "@hyperjump/json-schema/openapi-3-1";
+import { writeFile } from "node:fs/promises";
+import { registerSchema, unregisterSchema, validate } from "../json-schema.js";
 import { BASIC } from "@hyperjump/json-schema/experimental";
 import { TestCoverageEvaluationPlugin } from "../test-coverage-evaluation-plugin.js";
 
 /**
- * @import { OutputUnit, SchemaObject } from "@hyperjump/json-schema"
+ * @import { OutputUnit } from "@hyperjump/json-schema"
  * @import * as API from "./json-schema-matcher.d.ts"
  */
 
@@ -47,7 +37,7 @@ export const matchJsonSchema = async (instance, uriOrSchema) => {
   } else {
     const schema = uriOrSchema;
     const uri = `urn:uuid:${randomUUID()}`;
-    register(schema, uri, "https://json-schema.org/draft/2020-12/schema");
+    registerSchema(schema, uri, "https://json-schema.org/draft/2020-12/schema");
     try {
       // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
       output = await validate(uri, instance, BASIC);
@@ -63,15 +53,3 @@ export const matchJsonSchema = async (instance, uriOrSchema) => {
 };
 
 export const toMatchJsonSchema = matchJsonSchema;
-
-/** @type API.registerSchema */
-export const registerSchema = async (filePath) => {
-  const json = await readFile(filePath, "utf-8");
-  /** @type SchemaObject */
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-  const schema = JSON.parse(json);
-  register(schema);
-};
-
-export { unregisterSchema } from "@hyperjump/json-schema/draft-2020-12";
-export { loadDialect, defineVocabulary, addKeyword } from "@hyperjump/json-schema/experimental";

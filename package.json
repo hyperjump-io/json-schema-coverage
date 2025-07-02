@@ -28,6 +28,7 @@
   },
   "devDependencies": {
     "@stylistic/eslint-plugin": "*",
+    "@types/content-type": "^1.1.9",
     "@types/istanbul-lib-coverage": "^2.0.6",
     "@types/istanbul-reports": "^3.0.4",
     "@types/moo": "^0.5.10",
@@ -42,6 +43,7 @@
   "dependencies": {
     "@hyperjump/json-schema": "^1.16.0",
     "@hyperjump/uri": "^1.3.1",
+    "content-type": "^1.0.5",
     "ignore": "^7.0.5",
     "istanbul-lib-coverage": "^3.2.2",
     "istanbul-lib-report": "^3.0.1",
@@ -49,6 +51,8 @@
     "moo": "^0.5.2",
     "pathe": "^2.0.3",
     "tinyglobby": "^0.2.14",
-    "vfile": "^6.0.3"
+    "vfile": "^6.0.3",
+    "yaml": "^2.8.0",
+    "yaml-unist-parser": "^2.0.5"
   }
 }

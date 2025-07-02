@@ -1,15 +1,20 @@
+import { readFile } from "node:fs/promises";
+import { extname } from "node:path";
+import YAML from "yaml";
 import { getKeyword } from "@hyperjump/json-schema/experimental";
 import { parseIri, toAbsoluteIri } from "@hyperjump/uri";
-import { getNodeFromPointer } from "./json-util.js";
+import { registerSchema as register } from "./json-schema.js";
+import { fromJson, fromYaml, getNodeFromPointer } from "./json-util.js";
 
 /**
  * @import { Position } from "unist"
- * @import { CompiledSchema } from "@hyperjump/json-schema/experimental"
- * @import { CoverageMapData, FileCoverageData, Range } from "istanbul-lib-coverage"
- * @import { JsonNode } from "./jsonast.js"
+ * @import { FileCoverageData, Range } from "istanbul-lib-coverage"
+ * @import { SchemaObject } from "@hyperjump/json-schema"
+ * @import { JsonNode } from "./jsonast.d.ts"
+ * @import * as API from "./coverage-util.d.ts"
  */
 
-/** @type (compiledSchema: CompiledSchema, schemaPath: string, schemaNodes: Record<string, JsonNode>) => CoverageMapData */
+/** @type API.astToCoverageMap */
 export const astToCoverageMap = (compiledSchema, schemaPath, schemaNodes) => {
   /** @type FileCoverageData */
   const fileCoverage = {
@@ -109,3 +114,43 @@ const annotationKeywords = new Set([
   "https://json-schema.org/keyword/examples",
   "https://json-schema.org/keyword/format"
 ]);
+
+/** @type API.registerSchema */
+export const registerSchema = async (schemaPath) => {
+  const text = await readFile(schemaPath, "utf-8");
+  const extension = extname(schemaPath);
+
+  /** @type SchemaObject | boolean */
+  let schema;
+  switch (extension) {
+    case ".json":
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+      schema = JSON.parse(text);
+      break;
+    case ".yaml":
+    case ".yml":
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+      schema = YAML.parse(text);
+      break;
+    default:
+      throw Error(`File of type '${extension}' is not supported.`);
+  }
+
+  register(schema);
+};
+
+/** @type API.parseToAst */
+export const parseToAst = async (schemaPath) => {
+  const text = await readFile(schemaPath, "utf-8");
+  const extension = extname(schemaPath);
+
+  switch (extension) {
+    case ".json":
+      return fromJson(text);
+    case ".yaml":
+    case ".yml":
+      return fromYaml(text);
+    default:
+      throw Error(`File of type '${extension}' is not supported.`);
+  }
+};
