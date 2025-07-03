@@ -21,14 +21,15 @@ All files    |   81.81 |    66.66 |      80 |   88.88 |
 
 **Legend**
 - **Statements** = Keywords and subschemas
-- **Branches** = true/false branches for each keyword
+- **Branches** = true/false branches for each keyword (except for keywords that
+  don't branch such as annotation-only keywords)
 - **Functions** = Subschemas
 
 ## Limitations
 
-The following are known limitations I'm hopeful can be addressed.
+The following are a list of known limitations. Some might be able to be
+addressed at some point, while others might not.
 
-- Coverage can only be reported for `*.schema.(json|yaml|yml)` files.
 - Keywords can pass/fail for multiple reasons, but not all branches are captured
   - Example: `type: ["object", "boolean"]`. If you test with an object and a
     number, you've covered pass/fail, but haven't tested that a boolean should
@@ -38,18 +39,31 @@ The following are known limitations I'm hopeful can be addressed.
 
 Integration with vitest is provided. You'll need a vitest config specifically
 for running schema coverage. You can't run with coverage for both your js/ts
-code and schema at the same time.
+code and schema code at the same time.
+
+By default, it will track coverage for any file with a `*.schema.json`,
+`*.schema.yaml`, or `*.schema.yml` extension. You can change this with the
+`include` option.
+
+**Options**
+
+- **include** -- An array of glob paths of schemas you want to track coverage
+  for. For example, if you keep your schemas in a folder called `schemas` and
+they just have plain extensions (`*.json`) instead of schema extensions
+`*.schema.json`, you could use `["./schemas/**/*.json"]`.
 
 `vitest-schema.config.js`
-```JavaScript
+```TypeScript
 import { defineConfig } from "vitest/config";
+import type { JsonSchemaCoverageProviderOptions } from "@hyperjump/json-schema-coverage/vitest-coverage-provider";
 
 export default defineConfig({
   test: {
     coverage: {
       provider: "custom",
-      customProviderModule: "@hyperjump/json-schema-coverage/vitest-coverage-provider"
-    }
+      customProviderModule: "@hyperjump/json-schema-coverage/vitest-coverage-provider",
+      include: ["./schemas/**/*.json"] // Optional
+    } as JsonSchemaCoverageProviderOptions
   }
 });
 ```

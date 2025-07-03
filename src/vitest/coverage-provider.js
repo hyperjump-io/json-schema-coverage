@@ -23,10 +23,10 @@ import { getNodeFromPointer } from "../json-util.js";
  *   CoverageProviderModule,
  *   ResolvedCoverageOptions,
  *   Vitest
- * } from "vitest"
+ * } from "vitest/node"
  * @import { CoverageMap, CoverageMapData } from "istanbul-lib-coverage"
- * @import { SchemaObject } from "@hyperjump/json-schema"
  * @import { JRef } from "@hyperjump/browser/jref"
+ * @import { JsonSchemaCoverageProviderOptions } from "./coverage-provider.js"
  * @import { JsonNode } from "../jsonast.js"
  */
 
@@ -60,7 +60,7 @@ class JsonSchemaCoverageProvider {
   initialize(ctx) {
     this.ctx = ctx;
 
-    const config = ctx.config.coverage;
+    const config = /** @type ResolvedCoverageOptions & { include: string[]; } */ (ctx.config.coverage);
 
     /** @type ResolvedCoverageOptions<"custom"> */
     this.options = {
@@ -85,6 +85,10 @@ class JsonSchemaCoverageProvider {
     this.roots = ctx.config.project?.length
       ? [...new Set(ctx.projects.map((project) => project.config.root))]
       : [ctx.config.root];
+
+    if ("include" in config) {
+      this.include = config.include;
+    }
   }
 
   /** @type CoverageProvider["resolveOptions"] */
