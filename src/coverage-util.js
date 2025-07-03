@@ -10,7 +10,6 @@ import { fromJson, fromYaml, getNodeFromPointer } from "./json-util.js";
  * @import { Position } from "unist"
  * @import { FileCoverageData, Range } from "istanbul-lib-coverage"
  * @import { SchemaObject } from "@hyperjump/json-schema"
- * @import { JsonNode } from "./jsonast.d.ts"
  * @import * as API from "./coverage-util.d.ts"
  */
 
@@ -66,7 +65,7 @@ export const astToCoverageMap = (compiledSchema, schemaPath, schemaNodes) => {
         if (Array.isArray(keywordNode)) {
           const [keywordUri, keywordLocation] = keywordNode;
 
-          if (keywordUri === "https://json-schema.org/keyword/comment") {
+          if (nonStatementKeywords.has(keywordUri)) {
             continue;
           }
 
@@ -106,8 +105,12 @@ const positionToRange = (position) => {
   };
 };
 
+const nonStatementKeywords = new Set([
+  "https://json-schema.org/keyword/comment",
+  "https://json-schema.org/keyword/definitions"
+]);
+
 const nonBranchingKeywords = new Set([
-  "https://json-schema.org/keyword/definitions",
   "https://json-schema.org/keyword/title",
   "https://json-schema.org/keyword/description",
   "https://json-schema.org/keyword/default",
