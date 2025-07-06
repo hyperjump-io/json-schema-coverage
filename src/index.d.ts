@@ -1,2 +1,2 @@
-export { TestCoverageEvaluationPlugin } from "./test-coverage-evaluation-plugin.d.ts";
-export * from "./coverage-util.d.ts";
+export * from "./test-coverage-evaluation-plugin.d.ts";
+export * from "./coverage-map-service.d.ts";

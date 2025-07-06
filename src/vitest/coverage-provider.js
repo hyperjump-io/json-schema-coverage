@@ -1,4 +1,3 @@
-import { createHash } from "node:crypto";
 import { existsSync, readdirSync } from "node:fs";
 import * as fs from "node:fs/promises";
 import path from "node:path";
@@ -10,11 +9,8 @@ import { glob } from "tinyglobby";
 import { resolve } from "pathe";
 import c from "tinyrainbow";
 import { coverageConfigDefaults } from "vitest/config";
-import { compile, getSchema } from "@hyperjump/json-schema/experimental";
-import * as JsonPointer from "@hyperjump/json-pointer";
-import { jrefTypeOf, Reference } from "@hyperjump/browser/jref";
-import { astToCoverageMap, parseToAst, registerSchema } from "../coverage-util.js";
-import { getNodeFromPointer } from "../json-util.js";
+import { registerSchema } from "./json-schema-matchers.js";
+import { FileCoverageMapService } from "./file-coverage-map-service.js";
 
 /**
  * @import {
@@ -25,9 +21,6 @@ import { getNodeFromPointer } from "../json-util.js";
  *   Vitest
  * } from "vitest/node"
  * @import { CoverageMap, CoverageMapData } from "istanbul-lib-coverage"
- * @import { JRef } from "@hyperjump/browser/jref"
- * @import { JsonSchemaCoverageProviderOptions } from "./coverage-provider.js"
- * @import { JsonNode } from "../jsonast.js"
  */
 
 /** @type CoverageProviderModule */
@@ -49,7 +42,8 @@ class JsonSchemaCoverageProvider {
   /** @type Map<string, boolean> */
   globCache = new Map();
 
-  coverageFilesDirectory = "";
+  coverageFilesDirectory = ".json-schema-coverage";
+  coverageService = new FileCoverageMapService(".json-schema-coverage/maps");
 
   /** @type string[] */
   roots = [];
@@ -78,8 +72,6 @@ class JsonSchemaCoverageProvider {
       ),
       reporter: resolveCoverageReporters(config.reporter || coverageConfigDefaults.reporter)
     };
-
-    this.coverageFilesDirectory = "./.json-schema-coverage";
 
     // If --project filter is set pick only roots of resolved projects
     this.roots = ctx.config.project?.length
@@ -114,8 +106,11 @@ class JsonSchemaCoverageProvider {
       });
     }
 
+    await this.coverageService.open();
+
     await fs.mkdir(this.coverageFilesDirectory, { recursive: true });
 
+    // Build coverage maps
     for (const root of this.roots) {
       let includedFiles = await glob(this.include, {
         cwd: root,
@@ -126,77 +121,25 @@ class JsonSchemaCoverageProvider {
       const gitignore = await fs.readFile(gitignorePath, "utf-8");
       const files = ignore()
         .add(gitignore)
-        .filter(includedFiles);
+        .filter(includedFiles)
+        .map((file) => path.resolve(root, file));
 
-      // Register all schemas
-      for (const file of files) {
+      for (const schemaPath of files) {
         try {
-          const schemaPath = path.resolve(root, file);
           await registerSchema(schemaPath);
         } catch (_error) {
         }
       }
 
       for (const file of files) {
-        const schemaPath = path.resolve(root, file);
-        const schema = await getSchema(schemaPath);
-        const compiledSchema = await compile(schema);
-
-        const tree = await parseToAst(schemaPath);
-
-        /** @type Record<string, JsonNode> */
-        const schemaNodes = {};
-        for (const schemaUri in schema.document.embedded ?? {}) {
-          const pointer = this.#findEmbedded(schema.document.root, schemaUri);
-          schemaNodes[schemaUri] = getNodeFromPointer(tree, pointer);
-        }
-        const coverageMap = astToCoverageMap(compiledSchema, schemaPath, schemaNodes);
-
-        const fileHash = createHash("md5").update(compiledSchema.schemaUri).digest("hex");
-        const coverageFilePath = path.resolve(this.coverageFilesDirectory, fileHash);
-        await fs.writeFile(coverageFilePath, JSON.stringify(coverageMap));
+        await this.coverageService.addFromFile(file);
       }
     }
-  }
-
-  /** @type (node: JRef, uri: string, pointer?: string) => Generator<[string, JRef]> */
-  * #allSchemaNodes(node, uri, pointer = "") {
-    yield [pointer, node];
-
-    switch (jrefTypeOf(node)) {
-      case "object":
-        const jrefObject = /** @type Record<string, JRef> */ (node);
-        for (const key in jrefObject) {
-          yield* this.#allSchemaNodes(jrefObject[key], uri, JsonPointer.append(key, pointer));
-        }
-        break;
-
-      case "array":
-        const jrefArray = /** @type JRef[] */ (node);
-        let index = 0;
-        for (const item of jrefArray) {
-          yield* this.#allSchemaNodes(item, uri, JsonPointer.append(`${index++}`, pointer));
-        }
-        break;
-    }
-  }
-
-  /** @type (root: JRef, uri: string) => string */
-  #findEmbedded(root, uri) {
-    for (const [pointer, node] of this.#allSchemaNodes(root, uri)) {
-      if (node instanceof Reference) {
-        const json = node.toJSON();
-        if (typeof json === "object" && json !== null && !("$ref" in json) && node.href === uri) {
-          return pointer;
-        }
-      }
-    }
-
-    return "";
   }
 
   /** @type () => Promise<void> */
   async cleanAfterRun() {
+    await this.coverageService.close();
     await fs.rm(this.coverageFilesDirectory, { recursive: true });
 
     // Remove empty reports directory, e.g. when only text-reporter is used
@@ -260,6 +203,10 @@ class JsonSchemaCoverageProvider {
     const coverageMap = coverage.createCoverageMap();
 
     for (const file of await fs.readdir(this.coverageFilesDirectory, { recursive: true, withFileTypes: true })) {
+      if (!file.isFile()) {
+        continue;
+      }
+
       const path = resolve(file.parentPath, file.name);
       /** @type CoverageMapData */
       // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment

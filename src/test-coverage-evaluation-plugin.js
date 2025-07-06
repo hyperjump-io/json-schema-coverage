@@ -1,53 +1,44 @@
-import { existsSync, readFileSync } from "node:fs";
 import { toAbsoluteIri } from "@hyperjump/uri";
-import { createHash } from "node:crypto";
-import { resolve } from "node:path";
 
 /**
  * @import { CoverageMapData } from "istanbul-lib-coverage"
  * @import { EvaluationPlugin } from "@hyperjump/json-schema/experimental"
+ * @import { CoverageMapService } from "./coverage-map-service.js";
  */
 
 /** @implements EvaluationPlugin */
 export class TestCoverageEvaluationPlugin {
-  /** @type Record<string, string> */
-  #filePathFor = {};
+  /** @type CoverageMapData */
+  coverage = {};
 
-  constructor() {
-    /** @type CoverageMapData */
-    this.coverageMap = {};
+  /** @ype CoverageMapService */
+  #coverageService;
+
+  /**
+   * @param {CoverageMapService} coverageService
+   */
+  constructor(coverageService) {
+    this.#coverageService = coverageService;
   }
 
   /** @type NonNullable<EvaluationPlugin["beforeSchema"]> */
   beforeSchema(schemaUri) {
-    if (!(schemaUri in this.#filePathFor)) {
-      const schemaLocation = toAbsoluteIri(schemaUri);
-      const fileHash = createHash("md5").update(`${schemaLocation}#`).digest("hex");
-      const coverageFilePath = resolve(".json-schema-coverage", fileHash);
-
-      if (existsSync(coverageFilePath)) {
-        const json = readFileSync(coverageFilePath, "utf-8");
-        /** @type CoverageMapData */
-        // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-        const coverageMapData = JSON.parse(json);
-        for (const fileCoveragePath in coverageMapData) {
-          this.coverageMap[fileCoveragePath] = coverageMapData[fileCoveragePath];
-          for (const location in this.coverageMap[fileCoveragePath].s) {
-            this.#filePathFor[location] = fileCoveragePath;
-          }
-        }
-      }
+    const schemaPath = this.#coverageService.getSchemaPath(schemaUri);
+    if (!(schemaPath in this.coverage)) {
+      const schemaLocation = `${toAbsoluteIri(schemaUri)}#`;
+      const coverageMapData = this.#coverageService.getCoverageMap(schemaLocation);
+      Object.assign(this.coverage, coverageMapData);
     }
   }
 
   /** @type NonNullable<EvaluationPlugin["afterKeyword"]> */
   afterKeyword([, keywordLocation], _instance, _context, valid) {
-    const filePath = this.#filePathFor[keywordLocation];
-    if (!(filePath in this.coverageMap)) {
+    const schemaPath = this.#coverageService.getSchemaPath(keywordLocation);
+    if (!(schemaPath in this.coverage)) {
       return;
     }
 
-    const fileCoverage = this.coverageMap[filePath];
+    const fileCoverage = this.coverage[schemaPath];
     fileCoverage.s[keywordLocation]++;
     if (keywordLocation in fileCoverage.b) {
       fileCoverage.b[keywordLocation][Number(valid)]++;
@@ -56,12 +47,12 @@ export class TestCoverageEvaluationPlugin {
 
   /** @type NonNullable<EvaluationPlugin["afterSchema"]> */
   afterSchema(schemaUri) {
-    const filePath = this.#filePathFor[schemaUri];
-    if (!(filePath in this.coverageMap)) {
+    const schemaPath = this.#coverageService.getSchemaPath(schemaUri);
+    if (!(schemaPath in this.coverage)) {
       return;
     }
 
-    const fileCoverage = this.coverageMap[filePath];
+    const fileCoverage = this.coverage[schemaPath];
     fileCoverage.s[schemaUri]++;
     fileCoverage.f[schemaUri]++;
   }

@@ -1,4 +1,5 @@
 import type { SchemaObject } from "@hyperjump/json-schema";
+import type { AsyncExpectationResult } from "@vitest/expect";
 import "vitest";
 
 declare module "vitest" {
@@ -8,8 +9,11 @@ declare module "vitest" {
   }
 }
 
-export { registerSchema } from "../coverage-util.js";
-export { unregisterSchema } from "@hyperjump/json-schema/draft-2020-12";
-export { loadDialect, defineVocabulary, addKeyword } from "@hyperjump/json-schema/experimental";
+export const registerSchema: (filePath: string) => Promise<void>;
+export const unregisterSchema: (filePath: string) => Promise<void>;
 
-export * from "./json-schema-matcher.js";
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export const matchJsonSchema: (instance: any, uriOrSchema: string | SchemaObject | boolean) => AsyncExpectationResult;
+export const toMatchJsonSchema: typeof matchJsonSchema;
+
+export { loadDialect, defineVocabulary, addKeyword } from "@hyperjump/json-schema/experimental";

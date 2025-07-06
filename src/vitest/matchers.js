@@ -1,13 +1,10 @@
 import { expect } from "vitest";
-import { matchJsonSchema } from "./json-schema-matcher.js";
+import { matchJsonSchema, toMatchJsonSchema } from "./json-schema-matchers.js";
 
 expect.extend({
   matchJsonSchema: matchJsonSchema,
-  toMatchJsonSchema: matchJsonSchema
+  toMatchJsonSchema: toMatchJsonSchema
 });
 
-export { registerSchema } from "../coverage-util.js";
-export { unregisterSchema } from "@hyperjump/json-schema/draft-2020-12";
+export * from "./json-schema-matchers.js";
 export { loadDialect, defineVocabulary, addKeyword } from "@hyperjump/json-schema/experimental";
-
-export * from "./json-schema-matcher.js";

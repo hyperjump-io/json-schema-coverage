@@ -1,2 +1,2 @@
-export { TestCoverageEvaluationPlugin } from "./test-coverage-evaluation-plugin.js";
-export * from "./coverage-util.js";
+export * from "./test-coverage-evaluation-plugin.js";
+export * from "./coverage-map-service.js";
