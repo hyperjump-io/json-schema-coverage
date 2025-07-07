@@ -35,7 +35,7 @@ export class CoverageMapService {
     "https://json-schema.org/keyword/writeOnly",
     "https://json-schema.org/keyword/examples",
     "https://json-schema.org/keyword/format",
-    "https://json-schema.org/keyword/if"
+    "https://json-schema.org/keyword/unknown"
   ]);
 
   /** @type (schemaPath: string) => Promise<string> */
@@ -46,7 +46,7 @@ export class CoverageMapService {
 
     /** @type Record<string, JsonNode> */
     const schemaNodes = {};
-    for (const schemaUri in schema.document.embedded ?? {}) {
+    for (const schemaUri in /** @type NonNullable<any> */ (schema.document.embedded)) {
       const pointer = this.#findEmbedded(schema.document.root, schemaUri);
       schemaNodes[schemaUri] = getNodeFromPointer(tree, pointer);
     }
@@ -154,7 +154,7 @@ export class CoverageMapService {
         continue;
       }
 
-      const pointer = decodeURI(parseIri(schemaLocation).fragment ?? "");
+      const pointer = decodeURI(/** @type string */ (parseIri(schemaLocation).fragment));
       const node = getNodeFromPointer(schemaNodes[toAbsoluteIri(schemaLocation)], pointer, true);
 
       const declRange = node.type === "json-property"
@@ -188,7 +188,7 @@ export class CoverageMapService {
               continue;
             }
 
-            const pointer = decodeURI(parseIri(keywordLocation).fragment ?? "");
+            const pointer = decodeURI(/** @type string */ (parseIri(keywordLocation).fragment));
             const node = getNodeFromPointer(schemaNodes[toAbsoluteIri(keywordLocation)], pointer, true);
             const range = this.#positionToRange(node.position);
 
@@ -196,7 +196,7 @@ export class CoverageMapService {
             fileCoverage.statementMap[keywordLocation] = range;
             fileCoverage.s[keywordLocation] = 0;
 
-            if (this.#nonBranchingKeywords.has(keywordUri) || getKeyword(keywordUri).simpleApplicator) {
+            if (this.#nonBranchingKeywords.has(toAbsoluteIri(keywordUri)) || getKeyword(keywordUri).simpleApplicator) {
               continue;
             }
 

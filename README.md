@@ -250,6 +250,12 @@ without Vitest. This uses the [nyc] CLI to generate reports from the coverage
 files that are generated. Once you run the script, you can run the following
 command to generate a report.
 
+Keep in mind that with the Low-Level API approach, you need to configure
+[@hyperjump/json-schema] yourself. That means that you need to import the
+dialects you need and will need to provide `MediaTypePlugin`s for anything other
+than `*.schema.json` file extension support. YAML support is only provided
+out-of-the-box for the Vitest integration.
+
 ```bash
 npx nyc report --extension .schema.json
 ```

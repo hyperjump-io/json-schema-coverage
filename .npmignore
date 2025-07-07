@@ -3,6 +3,7 @@
 coverage.png
 eslint.config.js
 **/*.test.js
+src/test-utils.js
 tsconfig.json
 scratch/
 docs/

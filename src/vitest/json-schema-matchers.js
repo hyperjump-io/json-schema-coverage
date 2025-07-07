@@ -8,6 +8,7 @@ import { getKeywordId, getKeywordName, BASIC } from "@hyperjump/json-schema/expe
 import YAML from "yaml";
 import { FileCoverageMapService } from "./file-coverage-map-service.js";
 import { TestCoverageEvaluationPlugin } from "../test-coverage-evaluation-plugin.js";
+import { toAbsoluteIri } from "@hyperjump/uri";
 
 /**
  * @import { OutputUnit, SchemaObject } from "@hyperjump/json-schema"
@@ -112,7 +113,7 @@ export const unregisterSchema = async (schemaPath) => {
       throw Error(`File of type '${extension}' is not supported.`);
   }
 
-  const dialectUri = /** @type string */ (schema.$schema);
+  const dialectUri = toAbsoluteIri(/** @type string */ (schema.$schema));
   const idToken = getKeywordName(dialectUri, "https://json-schema.org/keyword/id")
     ?? getKeywordId("https://json-schema.org/keyword/draft-04/id", dialectUri);
   const schemaUri = /** @type string */ (schema[idToken]) ?? pathToFileURL(schemaPath).toString();

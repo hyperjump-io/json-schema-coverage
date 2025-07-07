@@ -1,0 +1,3485 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`CoverageMapService JSON > $comment isn't a statement 1`] = `
+{
+  "/.coverage-map-service-fixtures/subject.schema.json": {
+    "b": {},
+    "branchMap": {},
+    "f": {
+      ".coverage-map-service-fixtures/subject.schema.json#": 0,
+    },
+    "fnMap": {
+      ".coverage-map-service-fixtures/subject.schema.json#": {
+        "decl": {
+          "end": {
+            "column": 0,
+            "line": 1,
+          },
+          "start": {
+            "column": 0,
+            "line": 1,
+          },
+        },
+        "line": 1,
+        "loc": {
+          "end": {
+            "column": 0,
+            "line": 4,
+          },
+          "start": {
+            "column": 0,
+            "line": 1,
+          },
+        },
+        "name": ".coverage-map-service-fixtures/subject.schema.json#",
+      },
+    },
+    "path": "/.coverage-map-service-fixtures/subject.schema.json",
+    "s": {
+      ".coverage-map-service-fixtures/subject.schema.json#": 0,
+    },
+    "statementMap": {
+      ".coverage-map-service-fixtures/subject.schema.json#": {
+        "end": {
+          "column": 0,
+          "line": 4,
+        },
+        "start": {
+          "column": 0,
+          "line": 1,
+        },
+      },
+    },
+  },
+}
+`;
+
+exports[`CoverageMapService JSON > $defs isn't a statement 1`] = `
+{
+  "/.coverage-map-service-fixtures/subject.schema.json": {
+    "b": {},
+    "branchMap": {},
+    "f": {
+      ".coverage-map-service-fixtures/subject.schema.json#": 0,
+    },
+    "fnMap": {
+      ".coverage-map-service-fixtures/subject.schema.json#": {
+        "decl": {
+          "end": {
+            "column": 0,
+            "line": 1,
+          },
+          "start": {
+            "column": 0,
+            "line": 1,
+          },
+        },
+        "line": 1,
+        "loc": {
+          "end": {
+            "column": 0,
+            "line": 4,
+          },
+          "start": {
+            "column": 0,
+            "line": 1,
+          },
+        },
+        "name": ".coverage-map-service-fixtures/subject.schema.json#",
+      },
+    },
+    "path": "/.coverage-map-service-fixtures/subject.schema.json",
+    "s": {
+      ".coverage-map-service-fixtures/subject.schema.json#": 0,
+    },
+    "statementMap": {
+      ".coverage-map-service-fixtures/subject.schema.json#": {
+        "end": {
+          "column": 0,
+          "line": 4,
+        },
+        "start": {
+          "column": 0,
+          "line": 1,
+        },
+      },
+    },
+  },
+}
+`;
+
+exports[`CoverageMapService JSON > $dynamicRef doesn't branch 1`] = `
+{
+  "/.coverage-map-service-fixtures/subject.schema.json": {
+    "b": {},
+    "branchMap": {},
+    "f": {
+      ".coverage-map-service-fixtures/subject.schema.json#": 0,
+    },
+    "fnMap": {
+      ".coverage-map-service-fixtures/subject.schema.json#": {
+        "decl": {
+          "end": {
+            "column": 0,
+            "line": 1,
+          },
+          "start": {
+            "column": 0,
+            "line": 1,
+          },
+        },
+        "line": 1,
+        "loc": {
+          "end": {
+            "column": 0,
+            "line": 5,
+          },
+          "start": {
+            "column": 0,
+            "line": 1,
+          },
+        },
+        "name": ".coverage-map-service-fixtures/subject.schema.json#",
+      },
+    },
+    "path": "/.coverage-map-service-fixtures/subject.schema.json",
+    "s": {
+      ".coverage-map-service-fixtures/subject.schema.json#": 0,
+      ".coverage-map-service-fixtures/subject.schema.json#/$dynamicRef": 0,
+    },
+    "statementMap": {
+      ".coverage-map-service-fixtures/subject.schema.json#": {
+        "end": {
+          "column": 0,
+          "line": 5,
+        },
+        "start": {
+          "column": 0,
+          "line": 1,
+        },
+      },
+      ".coverage-map-service-fixtures/subject.schema.json#/$dynamicRef": {
+        "end": {
+          "column": 22,
+          "line": 4,
+        },
+        "start": {
+          "column": 2,
+          "line": 4,
+        },
+      },
+    },
+  },
+}
+`;
+
+exports[`CoverageMapService JSON > $ref doesn't branch 1`] = `
+{
+  "/.coverage-map-service-fixtures/subject.schema.json": {
+    "b": {},
+    "branchMap": {},
+    "f": {
+      ".coverage-map-service-fixtures/subject.schema.json#": 0,
+      ".coverage-map-service-fixtures/subject.schema.json#/$defs/foo": 0,
+    },
+    "fnMap": {
+      ".coverage-map-service-fixtures/subject.schema.json#": {
+        "decl": {
+          "end": {
+            "column": 0,
+            "line": 1,
+          },
+          "start": {
+            "column": 0,
+            "line": 1,
+          },
+        },
+        "line": 1,
+        "loc": {
+          "end": {
+            "column": 0,
+            "line": 7,
+          },
+          "start": {
+            "column": 0,
+            "line": 1,
+          },
+        },
+        "name": ".coverage-map-service-fixtures/subject.schema.json#",
+      },
+      ".coverage-map-service-fixtures/subject.schema.json#/$defs/foo": {
+        "decl": {
+          "end": {
+            "column": 8,
+            "line": 5,
+          },
+          "start": {
+            "column": 4,
+            "line": 5,
+          },
+        },
+        "line": 5,
+        "loc": {
+          "end": {
+            "column": 14,
+            "line": 5,
+          },
+          "start": {
+            "column": 4,
+            "line": 5,
+          },
+        },
+        "name": ".coverage-map-service-fixtures/subject.schema.json#/$defs/foo",
+      },
+    },
+    "path": "/.coverage-map-service-fixtures/subject.schema.json",
+    "s": {
+      ".coverage-map-service-fixtures/subject.schema.json#": 0,
+      ".coverage-map-service-fixtures/subject.schema.json#/$defs/foo": 0,
+      ".coverage-map-service-fixtures/subject.schema.json#/$ref": 0,
+    },
+    "statementMap": {
+      ".coverage-map-service-fixtures/subject.schema.json#": {
+        "end": {
+          "column": 0,
+          "line": 7,
+        },
+        "start": {
+          "column": 0,
+          "line": 1,
+        },
+      },
+      ".coverage-map-service-fixtures/subject.schema.json#/$defs/foo": {
+        "end": {
+          "column": 14,
+          "line": 5,
+        },
+        "start": {
+          "column": 4,
+          "line": 5,
+        },
+      },
+      ".coverage-map-service-fixtures/subject.schema.json#/$ref": {
+        "end": {
+          "column": 22,
+          "line": 3,
+        },
+        "start": {
+          "column": 2,
+          "line": 3,
+        },
+      },
+    },
+  },
+}
+`;
+
+exports[`CoverageMapService JSON > additionalItems doesn't branch 1`] = `
+{
+  "/.coverage-map-service-fixtures/subject.schema.json": {
+    "b": {},
+    "branchMap": {},
+    "f": {
+      ".coverage-map-service-fixtures/subject.schema.json#": 0,
+      ".coverage-map-service-fixtures/subject.schema.json#/additionalItems": 0,
+    },
+    "fnMap": {
+      ".coverage-map-service-fixtures/subject.schema.json#": {
+        "decl": {
+          "end": {
+            "column": 0,
+            "line": 1,
+          },
+          "start": {
+            "column": 0,
+            "line": 1,
+          },
+        },
+        "line": 1,
+        "loc": {
+          "end": {
+            "column": 0,
+            "line": 4,
+          },
+          "start": {
+            "column": 0,
+            "line": 1,
+          },
+        },
+        "name": ".coverage-map-service-fixtures/subject.schema.json#",
+      },
+      ".coverage-map-service-fixtures/subject.schema.json#/additionalItems": {
+        "decl": {
+          "end": {
+            "column": 18,
+            "line": 3,
+          },
+          "start": {
+            "column": 2,
+            "line": 3,
+          },
+        },
+        "line": 3,
+        "loc": {
+          "end": {
+            "column": 24,
+            "line": 3,
+          },
+          "start": {
+            "column": 2,
+            "line": 3,
+          },
+        },
+        "name": ".coverage-map-service-fixtures/subject.schema.json#/additionalItems",
+      },
+    },
+    "path": "/.coverage-map-service-fixtures/subject.schema.json",
+    "s": {
+      ".coverage-map-service-fixtures/subject.schema.json#": 0,
+      ".coverage-map-service-fixtures/subject.schema.json#/additionalItems": 0,
+    },
+    "statementMap": {
+      ".coverage-map-service-fixtures/subject.schema.json#": {
+        "end": {
+          "column": 0,
+          "line": 4,
+        },
+        "start": {
+          "column": 0,
+          "line": 1,
+        },
+      },
+      ".coverage-map-service-fixtures/subject.schema.json#/additionalItems": {
+        "end": {
+          "column": 24,
+          "line": 3,
+        },
+        "start": {
+          "column": 2,
+          "line": 3,
+        },
+      },
+    },
+  },
+}
+`;
+
+exports[`CoverageMapService JSON > addtionalProperties doesn't branch 1`] = `
+{
+  "/.coverage-map-service-fixtures/subject.schema.json": {
+    "b": {},
+    "branchMap": {},
+    "f": {
+      ".coverage-map-service-fixtures/subject.schema.json#": 0,
+    },
+    "fnMap": {
+      ".coverage-map-service-fixtures/subject.schema.json#": {
+        "decl": {
+          "end": {
+            "column": 0,
+            "line": 1,
+          },
+          "start": {
+            "column": 0,
+            "line": 1,
+          },
+        },
+        "line": 1,
+        "loc": {
+          "end": {
+            "column": 0,
+            "line": 4,
+          },
+          "start": {
+            "column": 0,
+            "line": 1,
+          },
+        },
+        "name": ".coverage-map-service-fixtures/subject.schema.json#",
+      },
+    },
+    "path": "/.coverage-map-service-fixtures/subject.schema.json",
+    "s": {
+      ".coverage-map-service-fixtures/subject.schema.json#": 0,
+      ".coverage-map-service-fixtures/subject.schema.json#/addtionalProperties": 0,
+    },
+    "statementMap": {
+      ".coverage-map-service-fixtures/subject.schema.json#": {
+        "end": {
+          "column": 0,
+          "line": 4,
+        },
+        "start": {
+          "column": 0,
+          "line": 1,
+        },
+      },
+      ".coverage-map-service-fixtures/subject.schema.json#/addtionalProperties": {
+        "end": {
+          "column": 28,
+          "line": 3,
+        },
+        "start": {
+          "column": 2,
+          "line": 3,
+        },
+      },
+    },
+  },
+}
+`;
+
+exports[`CoverageMapService JSON > allOf doesn't branch 1`] = `
+{
+  "/.coverage-map-service-fixtures/subject.schema.json": {
+    "b": {},
+    "branchMap": {},
+    "f": {
+      ".coverage-map-service-fixtures/subject.schema.json#": 0,
+      ".coverage-map-service-fixtures/subject.schema.json#/allOf/0": 0,
+    },
+    "fnMap": {
+      ".coverage-map-service-fixtures/subject.schema.json#": {
+        "decl": {
+          "end": {
+            "column": 0,
+            "line": 1,
+          },
+          "start": {
+            "column": 0,
+            "line": 1,
+          },
+        },
+        "line": 1,
+        "loc": {
+          "end": {
+            "column": 0,
+            "line": 4,
+          },
+          "start": {
+            "column": 0,
+            "line": 1,
+          },
+        },
+        "name": ".coverage-map-service-fixtures/subject.schema.json#",
+      },
+      ".coverage-map-service-fixtures/subject.schema.json#/allOf/0": {
+        "decl": {
+          "end": {
+            "column": 12,
+            "line": 3,
+          },
+          "start": {
+            "column": 12,
+            "line": 3,
+          },
+        },
+        "line": 3,
+        "loc": {
+          "end": {
+            "column": 15,
+            "line": 3,
+          },
+          "start": {
+            "column": 12,
+            "line": 3,
+          },
+        },
+        "name": ".coverage-map-service-fixtures/subject.schema.json#/allOf/0",
+      },
+    },
+    "path": "/.coverage-map-service-fixtures/subject.schema.json",
+    "s": {
+      ".coverage-map-service-fixtures/subject.schema.json#": 0,
+      ".coverage-map-service-fixtures/subject.schema.json#/allOf": 0,
+      ".coverage-map-service-fixtures/subject.schema.json#/allOf/0": 0,
+    },
+    "statementMap": {
+      ".coverage-map-service-fixtures/subject.schema.json#": {
+        "end": {
+          "column": 0,
+          "line": 4,
+        },
+        "start": {
+          "column": 0,
+          "line": 1,
+        },
+      },
+      ".coverage-map-service-fixtures/subject.schema.json#/allOf": {
+        "end": {
+          "column": 16,
+          "line": 3,
+        },
+        "start": {
+          "column": 2,
+          "line": 3,
+        },
+      },
+      ".coverage-map-service-fixtures/subject.schema.json#/allOf/0": {
+        "end": {
+          "column": 15,
+          "line": 3,
+        },
+        "start": {
+          "column": 12,
+          "line": 3,
+        },
+      },
+    },
+  },
+}
+`;
+
+exports[`CoverageMapService JSON > default doesn't branch 1`] = `
+{
+  "/.coverage-map-service-fixtures/subject.schema.json": {
+    "b": {},
+    "branchMap": {},
+    "f": {
+      ".coverage-map-service-fixtures/subject.schema.json#": 0,
+    },
+    "fnMap": {
+      ".coverage-map-service-fixtures/subject.schema.json#": {
+        "decl": {
+          "end": {
+            "column": 0,
+            "line": 1,
+          },
+          "start": {
+            "column": 0,
+            "line": 1,
+          },
+        },
+        "line": 1,
+        "loc": {
+          "end": {
+            "column": 0,
+            "line": 4,
+          },
+          "start": {
+            "column": 0,
+            "line": 1,
+          },
+        },
+        "name": ".coverage-map-service-fixtures/subject.schema.json#",
+      },
+    },
+    "path": "/.coverage-map-service-fixtures/subject.schema.json",
+    "s": {
+      ".coverage-map-service-fixtures/subject.schema.json#": 0,
+      ".coverage-map-service-fixtures/subject.schema.json#/default": 0,
+    },
+    "statementMap": {
+      ".coverage-map-service-fixtures/subject.schema.json#": {
+        "end": {
+          "column": 0,
+          "line": 4,
+        },
+        "start": {
+          "column": 0,
+          "line": 1,
+        },
+      },
+      ".coverage-map-service-fixtures/subject.schema.json#/default": {
+        "end": {
+          "column": 17,
+          "line": 3,
+        },
+        "start": {
+          "column": 2,
+          "line": 3,
+        },
+      },
+    },
+  },
+}
+`;
+
+exports[`CoverageMapService JSON > dependentSchemas doesn't branch 1`] = `
+{
+  "/.coverage-map-service-fixtures/subject.schema.json": {
+    "b": {},
+    "branchMap": {},
+    "f": {
+      ".coverage-map-service-fixtures/subject.schema.json#": 0,
+      ".coverage-map-service-fixtures/subject.schema.json#/dependentSchemas/foo": 0,
+    },
+    "fnMap": {
+      ".coverage-map-service-fixtures/subject.schema.json#": {
+        "decl": {
+          "end": {
+            "column": 0,
+            "line": 1,
+          },
+          "start": {
+            "column": 0,
+            "line": 1,
+          },
+        },
+        "line": 1,
+        "loc": {
+          "end": {
+            "column": 0,
+            "line": 6,
+          },
+          "start": {
+            "column": 0,
+            "line": 1,
+          },
+        },
+        "name": ".coverage-map-service-fixtures/subject.schema.json#",
+      },
+      ".coverage-map-service-fixtures/subject.schema.json#/dependentSchemas/foo": {
+        "decl": {
+          "end": {
+            "column": 8,
+            "line": 4,
+          },
+          "start": {
+            "column": 4,
+            "line": 4,
+          },
+        },
+        "line": 4,
+        "loc": {
+          "end": {
+            "column": 14,
+            "line": 4,
+          },
+          "start": {
+            "column": 4,
+            "line": 4,
+          },
+        },
+        "name": ".coverage-map-service-fixtures/subject.schema.json#/dependentSchemas/foo",
+      },
+    },
+    "path": "/.coverage-map-service-fixtures/subject.schema.json",
+    "s": {
+      ".coverage-map-service-fixtures/subject.schema.json#": 0,
+      ".coverage-map-service-fixtures/subject.schema.json#/dependentSchemas": 0,
+      ".coverage-map-service-fixtures/subject.schema.json#/dependentSchemas/foo": 0,
+    },
+    "statementMap": {
+      ".coverage-map-service-fixtures/subject.schema.json#": {
+        "end": {
+          "column": 0,
+          "line": 6,
+        },
+        "start": {
+          "column": 0,
+          "line": 1,
+        },
+      },
+      ".coverage-map-service-fixtures/subject.schema.json#/dependentSchemas": {
+        "end": {
+          "column": 2,
+          "line": 5,
+        },
+        "start": {
+          "column": 2,
+          "line": 3,
+        },
+      },
+      ".coverage-map-service-fixtures/subject.schema.json#/dependentSchemas/foo": {
+        "end": {
+          "column": 14,
+          "line": 4,
+        },
+        "start": {
+          "column": 4,
+          "line": 4,
+        },
+      },
+    },
+  },
+}
+`;
+
+exports[`CoverageMapService JSON > deprecated doesn't branch 1`] = `
+{
+  "/.coverage-map-service-fixtures/subject.schema.json": {
+    "b": {},
+    "branchMap": {},
+    "f": {
+      ".coverage-map-service-fixtures/subject.schema.json#": 0,
+    },
+    "fnMap": {
+      ".coverage-map-service-fixtures/subject.schema.json#": {
+        "decl": {
+          "end": {
+            "column": 0,
+            "line": 1,
+          },
+          "start": {
+            "column": 0,
+            "line": 1,
+          },
+        },
+        "line": 1,
+        "loc": {
+          "end": {
+            "column": 0,
+            "line": 4,
+          },
+          "start": {
+            "column": 0,
+            "line": 1,
+          },
+        },
+        "name": ".coverage-map-service-fixtures/subject.schema.json#",
+      },
+    },
+    "path": "/.coverage-map-service-fixtures/subject.schema.json",
+    "s": {
+      ".coverage-map-service-fixtures/subject.schema.json#": 0,
+      ".coverage-map-service-fixtures/subject.schema.json#/deprecated": 0,
+    },
+    "statementMap": {
+      ".coverage-map-service-fixtures/subject.schema.json#": {
+        "end": {
+          "column": 0,
+          "line": 4,
+        },
+        "start": {
+          "column": 0,
+          "line": 1,
+        },
+      },
+      ".coverage-map-service-fixtures/subject.schema.json#/deprecated": {
+        "end": {
+          "column": 19,
+          "line": 3,
+        },
+        "start": {
+          "column": 2,
+          "line": 3,
+        },
+      },
+    },
+  },
+}
+`;
+
+exports[`CoverageMapService JSON > description doesn't branch 1`] = `
+{
+  "/.coverage-map-service-fixtures/subject.schema.json": {
+    "b": {},
+    "branchMap": {},
+    "f": {
+      ".coverage-map-service-fixtures/subject.schema.json#": 0,
+    },
+    "fnMap": {
+      ".coverage-map-service-fixtures/subject.schema.json#": {
+        "decl": {
+          "end": {
+            "column": 0,
+            "line": 1,
+          },
+          "start": {
+            "column": 0,
+            "line": 1,
+          },
+        },
+        "line": 1,
+        "loc": {
+          "end": {
+            "column": 0,
+            "line": 4,
+          },
+          "start": {
+            "column": 0,
+            "line": 1,
+          },
+        },
+        "name": ".coverage-map-service-fixtures/subject.schema.json#",
+      },
+    },
+    "path": "/.coverage-map-service-fixtures/subject.schema.json",
+    "s": {
+      ".coverage-map-service-fixtures/subject.schema.json#": 0,
+      ".coverage-map-service-fixtures/subject.schema.json#/description": 0,
+    },
+    "statementMap": {
+      ".coverage-map-service-fixtures/subject.schema.json#": {
+        "end": {
+          "column": 0,
+          "line": 4,
+        },
+        "start": {
+          "column": 0,
+          "line": 1,
+        },
+      },
+      ".coverage-map-service-fixtures/subject.schema.json#/description": {
+        "end": {
+          "column": 21,
+          "line": 3,
+        },
+        "start": {
+          "column": 2,
+          "line": 3,
+        },
+      },
+    },
+  },
+}
+`;
+
+exports[`CoverageMapService JSON > draft-04 items doesn't branch 1`] = `
+{
+  "/.coverage-map-service-fixtures/subject.schema.json": {
+    "b": {},
+    "branchMap": {},
+    "f": {
+      ".coverage-map-service-fixtures/subject.schema.json#": 0,
+      ".coverage-map-service-fixtures/subject.schema.json#/items": 0,
+    },
+    "fnMap": {
+      ".coverage-map-service-fixtures/subject.schema.json#": {
+        "decl": {
+          "end": {
+            "column": 0,
+            "line": 1,
+          },
+          "start": {
+            "column": 0,
+            "line": 1,
+          },
+        },
+        "line": 1,
+        "loc": {
+          "end": {
+            "column": 0,
+            "line": 4,
+          },
+          "start": {
+            "column": 0,
+            "line": 1,
+          },
+        },
+        "name": ".coverage-map-service-fixtures/subject.schema.json#",
+      },
+      ".coverage-map-service-fixtures/subject.schema.json#/items": {
+        "decl": {
+          "end": {
+            "column": 8,
+            "line": 3,
+          },
+          "start": {
+            "column": 2,
+            "line": 3,
+          },
+        },
+        "line": 3,
+        "loc": {
+          "end": {
+            "column": 14,
+            "line": 3,
+          },
+          "start": {
+            "column": 2,
+            "line": 3,
+          },
+        },
+        "name": ".coverage-map-service-fixtures/subject.schema.json#/items",
+      },
+    },
+    "path": "/.coverage-map-service-fixtures/subject.schema.json",
+    "s": {
+      ".coverage-map-service-fixtures/subject.schema.json#": 0,
+      ".coverage-map-service-fixtures/subject.schema.json#/items": 0,
+    },
+    "statementMap": {
+      ".coverage-map-service-fixtures/subject.schema.json#": {
+        "end": {
+          "column": 0,
+          "line": 4,
+        },
+        "start": {
+          "column": 0,
+          "line": 1,
+        },
+      },
+      ".coverage-map-service-fixtures/subject.schema.json#/items": {
+        "end": {
+          "column": 14,
+          "line": 3,
+        },
+        "start": {
+          "column": 2,
+          "line": 3,
+        },
+      },
+    },
+  },
+}
+`;
+
+exports[`CoverageMapService JSON > else doesn't branch 1`] = `
+{
+  "/.coverage-map-service-fixtures/subject.schema.json": {
+    "b": {},
+    "branchMap": {},
+    "f": {
+      ".coverage-map-service-fixtures/subject.schema.json#": 0,
+    },
+    "fnMap": {
+      ".coverage-map-service-fixtures/subject.schema.json#": {
+        "decl": {
+          "end": {
+            "column": 0,
+            "line": 1,
+          },
+          "start": {
+            "column": 0,
+            "line": 1,
+          },
+        },
+        "line": 1,
+        "loc": {
+          "end": {
+            "column": 0,
+            "line": 4,
+          },
+          "start": {
+            "column": 0,
+            "line": 1,
+          },
+        },
+        "name": ".coverage-map-service-fixtures/subject.schema.json#",
+      },
+    },
+    "path": "/.coverage-map-service-fixtures/subject.schema.json",
+    "s": {
+      ".coverage-map-service-fixtures/subject.schema.json#": 0,
+      ".coverage-map-service-fixtures/subject.schema.json#/else": 0,
+    },
+    "statementMap": {
+      ".coverage-map-service-fixtures/subject.schema.json#": {
+        "end": {
+          "column": 0,
+          "line": 4,
+        },
+        "start": {
+          "column": 0,
+          "line": 1,
+        },
+      },
+      ".coverage-map-service-fixtures/subject.schema.json#/else": {
+        "end": {
+          "column": 13,
+          "line": 3,
+        },
+        "start": {
+          "column": 2,
+          "line": 3,
+        },
+      },
+    },
+  },
+}
+`;
+
+exports[`CoverageMapService JSON > embedded schema 1`] = `
+{
+  "/.coverage-map-service-fixtures/subject.schema.json": {
+    "b": {
+      "https://example.com/foo#/type": [
+        0,
+        0,
+      ],
+    },
+    "branchMap": {
+      "https://example.com/foo#/type": {
+        "line": 7,
+        "loc": {
+          "end": {
+            "column": 21,
+            "line": 7,
+          },
+          "start": {
+            "column": 6,
+            "line": 7,
+          },
+        },
+        "locations": [
+          {
+            "end": {
+              "column": 21,
+              "line": 7,
+            },
+            "start": {
+              "column": 6,
+              "line": 7,
+            },
+          },
+          {
+            "end": {
+              "column": 21,
+              "line": 7,
+            },
+            "start": {
+              "column": 6,
+              "line": 7,
+            },
+          },
+        ],
+        "type": "keyword",
+      },
+    },
+    "f": {
+      ".coverage-map-service-fixtures/subject.schema.json#": 0,
+      "https://example.com/foo#": 0,
+    },
+    "fnMap": {
+      ".coverage-map-service-fixtures/subject.schema.json#": {
+        "decl": {
+          "end": {
+            "column": 0,
+            "line": 1,
+          },
+          "start": {
+            "column": 0,
+            "line": 1,
+          },
+        },
+        "line": 1,
+        "loc": {
+          "end": {
+            "column": 0,
+            "line": 10,
+          },
+          "start": {
+            "column": 0,
+            "line": 1,
+          },
+        },
+        "name": ".coverage-map-service-fixtures/subject.schema.json#",
+      },
+      "https://example.com/foo#": {
+        "decl": {
+          "end": {
+            "column": 11,
+            "line": 5,
+          },
+          "start": {
+            "column": 11,
+            "line": 5,
+          },
+        },
+        "line": 5,
+        "loc": {
+          "end": {
+            "column": 4,
+            "line": 8,
+          },
+          "start": {
+            "column": 11,
+            "line": 5,
+          },
+        },
+        "name": "https://example.com/foo#",
+      },
+    },
+    "path": "/.coverage-map-service-fixtures/subject.schema.json",
+    "s": {
+      ".coverage-map-service-fixtures/subject.schema.json#": 0,
+      ".coverage-map-service-fixtures/subject.schema.json#/$ref": 0,
+      "https://example.com/foo#": 0,
+      "https://example.com/foo#/type": 0,
+    },
+    "statementMap": {
+      ".coverage-map-service-fixtures/subject.schema.json#": {
+        "end": {
+          "column": 0,
+          "line": 10,
+        },
+        "start": {
+          "column": 0,
+          "line": 1,
+        },
+      },
+      ".coverage-map-service-fixtures/subject.schema.json#/$ref": {
+        "end": {
+          "column": 34,
+          "line": 3,
+        },
+        "start": {
+          "column": 2,
+          "line": 3,
+        },
+      },
+      "https://example.com/foo#": {
+        "end": {
+          "column": 4,
+          "line": 8,
+        },
+        "start": {
+          "column": 11,
+          "line": 5,
+        },
+      },
+      "https://example.com/foo#/type": {
+        "end": {
+          "column": 21,
+          "line": 7,
+        },
+        "start": {
+          "column": 6,
+          "line": 7,
+        },
+      },
+    },
+  },
+}
+`;
+
+exports[`CoverageMapService JSON > examples doesn't branch 1`] = `
+{
+  "/.coverage-map-service-fixtures/subject.schema.json": {
+    "b": {},
+    "branchMap": {},
+    "f": {
+      ".coverage-map-service-fixtures/subject.schema.json#": 0,
+    },
+    "fnMap": {
+      ".coverage-map-service-fixtures/subject.schema.json#": {
+        "decl": {
+          "end": {
+            "column": 0,
+            "line": 1,
+          },
+          "start": {
+            "column": 0,
+            "line": 1,
+          },
+        },
+        "line": 1,
+        "loc": {
+          "end": {
+            "column": 0,
+            "line": 4,
+          },
+          "start": {
+            "column": 0,
+            "line": 1,
+          },
+        },
+        "name": ".coverage-map-service-fixtures/subject.schema.json#",
+      },
+    },
+    "path": "/.coverage-map-service-fixtures/subject.schema.json",
+    "s": {
+      ".coverage-map-service-fixtures/subject.schema.json#": 0,
+      ".coverage-map-service-fixtures/subject.schema.json#/examples": 0,
+    },
+    "statementMap": {
+      ".coverage-map-service-fixtures/subject.schema.json#": {
+        "end": {
+          "column": 0,
+          "line": 4,
+        },
+        "start": {
+          "column": 0,
+          "line": 1,
+        },
+      },
+      ".coverage-map-service-fixtures/subject.schema.json#/examples": {
+        "end": {
+          "column": 20,
+          "line": 3,
+        },
+        "start": {
+          "column": 2,
+          "line": 3,
+        },
+      },
+    },
+  },
+}
+`;
+
+exports[`CoverageMapService JSON > format doesn't branch 1`] = `
+{
+  "/.coverage-map-service-fixtures/subject.schema.json": {
+    "b": {},
+    "branchMap": {},
+    "f": {
+      ".coverage-map-service-fixtures/subject.schema.json#": 0,
+    },
+    "fnMap": {
+      ".coverage-map-service-fixtures/subject.schema.json#": {
+        "decl": {
+          "end": {
+            "column": 0,
+            "line": 1,
+          },
+          "start": {
+            "column": 0,
+            "line": 1,
+          },
+        },
+        "line": 1,
+        "loc": {
+          "end": {
+            "column": 0,
+            "line": 4,
+          },
+          "start": {
+            "column": 0,
+            "line": 1,
+          },
+        },
+        "name": ".coverage-map-service-fixtures/subject.schema.json#",
+      },
+    },
+    "path": "/.coverage-map-service-fixtures/subject.schema.json",
+    "s": {
+      ".coverage-map-service-fixtures/subject.schema.json#": 0,
+      ".coverage-map-service-fixtures/subject.schema.json#/format": 0,
+    },
+    "statementMap": {
+      ".coverage-map-service-fixtures/subject.schema.json#": {
+        "end": {
+          "column": 0,
+          "line": 4,
+        },
+        "start": {
+          "column": 0,
+          "line": 1,
+        },
+      },
+      ".coverage-map-service-fixtures/subject.schema.json#/format": {
+        "end": {
+          "column": 17,
+          "line": 3,
+        },
+        "start": {
+          "column": 2,
+          "line": 3,
+        },
+      },
+    },
+  },
+}
+`;
+
+exports[`CoverageMapService JSON > if doesn't branch 1`] = `
+{
+  "/.coverage-map-service-fixtures/subject.schema.json": {
+    "b": {},
+    "branchMap": {},
+    "f": {
+      ".coverage-map-service-fixtures/subject.schema.json#": 0,
+      ".coverage-map-service-fixtures/subject.schema.json#/if": 0,
+    },
+    "fnMap": {
+      ".coverage-map-service-fixtures/subject.schema.json#": {
+        "decl": {
+          "end": {
+            "column": 0,
+            "line": 1,
+          },
+          "start": {
+            "column": 0,
+            "line": 1,
+          },
+        },
+        "line": 1,
+        "loc": {
+          "end": {
+            "column": 0,
+            "line": 4,
+          },
+          "start": {
+            "column": 0,
+            "line": 1,
+          },
+        },
+        "name": ".coverage-map-service-fixtures/subject.schema.json#",
+      },
+      ".coverage-map-service-fixtures/subject.schema.json#/if": {
+        "decl": {
+          "end": {
+            "column": 5,
+            "line": 3,
+          },
+          "start": {
+            "column": 2,
+            "line": 3,
+          },
+        },
+        "line": 3,
+        "loc": {
+          "end": {
+            "column": 11,
+            "line": 3,
+          },
+          "start": {
+            "column": 2,
+            "line": 3,
+          },
+        },
+        "name": ".coverage-map-service-fixtures/subject.schema.json#/if",
+      },
+    },
+    "path": "/.coverage-map-service-fixtures/subject.schema.json",
+    "s": {
+      ".coverage-map-service-fixtures/subject.schema.json#": 0,
+      ".coverage-map-service-fixtures/subject.schema.json#/if": 0,
+    },
+    "statementMap": {
+      ".coverage-map-service-fixtures/subject.schema.json#": {
+        "end": {
+          "column": 0,
+          "line": 4,
+        },
+        "start": {
+          "column": 0,
+          "line": 1,
+        },
+      },
+      ".coverage-map-service-fixtures/subject.schema.json#/if": {
+        "end": {
+          "column": 11,
+          "line": 3,
+        },
+        "start": {
+          "column": 2,
+          "line": 3,
+        },
+      },
+    },
+  },
+}
+`;
+
+exports[`CoverageMapService JSON > items doesn't branch 1`] = `
+{
+  "/.coverage-map-service-fixtures/subject.schema.json": {
+    "b": {},
+    "branchMap": {},
+    "f": {
+      ".coverage-map-service-fixtures/subject.schema.json#": 0,
+      ".coverage-map-service-fixtures/subject.schema.json#/items": 0,
+    },
+    "fnMap": {
+      ".coverage-map-service-fixtures/subject.schema.json#": {
+        "decl": {
+          "end": {
+            "column": 0,
+            "line": 1,
+          },
+          "start": {
+            "column": 0,
+            "line": 1,
+          },
+        },
+        "line": 1,
+        "loc": {
+          "end": {
+            "column": 0,
+            "line": 4,
+          },
+          "start": {
+            "column": 0,
+            "line": 1,
+          },
+        },
+        "name": ".coverage-map-service-fixtures/subject.schema.json#",
+      },
+      ".coverage-map-service-fixtures/subject.schema.json#/items": {
+        "decl": {
+          "end": {
+            "column": 8,
+            "line": 3,
+          },
+          "start": {
+            "column": 2,
+            "line": 3,
+          },
+        },
+        "line": 3,
+        "loc": {
+          "end": {
+            "column": 14,
+            "line": 3,
+          },
+          "start": {
+            "column": 2,
+            "line": 3,
+          },
+        },
+        "name": ".coverage-map-service-fixtures/subject.schema.json#/items",
+      },
+    },
+    "path": "/.coverage-map-service-fixtures/subject.schema.json",
+    "s": {
+      ".coverage-map-service-fixtures/subject.schema.json#": 0,
+      ".coverage-map-service-fixtures/subject.schema.json#/items": 0,
+    },
+    "statementMap": {
+      ".coverage-map-service-fixtures/subject.schema.json#": {
+        "end": {
+          "column": 0,
+          "line": 4,
+        },
+        "start": {
+          "column": 0,
+          "line": 1,
+        },
+      },
+      ".coverage-map-service-fixtures/subject.schema.json#/items": {
+        "end": {
+          "column": 14,
+          "line": 3,
+        },
+        "start": {
+          "column": 2,
+          "line": 3,
+        },
+      },
+    },
+  },
+}
+`;
+
+exports[`CoverageMapService JSON > keywords 1`] = `
+{
+  "/.coverage-map-service-fixtures/subject.schema.json": {
+    "b": {
+      ".coverage-map-service-fixtures/subject.schema.json#/type": [
+        0,
+        0,
+      ],
+    },
+    "branchMap": {
+      ".coverage-map-service-fixtures/subject.schema.json#/type": {
+        "line": 3,
+        "loc": {
+          "end": {
+            "column": 17,
+            "line": 3,
+          },
+          "start": {
+            "column": 2,
+            "line": 3,
+          },
+        },
+        "locations": [
+          {
+            "end": {
+              "column": 17,
+              "line": 3,
+            },
+            "start": {
+              "column": 2,
+              "line": 3,
+            },
+          },
+          {
+            "end": {
+              "column": 17,
+              "line": 3,
+            },
+            "start": {
+              "column": 2,
+              "line": 3,
+            },
+          },
+        ],
+        "type": "keyword",
+      },
+    },
+    "f": {
+      ".coverage-map-service-fixtures/subject.schema.json#": 0,
+    },
+    "fnMap": {
+      ".coverage-map-service-fixtures/subject.schema.json#": {
+        "decl": {
+          "end": {
+            "column": 0,
+            "line": 1,
+          },
+          "start": {
+            "column": 0,
+            "line": 1,
+          },
+        },
+        "line": 1,
+        "loc": {
+          "end": {
+            "column": 0,
+            "line": 4,
+          },
+          "start": {
+            "column": 0,
+            "line": 1,
+          },
+        },
+        "name": ".coverage-map-service-fixtures/subject.schema.json#",
+      },
+    },
+    "path": "/.coverage-map-service-fixtures/subject.schema.json",
+    "s": {
+      ".coverage-map-service-fixtures/subject.schema.json#": 0,
+      ".coverage-map-service-fixtures/subject.schema.json#/type": 0,
+    },
+    "statementMap": {
+      ".coverage-map-service-fixtures/subject.schema.json#": {
+        "end": {
+          "column": 0,
+          "line": 4,
+        },
+        "start": {
+          "column": 0,
+          "line": 1,
+        },
+      },
+      ".coverage-map-service-fixtures/subject.schema.json#/type": {
+        "end": {
+          "column": 17,
+          "line": 3,
+        },
+        "start": {
+          "column": 2,
+          "line": 3,
+        },
+      },
+    },
+  },
+}
+`;
+
+exports[`CoverageMapService JSON > minimal schema 1`] = `
+{
+  "/.coverage-map-service-fixtures/subject.schema.json": {
+    "b": {},
+    "branchMap": {},
+    "f": {
+      ".coverage-map-service-fixtures/subject.schema.json#": 0,
+    },
+    "fnMap": {
+      ".coverage-map-service-fixtures/subject.schema.json#": {
+        "decl": {
+          "end": {
+            "column": 0,
+            "line": 1,
+          },
+          "start": {
+            "column": 0,
+            "line": 1,
+          },
+        },
+        "line": 1,
+        "loc": {
+          "end": {
+            "column": 0,
+            "line": 3,
+          },
+          "start": {
+            "column": 0,
+            "line": 1,
+          },
+        },
+        "name": ".coverage-map-service-fixtures/subject.schema.json#",
+      },
+    },
+    "path": "/.coverage-map-service-fixtures/subject.schema.json",
+    "s": {
+      ".coverage-map-service-fixtures/subject.schema.json#": 0,
+    },
+    "statementMap": {
+      ".coverage-map-service-fixtures/subject.schema.json#": {
+        "end": {
+          "column": 0,
+          "line": 3,
+        },
+        "start": {
+          "column": 0,
+          "line": 1,
+        },
+      },
+    },
+  },
+}
+`;
+
+exports[`CoverageMapService JSON > nested keywords 1`] = `
+{
+  "/.coverage-map-service-fixtures/subject.schema.json": {
+    "b": {
+      ".coverage-map-service-fixtures/subject.schema.json#/properties/foo/type": [
+        0,
+        0,
+      ],
+    },
+    "branchMap": {
+      ".coverage-map-service-fixtures/subject.schema.json#/properties/foo/type": {
+        "line": 4,
+        "loc": {
+          "end": {
+            "column": 28,
+            "line": 4,
+          },
+          "start": {
+            "column": 13,
+            "line": 4,
+          },
+        },
+        "locations": [
+          {
+            "end": {
+              "column": 28,
+              "line": 4,
+            },
+            "start": {
+              "column": 13,
+              "line": 4,
+            },
+          },
+          {
+            "end": {
+              "column": 28,
+              "line": 4,
+            },
+            "start": {
+              "column": 13,
+              "line": 4,
+            },
+          },
+        ],
+        "type": "keyword",
+      },
+    },
+    "f": {
+      ".coverage-map-service-fixtures/subject.schema.json#": 0,
+      ".coverage-map-service-fixtures/subject.schema.json#/properties/foo": 0,
+    },
+    "fnMap": {
+      ".coverage-map-service-fixtures/subject.schema.json#": {
+        "decl": {
+          "end": {
+            "column": 0,
+            "line": 1,
+          },
+          "start": {
+            "column": 0,
+            "line": 1,
+          },
+        },
+        "line": 1,
+        "loc": {
+          "end": {
+            "column": 0,
+            "line": 6,
+          },
+          "start": {
+            "column": 0,
+            "line": 1,
+          },
+        },
+        "name": ".coverage-map-service-fixtures/subject.schema.json#",
+      },
+      ".coverage-map-service-fixtures/subject.schema.json#/properties/foo": {
+        "decl": {
+          "end": {
+            "column": 8,
+            "line": 4,
+          },
+          "start": {
+            "column": 4,
+            "line": 4,
+          },
+        },
+        "line": 4,
+        "loc": {
+          "end": {
+            "column": 30,
+            "line": 4,
+          },
+          "start": {
+            "column": 4,
+            "line": 4,
+          },
+        },
+        "name": ".coverage-map-service-fixtures/subject.schema.json#/properties/foo",
+      },
+    },
+    "path": "/.coverage-map-service-fixtures/subject.schema.json",
+    "s": {
+      ".coverage-map-service-fixtures/subject.schema.json#": 0,
+      ".coverage-map-service-fixtures/subject.schema.json#/properties": 0,
+      ".coverage-map-service-fixtures/subject.schema.json#/properties/foo": 0,
+      ".coverage-map-service-fixtures/subject.schema.json#/properties/foo/type": 0,
+    },
+    "statementMap": {
+      ".coverage-map-service-fixtures/subject.schema.json#": {
+        "end": {
+          "column": 0,
+          "line": 6,
+        },
+        "start": {
+          "column": 0,
+          "line": 1,
+        },
+      },
+      ".coverage-map-service-fixtures/subject.schema.json#/properties": {
+        "end": {
+          "column": 2,
+          "line": 5,
+        },
+        "start": {
+          "column": 2,
+          "line": 3,
+        },
+      },
+      ".coverage-map-service-fixtures/subject.schema.json#/properties/foo": {
+        "end": {
+          "column": 30,
+          "line": 4,
+        },
+        "start": {
+          "column": 4,
+          "line": 4,
+        },
+      },
+      ".coverage-map-service-fixtures/subject.schema.json#/properties/foo/type": {
+        "end": {
+          "column": 28,
+          "line": 4,
+        },
+        "start": {
+          "column": 13,
+          "line": 4,
+        },
+      },
+    },
+  },
+}
+`;
+
+exports[`CoverageMapService JSON > patternProperties doesn't branch 1`] = `
+{
+  "/.coverage-map-service-fixtures/subject.schema.json": {
+    "b": {},
+    "branchMap": {},
+    "f": {
+      ".coverage-map-service-fixtures/subject.schema.json#": 0,
+    },
+    "fnMap": {
+      ".coverage-map-service-fixtures/subject.schema.json#": {
+        "decl": {
+          "end": {
+            "column": 0,
+            "line": 1,
+          },
+          "start": {
+            "column": 0,
+            "line": 1,
+          },
+        },
+        "line": 1,
+        "loc": {
+          "end": {
+            "column": 0,
+            "line": 4,
+          },
+          "start": {
+            "column": 0,
+            "line": 1,
+          },
+        },
+        "name": ".coverage-map-service-fixtures/subject.schema.json#",
+      },
+    },
+    "path": "/.coverage-map-service-fixtures/subject.schema.json",
+    "s": {
+      ".coverage-map-service-fixtures/subject.schema.json#": 0,
+      ".coverage-map-service-fixtures/subject.schema.json#/patternProperties": 0,
+    },
+    "statementMap": {
+      ".coverage-map-service-fixtures/subject.schema.json#": {
+        "end": {
+          "column": 0,
+          "line": 4,
+        },
+        "start": {
+          "column": 0,
+          "line": 1,
+        },
+      },
+      ".coverage-map-service-fixtures/subject.schema.json#/patternProperties": {
+        "end": {
+          "column": 24,
+          "line": 3,
+        },
+        "start": {
+          "column": 2,
+          "line": 3,
+        },
+      },
+    },
+  },
+}
+`;
+
+exports[`CoverageMapService JSON > prefixItems doesn't branch 1`] = `
+{
+  "/.coverage-map-service-fixtures/subject.schema.json": {
+    "b": {},
+    "branchMap": {},
+    "f": {
+      ".coverage-map-service-fixtures/subject.schema.json#": 0,
+      ".coverage-map-service-fixtures/subject.schema.json#/prefixItems/0": 0,
+    },
+    "fnMap": {
+      ".coverage-map-service-fixtures/subject.schema.json#": {
+        "decl": {
+          "end": {
+            "column": 0,
+            "line": 1,
+          },
+          "start": {
+            "column": 0,
+            "line": 1,
+          },
+        },
+        "line": 1,
+        "loc": {
+          "end": {
+            "column": 0,
+            "line": 4,
+          },
+          "start": {
+            "column": 0,
+            "line": 1,
+          },
+        },
+        "name": ".coverage-map-service-fixtures/subject.schema.json#",
+      },
+      ".coverage-map-service-fixtures/subject.schema.json#/prefixItems/0": {
+        "decl": {
+          "end": {
+            "column": 18,
+            "line": 3,
+          },
+          "start": {
+            "column": 18,
+            "line": 3,
+          },
+        },
+        "line": 3,
+        "loc": {
+          "end": {
+            "column": 21,
+            "line": 3,
+          },
+          "start": {
+            "column": 18,
+            "line": 3,
+          },
+        },
+        "name": ".coverage-map-service-fixtures/subject.schema.json#/prefixItems/0",
+      },
+    },
+    "path": "/.coverage-map-service-fixtures/subject.schema.json",
+    "s": {
+      ".coverage-map-service-fixtures/subject.schema.json#": 0,
+      ".coverage-map-service-fixtures/subject.schema.json#/prefixItems": 0,
+      ".coverage-map-service-fixtures/subject.schema.json#/prefixItems/0": 0,
+    },
+    "statementMap": {
+      ".coverage-map-service-fixtures/subject.schema.json#": {
+        "end": {
+          "column": 0,
+          "line": 4,
+        },
+        "start": {
+          "column": 0,
+          "line": 1,
+        },
+      },
+      ".coverage-map-service-fixtures/subject.schema.json#/prefixItems": {
+        "end": {
+          "column": 22,
+          "line": 3,
+        },
+        "start": {
+          "column": 2,
+          "line": 3,
+        },
+      },
+      ".coverage-map-service-fixtures/subject.schema.json#/prefixItems/0": {
+        "end": {
+          "column": 21,
+          "line": 3,
+        },
+        "start": {
+          "column": 18,
+          "line": 3,
+        },
+      },
+    },
+  },
+}
+`;
+
+exports[`CoverageMapService JSON > properties doesn't branch 1`] = `
+{
+  "/.coverage-map-service-fixtures/subject.schema.json": {
+    "b": {},
+    "branchMap": {},
+    "f": {
+      ".coverage-map-service-fixtures/subject.schema.json#": 0,
+    },
+    "fnMap": {
+      ".coverage-map-service-fixtures/subject.schema.json#": {
+        "decl": {
+          "end": {
+            "column": 0,
+            "line": 1,
+          },
+          "start": {
+            "column": 0,
+            "line": 1,
+          },
+        },
+        "line": 1,
+        "loc": {
+          "end": {
+            "column": 0,
+            "line": 4,
+          },
+          "start": {
+            "column": 0,
+            "line": 1,
+          },
+        },
+        "name": ".coverage-map-service-fixtures/subject.schema.json#",
+      },
+    },
+    "path": "/.coverage-map-service-fixtures/subject.schema.json",
+    "s": {
+      ".coverage-map-service-fixtures/subject.schema.json#": 0,
+      ".coverage-map-service-fixtures/subject.schema.json#/properties": 0,
+    },
+    "statementMap": {
+      ".coverage-map-service-fixtures/subject.schema.json#": {
+        "end": {
+          "column": 0,
+          "line": 4,
+        },
+        "start": {
+          "column": 0,
+          "line": 1,
+        },
+      },
+      ".coverage-map-service-fixtures/subject.schema.json#/properties": {
+        "end": {
+          "column": 17,
+          "line": 3,
+        },
+        "start": {
+          "column": 2,
+          "line": 3,
+        },
+      },
+    },
+  },
+}
+`;
+
+exports[`CoverageMapService JSON > propertyNames doesn't branch 1`] = `
+{
+  "/.coverage-map-service-fixtures/subject.schema.json": {
+    "b": {},
+    "branchMap": {},
+    "f": {
+      ".coverage-map-service-fixtures/subject.schema.json#": 0,
+      ".coverage-map-service-fixtures/subject.schema.json#/propertyNames": 0,
+    },
+    "fnMap": {
+      ".coverage-map-service-fixtures/subject.schema.json#": {
+        "decl": {
+          "end": {
+            "column": 0,
+            "line": 1,
+          },
+          "start": {
+            "column": 0,
+            "line": 1,
+          },
+        },
+        "line": 1,
+        "loc": {
+          "end": {
+            "column": 0,
+            "line": 4,
+          },
+          "start": {
+            "column": 0,
+            "line": 1,
+          },
+        },
+        "name": ".coverage-map-service-fixtures/subject.schema.json#",
+      },
+      ".coverage-map-service-fixtures/subject.schema.json#/propertyNames": {
+        "decl": {
+          "end": {
+            "column": 16,
+            "line": 3,
+          },
+          "start": {
+            "column": 2,
+            "line": 3,
+          },
+        },
+        "line": 3,
+        "loc": {
+          "end": {
+            "column": 22,
+            "line": 3,
+          },
+          "start": {
+            "column": 2,
+            "line": 3,
+          },
+        },
+        "name": ".coverage-map-service-fixtures/subject.schema.json#/propertyNames",
+      },
+    },
+    "path": "/.coverage-map-service-fixtures/subject.schema.json",
+    "s": {
+      ".coverage-map-service-fixtures/subject.schema.json#": 0,
+      ".coverage-map-service-fixtures/subject.schema.json#/propertyNames": 0,
+    },
+    "statementMap": {
+      ".coverage-map-service-fixtures/subject.schema.json#": {
+        "end": {
+          "column": 0,
+          "line": 4,
+        },
+        "start": {
+          "column": 0,
+          "line": 1,
+        },
+      },
+      ".coverage-map-service-fixtures/subject.schema.json#/propertyNames": {
+        "end": {
+          "column": 22,
+          "line": 3,
+        },
+        "start": {
+          "column": 2,
+          "line": 3,
+        },
+      },
+    },
+  },
+}
+`;
+
+exports[`CoverageMapService JSON > readOnly doesn't branch 1`] = `
+{
+  "/.coverage-map-service-fixtures/subject.schema.json": {
+    "b": {},
+    "branchMap": {},
+    "f": {
+      ".coverage-map-service-fixtures/subject.schema.json#": 0,
+    },
+    "fnMap": {
+      ".coverage-map-service-fixtures/subject.schema.json#": {
+        "decl": {
+          "end": {
+            "column": 0,
+            "line": 1,
+          },
+          "start": {
+            "column": 0,
+            "line": 1,
+          },
+        },
+        "line": 1,
+        "loc": {
+          "end": {
+            "column": 0,
+            "line": 4,
+          },
+          "start": {
+            "column": 0,
+            "line": 1,
+          },
+        },
+        "name": ".coverage-map-service-fixtures/subject.schema.json#",
+      },
+    },
+    "path": "/.coverage-map-service-fixtures/subject.schema.json",
+    "s": {
+      ".coverage-map-service-fixtures/subject.schema.json#": 0,
+      ".coverage-map-service-fixtures/subject.schema.json#/readOnly": 0,
+    },
+    "statementMap": {
+      ".coverage-map-service-fixtures/subject.schema.json#": {
+        "end": {
+          "column": 0,
+          "line": 4,
+        },
+        "start": {
+          "column": 0,
+          "line": 1,
+        },
+      },
+      ".coverage-map-service-fixtures/subject.schema.json#/readOnly": {
+        "end": {
+          "column": 17,
+          "line": 3,
+        },
+        "start": {
+          "column": 2,
+          "line": 3,
+        },
+      },
+    },
+  },
+}
+`;
+
+exports[`CoverageMapService JSON > schemas 1`] = `
+{
+  "/.coverage-map-service-fixtures/subject.schema.json": {
+    "b": {},
+    "branchMap": {},
+    "f": {
+      ".coverage-map-service-fixtures/subject.schema.json#": 0,
+      ".coverage-map-service-fixtures/subject.schema.json#/properties/foo": 0,
+    },
+    "fnMap": {
+      ".coverage-map-service-fixtures/subject.schema.json#": {
+        "decl": {
+          "end": {
+            "column": 0,
+            "line": 1,
+          },
+          "start": {
+            "column": 0,
+            "line": 1,
+          },
+        },
+        "line": 1,
+        "loc": {
+          "end": {
+            "column": 0,
+            "line": 6,
+          },
+          "start": {
+            "column": 0,
+            "line": 1,
+          },
+        },
+        "name": ".coverage-map-service-fixtures/subject.schema.json#",
+      },
+      ".coverage-map-service-fixtures/subject.schema.json#/properties/foo": {
+        "decl": {
+          "end": {
+            "column": 8,
+            "line": 4,
+          },
+          "start": {
+            "column": 4,
+            "line": 4,
+          },
+        },
+        "line": 4,
+        "loc": {
+          "end": {
+            "column": 14,
+            "line": 4,
+          },
+          "start": {
+            "column": 4,
+            "line": 4,
+          },
+        },
+        "name": ".coverage-map-service-fixtures/subject.schema.json#/properties/foo",
+      },
+    },
+    "path": "/.coverage-map-service-fixtures/subject.schema.json",
+    "s": {
+      ".coverage-map-service-fixtures/subject.schema.json#": 0,
+      ".coverage-map-service-fixtures/subject.schema.json#/properties": 0,
+      ".coverage-map-service-fixtures/subject.schema.json#/properties/foo": 0,
+    },
+    "statementMap": {
+      ".coverage-map-service-fixtures/subject.schema.json#": {
+        "end": {
+          "column": 0,
+          "line": 6,
+        },
+        "start": {
+          "column": 0,
+          "line": 1,
+        },
+      },
+      ".coverage-map-service-fixtures/subject.schema.json#/properties": {
+        "end": {
+          "column": 2,
+          "line": 5,
+        },
+        "start": {
+          "column": 2,
+          "line": 3,
+        },
+      },
+      ".coverage-map-service-fixtures/subject.schema.json#/properties/foo": {
+        "end": {
+          "column": 14,
+          "line": 4,
+        },
+        "start": {
+          "column": 4,
+          "line": 4,
+        },
+      },
+    },
+  },
+}
+`;
+
+exports[`CoverageMapService JSON > self-identifying schema 1`] = `
+{
+  "/.coverage-map-service-fixtures/subject.schema.json": {
+    "b": {},
+    "branchMap": {},
+    "f": {
+      "https://example.com/subject#": 0,
+    },
+    "fnMap": {
+      "https://example.com/subject#": {
+        "decl": {
+          "end": {
+            "column": 0,
+            "line": 1,
+          },
+          "start": {
+            "column": 0,
+            "line": 1,
+          },
+        },
+        "line": 1,
+        "loc": {
+          "end": {
+            "column": 0,
+            "line": 4,
+          },
+          "start": {
+            "column": 0,
+            "line": 1,
+          },
+        },
+        "name": "https://example.com/subject#",
+      },
+    },
+    "path": "/.coverage-map-service-fixtures/subject.schema.json",
+    "s": {
+      "https://example.com/subject#": 0,
+    },
+    "statementMap": {
+      "https://example.com/subject#": {
+        "end": {
+          "column": 0,
+          "line": 4,
+        },
+        "start": {
+          "column": 0,
+          "line": 1,
+        },
+      },
+    },
+  },
+}
+`;
+
+exports[`CoverageMapService JSON > then doesn't branch 1`] = `
+{
+  "/.coverage-map-service-fixtures/subject.schema.json": {
+    "b": {},
+    "branchMap": {},
+    "f": {
+      ".coverage-map-service-fixtures/subject.schema.json#": 0,
+    },
+    "fnMap": {
+      ".coverage-map-service-fixtures/subject.schema.json#": {
+        "decl": {
+          "end": {
+            "column": 0,
+            "line": 1,
+          },
+          "start": {
+            "column": 0,
+            "line": 1,
+          },
+        },
+        "line": 1,
+        "loc": {
+          "end": {
+            "column": 0,
+            "line": 4,
+          },
+          "start": {
+            "column": 0,
+            "line": 1,
+          },
+        },
+        "name": ".coverage-map-service-fixtures/subject.schema.json#",
+      },
+    },
+    "path": "/.coverage-map-service-fixtures/subject.schema.json",
+    "s": {
+      ".coverage-map-service-fixtures/subject.schema.json#": 0,
+      ".coverage-map-service-fixtures/subject.schema.json#/then": 0,
+    },
+    "statementMap": {
+      ".coverage-map-service-fixtures/subject.schema.json#": {
+        "end": {
+          "column": 0,
+          "line": 4,
+        },
+        "start": {
+          "column": 0,
+          "line": 1,
+        },
+      },
+      ".coverage-map-service-fixtures/subject.schema.json#/then": {
+        "end": {
+          "column": 13,
+          "line": 3,
+        },
+        "start": {
+          "column": 2,
+          "line": 3,
+        },
+      },
+    },
+  },
+}
+`;
+
+exports[`CoverageMapService JSON > title doesn't branch 1`] = `
+{
+  "/.coverage-map-service-fixtures/subject.schema.json": {
+    "b": {},
+    "branchMap": {},
+    "f": {
+      ".coverage-map-service-fixtures/subject.schema.json#": 0,
+    },
+    "fnMap": {
+      ".coverage-map-service-fixtures/subject.schema.json#": {
+        "decl": {
+          "end": {
+            "column": 0,
+            "line": 1,
+          },
+          "start": {
+            "column": 0,
+            "line": 1,
+          },
+        },
+        "line": 1,
+        "loc": {
+          "end": {
+            "column": 0,
+            "line": 4,
+          },
+          "start": {
+            "column": 0,
+            "line": 1,
+          },
+        },
+        "name": ".coverage-map-service-fixtures/subject.schema.json#",
+      },
+    },
+    "path": "/.coverage-map-service-fixtures/subject.schema.json",
+    "s": {
+      ".coverage-map-service-fixtures/subject.schema.json#": 0,
+      ".coverage-map-service-fixtures/subject.schema.json#/title": 0,
+    },
+    "statementMap": {
+      ".coverage-map-service-fixtures/subject.schema.json#": {
+        "end": {
+          "column": 0,
+          "line": 4,
+        },
+        "start": {
+          "column": 0,
+          "line": 1,
+        },
+      },
+      ".coverage-map-service-fixtures/subject.schema.json#/title": {
+        "end": {
+          "column": 15,
+          "line": 3,
+        },
+        "start": {
+          "column": 2,
+          "line": 3,
+        },
+      },
+    },
+  },
+}
+`;
+
+exports[`CoverageMapService JSON > unevaluatedItems doesn't branch 1`] = `
+{
+  "/.coverage-map-service-fixtures/subject.schema.json": {
+    "b": {},
+    "branchMap": {},
+    "f": {
+      ".coverage-map-service-fixtures/subject.schema.json#": 0,
+      ".coverage-map-service-fixtures/subject.schema.json#/unevaluatedItems": 0,
+    },
+    "fnMap": {
+      ".coverage-map-service-fixtures/subject.schema.json#": {
+        "decl": {
+          "end": {
+            "column": 0,
+            "line": 1,
+          },
+          "start": {
+            "column": 0,
+            "line": 1,
+          },
+        },
+        "line": 1,
+        "loc": {
+          "end": {
+            "column": 0,
+            "line": 4,
+          },
+          "start": {
+            "column": 0,
+            "line": 1,
+          },
+        },
+        "name": ".coverage-map-service-fixtures/subject.schema.json#",
+      },
+      ".coverage-map-service-fixtures/subject.schema.json#/unevaluatedItems": {
+        "decl": {
+          "end": {
+            "column": 19,
+            "line": 3,
+          },
+          "start": {
+            "column": 2,
+            "line": 3,
+          },
+        },
+        "line": 3,
+        "loc": {
+          "end": {
+            "column": 25,
+            "line": 3,
+          },
+          "start": {
+            "column": 2,
+            "line": 3,
+          },
+        },
+        "name": ".coverage-map-service-fixtures/subject.schema.json#/unevaluatedItems",
+      },
+    },
+    "path": "/.coverage-map-service-fixtures/subject.schema.json",
+    "s": {
+      ".coverage-map-service-fixtures/subject.schema.json#": 0,
+      ".coverage-map-service-fixtures/subject.schema.json#/unevaluatedItems": 0,
+    },
+    "statementMap": {
+      ".coverage-map-service-fixtures/subject.schema.json#": {
+        "end": {
+          "column": 0,
+          "line": 4,
+        },
+        "start": {
+          "column": 0,
+          "line": 1,
+        },
+      },
+      ".coverage-map-service-fixtures/subject.schema.json#/unevaluatedItems": {
+        "end": {
+          "column": 25,
+          "line": 3,
+        },
+        "start": {
+          "column": 2,
+          "line": 3,
+        },
+      },
+    },
+  },
+}
+`;
+
+exports[`CoverageMapService JSON > unevaluatedProperties doesn't branch 1`] = `
+{
+  "/.coverage-map-service-fixtures/subject.schema.json": {
+    "b": {},
+    "branchMap": {},
+    "f": {
+      ".coverage-map-service-fixtures/subject.schema.json#": 0,
+      ".coverage-map-service-fixtures/subject.schema.json#/unevaluatedProperties": 0,
+    },
+    "fnMap": {
+      ".coverage-map-service-fixtures/subject.schema.json#": {
+        "decl": {
+          "end": {
+            "column": 0,
+            "line": 1,
+          },
+          "start": {
+            "column": 0,
+            "line": 1,
+          },
+        },
+        "line": 1,
+        "loc": {
+          "end": {
+            "column": 0,
+            "line": 4,
+          },
+          "start": {
+            "column": 0,
+            "line": 1,
+          },
+        },
+        "name": ".coverage-map-service-fixtures/subject.schema.json#",
+      },
+      ".coverage-map-service-fixtures/subject.schema.json#/unevaluatedProperties": {
+        "decl": {
+          "end": {
+            "column": 24,
+            "line": 3,
+          },
+          "start": {
+            "column": 2,
+            "line": 3,
+          },
+        },
+        "line": 3,
+        "loc": {
+          "end": {
+            "column": 30,
+            "line": 3,
+          },
+          "start": {
+            "column": 2,
+            "line": 3,
+          },
+        },
+        "name": ".coverage-map-service-fixtures/subject.schema.json#/unevaluatedProperties",
+      },
+    },
+    "path": "/.coverage-map-service-fixtures/subject.schema.json",
+    "s": {
+      ".coverage-map-service-fixtures/subject.schema.json#": 0,
+      ".coverage-map-service-fixtures/subject.schema.json#/unevaluatedProperties": 0,
+    },
+    "statementMap": {
+      ".coverage-map-service-fixtures/subject.schema.json#": {
+        "end": {
+          "column": 0,
+          "line": 4,
+        },
+        "start": {
+          "column": 0,
+          "line": 1,
+        },
+      },
+      ".coverage-map-service-fixtures/subject.schema.json#/unevaluatedProperties": {
+        "end": {
+          "column": 30,
+          "line": 3,
+        },
+        "start": {
+          "column": 2,
+          "line": 3,
+        },
+      },
+    },
+  },
+}
+`;
+
+exports[`CoverageMapService JSON > unknown keywords don't branch 1`] = `
+{
+  "/.coverage-map-service-fixtures/subject.schema.json": {
+    "b": {},
+    "branchMap": {},
+    "f": {
+      ".coverage-map-service-fixtures/subject.schema.json#": 0,
+    },
+    "fnMap": {
+      ".coverage-map-service-fixtures/subject.schema.json#": {
+        "decl": {
+          "end": {
+            "column": 0,
+            "line": 1,
+          },
+          "start": {
+            "column": 0,
+            "line": 1,
+          },
+        },
+        "line": 1,
+        "loc": {
+          "end": {
+            "column": 0,
+            "line": 4,
+          },
+          "start": {
+            "column": 0,
+            "line": 1,
+          },
+        },
+        "name": ".coverage-map-service-fixtures/subject.schema.json#",
+      },
+    },
+    "path": "/.coverage-map-service-fixtures/subject.schema.json",
+    "s": {
+      ".coverage-map-service-fixtures/subject.schema.json#": 0,
+      ".coverage-map-service-fixtures/subject.schema.json#/x-foo": 0,
+    },
+    "statementMap": {
+      ".coverage-map-service-fixtures/subject.schema.json#": {
+        "end": {
+          "column": 0,
+          "line": 4,
+        },
+        "start": {
+          "column": 0,
+          "line": 1,
+        },
+      },
+      ".coverage-map-service-fixtures/subject.schema.json#/x-foo": {
+        "end": {
+          "column": 15,
+          "line": 3,
+        },
+        "start": {
+          "column": 2,
+          "line": 3,
+        },
+      },
+    },
+  },
+}
+`;
+
+exports[`CoverageMapService JSON > with YAML media type plugin > YAML features 1`] = `
+{
+  "/.coverage-map-service-fixtures/subject.yml": {
+    "b": {
+      "https://example.com/main#/$defs/foo/type": [
+        0,
+        0,
+      ],
+      "https://example.com/main#/anyOf": [
+        0,
+        0,
+      ],
+      "https://example.com/main#/anyOf/0/required": [
+        0,
+        0,
+      ],
+      "https://example.com/main#/anyOf/1/required": [
+        0,
+        0,
+      ],
+    },
+    "branchMap": {
+      "https://example.com/main#/$defs/foo/type": {
+        "line": 12,
+        "loc": {
+          "end": {
+            "column": 16,
+            "line": 12,
+          },
+          "start": {
+            "column": 4,
+            "line": 12,
+          },
+        },
+        "locations": [
+          {
+            "end": {
+              "column": 16,
+              "line": 12,
+            },
+            "start": {
+              "column": 4,
+              "line": 12,
+            },
+          },
+          {
+            "end": {
+              "column": 16,
+              "line": 12,
+            },
+            "start": {
+              "column": 4,
+              "line": 12,
+            },
+          },
+        ],
+        "type": "keyword",
+      },
+      "https://example.com/main#/anyOf": {
+        "line": 7,
+        "loc": {
+          "end": {
+            "column": 19,
+            "line": 9,
+          },
+          "start": {
+            "column": 0,
+            "line": 7,
+          },
+        },
+        "locations": [
+          {
+            "end": {
+              "column": 19,
+              "line": 9,
+            },
+            "start": {
+              "column": 0,
+              "line": 7,
+            },
+          },
+          {
+            "end": {
+              "column": 19,
+              "line": 9,
+            },
+            "start": {
+              "column": 0,
+              "line": 7,
+            },
+          },
+        ],
+        "type": "keyword",
+      },
+      "https://example.com/main#/anyOf/0/required": {
+        "line": 8,
+        "loc": {
+          "end": {
+            "column": 19,
+            "line": 8,
+          },
+          "start": {
+            "column": 4,
+            "line": 8,
+          },
+        },
+        "locations": [
+          {
+            "end": {
+              "column": 19,
+              "line": 8,
+            },
+            "start": {
+              "column": 4,
+              "line": 8,
+            },
+          },
+          {
+            "end": {
+              "column": 19,
+              "line": 8,
+            },
+            "start": {
+              "column": 4,
+              "line": 8,
+            },
+          },
+        ],
+        "type": "keyword",
+      },
+      "https://example.com/main#/anyOf/1/required": {
+        "line": 9,
+        "loc": {
+          "end": {
+            "column": 19,
+            "line": 9,
+          },
+          "start": {
+            "column": 4,
+            "line": 9,
+          },
+        },
+        "locations": [
+          {
+            "end": {
+              "column": 19,
+              "line": 9,
+            },
+            "start": {
+              "column": 4,
+              "line": 9,
+            },
+          },
+          {
+            "end": {
+              "column": 19,
+              "line": 9,
+            },
+            "start": {
+              "column": 4,
+              "line": 9,
+            },
+          },
+        ],
+        "type": "keyword",
+      },
+    },
+    "f": {
+      "https://example.com/main#": 0,
+      "https://example.com/main#/$defs/foo": 0,
+      "https://example.com/main#/anyOf/0": 0,
+      "https://example.com/main#/anyOf/1": 0,
+      "https://example.com/main#/properties/bar": 0,
+      "https://example.com/main#/properties/foo": 0,
+    },
+    "fnMap": {
+      "https://example.com/main#": {
+        "decl": {
+          "end": {
+            "column": 0,
+            "line": 2,
+          },
+          "start": {
+            "column": 0,
+            "line": 2,
+          },
+        },
+        "line": 2,
+        "loc": {
+          "end": {
+            "column": 16,
+            "line": 12,
+          },
+          "start": {
+            "column": 0,
+            "line": 2,
+          },
+        },
+        "name": "https://example.com/main#",
+      },
+      "https://example.com/main#/$defs/foo": {
+        "decl": {
+          "end": {
+            "column": 5,
+            "line": 11,
+          },
+          "start": {
+            "column": 2,
+            "line": 11,
+          },
+        },
+        "line": 11,
+        "loc": {
+          "end": {
+            "column": 16,
+            "line": 12,
+          },
+          "start": {
+            "column": 2,
+            "line": 11,
+          },
+        },
+        "name": "https://example.com/main#/$defs/foo",
+      },
+      "https://example.com/main#/anyOf/0": {
+        "decl": {
+          "end": {
+            "column": 4,
+            "line": 8,
+          },
+          "start": {
+            "column": 4,
+            "line": 8,
+          },
+        },
+        "line": 8,
+        "loc": {
+          "end": {
+            "column": 19,
+            "line": 8,
+          },
+          "start": {
+            "column": 4,
+            "line": 8,
+          },
+        },
+        "name": "https://example.com/main#/anyOf/0",
+      },
+      "https://example.com/main#/anyOf/1": {
+        "decl": {
+          "end": {
+            "column": 4,
+            "line": 9,
+          },
+          "start": {
+            "column": 4,
+            "line": 9,
+          },
+        },
+        "line": 9,
+        "loc": {
+          "end": {
+            "column": 19,
+            "line": 9,
+          },
+          "start": {
+            "column": 4,
+            "line": 9,
+          },
+        },
+        "name": "https://example.com/main#/anyOf/1",
+      },
+      "https://example.com/main#/properties/bar": {
+        "decl": {
+          "end": {
+            "column": 5,
+            "line": 6,
+          },
+          "start": {
+            "column": 2,
+            "line": 6,
+          },
+        },
+        "line": 6,
+        "loc": {
+          "end": {
+            "column": 11,
+            "line": 6,
+          },
+          "start": {
+            "column": 2,
+            "line": 6,
+          },
+        },
+        "name": "https://example.com/main#/properties/bar",
+      },
+      "https://example.com/main#/properties/foo": {
+        "decl": {
+          "end": {
+            "column": 5,
+            "line": 5,
+          },
+          "start": {
+            "column": 2,
+            "line": 5,
+          },
+        },
+        "line": 5,
+        "loc": {
+          "end": {
+            "column": 30,
+            "line": 5,
+          },
+          "start": {
+            "column": 2,
+            "line": 5,
+          },
+        },
+        "name": "https://example.com/main#/properties/foo",
+      },
+    },
+    "path": "/.coverage-map-service-fixtures/subject.yml",
+    "s": {
+      "https://example.com/main#": 0,
+      "https://example.com/main#/$defs/foo": 0,
+      "https://example.com/main#/$defs/foo/type": 0,
+      "https://example.com/main#/anyOf": 0,
+      "https://example.com/main#/anyOf/0": 0,
+      "https://example.com/main#/anyOf/0/required": 0,
+      "https://example.com/main#/anyOf/1": 0,
+      "https://example.com/main#/anyOf/1/required": 0,
+      "https://example.com/main#/properties": 0,
+      "https://example.com/main#/properties/bar": 0,
+      "https://example.com/main#/properties/foo": 0,
+      "https://example.com/main#/properties/foo/$ref": 0,
+    },
+    "statementMap": {
+      "https://example.com/main#": {
+        "end": {
+          "column": 16,
+          "line": 12,
+        },
+        "start": {
+          "column": 0,
+          "line": 2,
+        },
+      },
+      "https://example.com/main#/$defs/foo": {
+        "end": {
+          "column": 16,
+          "line": 12,
+        },
+        "start": {
+          "column": 2,
+          "line": 11,
+        },
+      },
+      "https://example.com/main#/$defs/foo/type": {
+        "end": {
+          "column": 16,
+          "line": 12,
+        },
+        "start": {
+          "column": 4,
+          "line": 12,
+        },
+      },
+      "https://example.com/main#/anyOf": {
+        "end": {
+          "column": 19,
+          "line": 9,
+        },
+        "start": {
+          "column": 0,
+          "line": 7,
+        },
+      },
+      "https://example.com/main#/anyOf/0": {
+        "end": {
+          "column": 19,
+          "line": 8,
+        },
+        "start": {
+          "column": 4,
+          "line": 8,
+        },
+      },
+      "https://example.com/main#/anyOf/0/required": {
+        "end": {
+          "column": 19,
+          "line": 8,
+        },
+        "start": {
+          "column": 4,
+          "line": 8,
+        },
+      },
+      "https://example.com/main#/anyOf/1": {
+        "end": {
+          "column": 19,
+          "line": 9,
+        },
+        "start": {
+          "column": 4,
+          "line": 9,
+        },
+      },
+      "https://example.com/main#/anyOf/1/required": {
+        "end": {
+          "column": 19,
+          "line": 9,
+        },
+        "start": {
+          "column": 4,
+          "line": 9,
+        },
+      },
+      "https://example.com/main#/properties": {
+        "end": {
+          "column": 11,
+          "line": 6,
+        },
+        "start": {
+          "column": 0,
+          "line": 4,
+        },
+      },
+      "https://example.com/main#/properties/bar": {
+        "end": {
+          "column": 11,
+          "line": 6,
+        },
+        "start": {
+          "column": 2,
+          "line": 6,
+        },
+      },
+      "https://example.com/main#/properties/foo": {
+        "end": {
+          "column": 30,
+          "line": 5,
+        },
+        "start": {
+          "column": 2,
+          "line": 5,
+        },
+      },
+      "https://example.com/main#/properties/foo/$ref": {
+        "end": {
+          "column": 28,
+          "line": 5,
+        },
+        "start": {
+          "column": 9,
+          "line": 5,
+        },
+      },
+    },
+  },
+}
+`;
+
+exports[`CoverageMapService JSON > with YAML media type plugin > with .schema.yaml extension 1`] = `
+{
+  "/.coverage-map-service-fixtures/subject.schema.yaml": {
+    "b": {},
+    "branchMap": {},
+    "f": {
+      "https://example.com/main#": 0,
+    },
+    "fnMap": {
+      "https://example.com/main#": {
+        "decl": {
+          "end": {
+            "column": 0,
+            "line": 2,
+          },
+          "start": {
+            "column": 0,
+            "line": 2,
+          },
+        },
+        "line": 2,
+        "loc": {
+          "end": {
+            "column": 55,
+            "line": 3,
+          },
+          "start": {
+            "column": 0,
+            "line": 2,
+          },
+        },
+        "name": "https://example.com/main#",
+      },
+    },
+    "path": "/.coverage-map-service-fixtures/subject.schema.yaml",
+    "s": {
+      "https://example.com/main#": 0,
+    },
+    "statementMap": {
+      "https://example.com/main#": {
+        "end": {
+          "column": 55,
+          "line": 3,
+        },
+        "start": {
+          "column": 0,
+          "line": 2,
+        },
+      },
+    },
+  },
+}
+`;
+
+exports[`CoverageMapService JSON > with YAML media type plugin > with .schema.yml extension 1`] = `
+{
+  "/.coverage-map-service-fixtures/subject.schema.yml": {
+    "b": {},
+    "branchMap": {},
+    "f": {
+      "https://example.com/main#": 0,
+    },
+    "fnMap": {
+      "https://example.com/main#": {
+        "decl": {
+          "end": {
+            "column": 0,
+            "line": 2,
+          },
+          "start": {
+            "column": 0,
+            "line": 2,
+          },
+        },
+        "line": 2,
+        "loc": {
+          "end": {
+            "column": 55,
+            "line": 3,
+          },
+          "start": {
+            "column": 0,
+            "line": 2,
+          },
+        },
+        "name": "https://example.com/main#",
+      },
+    },
+    "path": "/.coverage-map-service-fixtures/subject.schema.yml",
+    "s": {
+      "https://example.com/main#": 0,
+    },
+    "statementMap": {
+      "https://example.com/main#": {
+        "end": {
+          "column": 55,
+          "line": 3,
+        },
+        "start": {
+          "column": 0,
+          "line": 2,
+        },
+      },
+    },
+  },
+}
+`;
+
+exports[`CoverageMapService JSON > with YAML media type plugin > with .yaml extension 1`] = `
+{
+  "/.coverage-map-service-fixtures/subject.yaml": {
+    "b": {},
+    "branchMap": {},
+    "f": {
+      "https://example.com/main#": 0,
+    },
+    "fnMap": {
+      "https://example.com/main#": {
+        "decl": {
+          "end": {
+            "column": 0,
+            "line": 2,
+          },
+          "start": {
+            "column": 0,
+            "line": 2,
+          },
+        },
+        "line": 2,
+        "loc": {
+          "end": {
+            "column": 55,
+            "line": 3,
+          },
+          "start": {
+            "column": 0,
+            "line": 2,
+          },
+        },
+        "name": "https://example.com/main#",
+      },
+    },
+    "path": "/.coverage-map-service-fixtures/subject.yaml",
+    "s": {
+      "https://example.com/main#": 0,
+    },
+    "statementMap": {
+      "https://example.com/main#": {
+        "end": {
+          "column": 55,
+          "line": 3,
+        },
+        "start": {
+          "column": 0,
+          "line": 2,
+        },
+      },
+    },
+  },
+}
+`;
+
+exports[`CoverageMapService JSON > with YAML media type plugin > with .yml extension 1`] = `
+{
+  "/.coverage-map-service-fixtures/subject.yml": {
+    "b": {},
+    "branchMap": {},
+    "f": {
+      "https://example.com/main#": 0,
+    },
+    "fnMap": {
+      "https://example.com/main#": {
+        "decl": {
+          "end": {
+            "column": 0,
+            "line": 2,
+          },
+          "start": {
+            "column": 0,
+            "line": 2,
+          },
+        },
+        "line": 2,
+        "loc": {
+          "end": {
+            "column": 55,
+            "line": 3,
+          },
+          "start": {
+            "column": 0,
+            "line": 2,
+          },
+        },
+        "name": "https://example.com/main#",
+      },
+    },
+    "path": "/.coverage-map-service-fixtures/subject.yml",
+    "s": {
+      "https://example.com/main#": 0,
+    },
+    "statementMap": {
+      "https://example.com/main#": {
+        "end": {
+          "column": 55,
+          "line": 3,
+        },
+        "start": {
+          "column": 0,
+          "line": 2,
+        },
+      },
+    },
+  },
+}
+`;
+
+exports[`CoverageMapService JSON > with non-file schema > reference to non-file schema 1`] = `
+{
+  "/.coverage-map-service-fixtures/subject.schema.json": {
+    "b": {},
+    "branchMap": {},
+    "f": {
+      "https://example.com/subject#": 0,
+    },
+    "fnMap": {
+      "https://example.com/subject#": {
+        "decl": {
+          "end": {
+            "column": 0,
+            "line": 1,
+          },
+          "start": {
+            "column": 0,
+            "line": 1,
+          },
+        },
+        "line": 1,
+        "loc": {
+          "end": {
+            "column": 0,
+            "line": 5,
+          },
+          "start": {
+            "column": 0,
+            "line": 1,
+          },
+        },
+        "name": "https://example.com/subject#",
+      },
+    },
+    "path": "/.coverage-map-service-fixtures/subject.schema.json",
+    "s": {
+      "https://example.com/subject#": 0,
+      "https://example.com/subject#/$ref": 0,
+    },
+    "statementMap": {
+      "https://example.com/subject#": {
+        "end": {
+          "column": 0,
+          "line": 5,
+        },
+        "start": {
+          "column": 0,
+          "line": 1,
+        },
+      },
+      "https://example.com/subject#/$ref": {
+        "end": {
+          "column": 15,
+          "line": 4,
+        },
+        "start": {
+          "column": 2,
+          "line": 4,
+        },
+      },
+    },
+  },
+}
+`;
+
+exports[`CoverageMapService JSON > writeOnly doesn't branch 1`] = `
+{
+  "/.coverage-map-service-fixtures/subject.schema.json": {
+    "b": {},
+    "branchMap": {},
+    "f": {
+      ".coverage-map-service-fixtures/subject.schema.json#": 0,
+    },
+    "fnMap": {
+      ".coverage-map-service-fixtures/subject.schema.json#": {
+        "decl": {
+          "end": {
+            "column": 0,
+            "line": 1,
+          },
+          "start": {
+            "column": 0,
+            "line": 1,
+          },
+        },
+        "line": 1,
+        "loc": {
+          "end": {
+            "column": 0,
+            "line": 4,
+          },
+          "start": {
+            "column": 0,
+            "line": 1,
+          },
+        },
+        "name": ".coverage-map-service-fixtures/subject.schema.json#",
+      },
+    },
+    "path": "/.coverage-map-service-fixtures/subject.schema.json",
+    "s": {
+      ".coverage-map-service-fixtures/subject.schema.json#": 0,
+      ".coverage-map-service-fixtures/subject.schema.json#/readOnly": 0,
+    },
+    "statementMap": {
+      ".coverage-map-service-fixtures/subject.schema.json#": {
+        "end": {
+          "column": 0,
+          "line": 4,
+        },
+        "start": {
+          "column": 0,
+          "line": 1,
+        },
+      },
+      ".coverage-map-service-fixtures/subject.schema.json#/readOnly": {
+        "end": {
+          "column": 17,
+          "line": 3,
+        },
+        "start": {
+          "column": 2,
+          "line": 3,
+        },
+      },
+    },
+  },
+}
+`;
