@@ -12,7 +12,7 @@ import { toAbsoluteIri } from "@hyperjump/uri";
 
 /**
  * @import { OutputUnit, SchemaObject } from "@hyperjump/json-schema"
- * @import * as API from "./matchers.d.ts"
+ * @import * as API from "./index.d.ts"
  */
 
 const coverageFilesDirectory = ".json-schema-coverage";

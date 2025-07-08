@@ -17,15 +17,15 @@
   "type": "module",
   "exports": {
     ".": "./src/index.js",
-    "./vitest-matchers": "./src/vitest/matchers.js",
-    "./vitest-coverage-provider": "./src/vitest/coverage-provider.js"
+    "./vitest": "./src/vitest/index.js",
+    "./vitest/coverage-provider": "./src/vitest/coverage-provider.js"
   },
   "scripts": {
     "lint": "eslint src",
     "test": "vitest run --config src/vitest/vitest-json-schema.config.js",
     "test:coverage": "vitest run --coverage",
     "type-check": "tsc --noEmit",
-    "docs": "typedoc --excludeExternals"
+    "docs": "typedoc"
   },
   "devDependencies": {
     "@stylistic/eslint-plugin": "*",

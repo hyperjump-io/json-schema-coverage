@@ -1,7 +1,7 @@
 import { afterAll, afterEach, beforeAll, describe, expect, test } from "vitest";
 import { mkdir, rm, writeFile } from "node:fs/promises";
 import { resolve } from "node:path";
-import { registerSchema, unregisterSchema } from "./matchers.js";
+import { registerSchema, unregisterSchema } from "./index.js";
 
 describe("Worksheet", () => {
   test("matches with schema", async () => {

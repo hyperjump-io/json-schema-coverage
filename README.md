@@ -62,14 +62,14 @@ By default, it will track coverage for any file with a `*.schema.json`,
 `vitest-schema.config.js`
 ```TypeScript
 import { defineConfig } from "vitest/config";
-import type { JsonSchemaCoverageProviderOptions } from "@hyperjump/json-schema-coverage/vitest-coverage-provider";
+import type { JsonSchemaCoverageProviderOptions } from "@hyperjump/json-schema-coverage/vitest/coverage-provider";
 
 export default defineConfig({
   test: {
     include: ["schema-tests/"],
     coverage: {
       provider: "custom",
-      customProviderModule: "@hyperjump/json-schema-coverage/vitest-coverage-provider",
+      customProviderModule: "@hyperjump/json-schema-coverage/vitest/coverage-provider",
       include: ["schemas/**/*.json"] // Optional
     } as JsonSchemaCoverageProviderOptions
   }
@@ -107,7 +107,7 @@ for the validation to work.
 
 ```JavaScript
 import { describe, expect, test } from "vitest";
-import { registerSchema, unregisterSchema } from "@hyperjump/json-schema-coverage/vitest-matchers";
+import { registerSchema, unregisterSchema } from "@hyperjump/json-schema-coverage/vitest";
 
 describe("Worksheet", () => {
   beforeEach(async () => {
@@ -155,7 +155,7 @@ describe("Worksheet", () => {
 These are the functions available when working with the vitest integration.
 
 ```JavaScript
-import { ... } from "@hyperjump/json-schema-coverage/vitest-matchers"
+import { ... } from "@hyperjump/json-schema-coverage/vitest"
 ```
 
 - **matchJsonSchema**: (uriOrSchema: string | SchemaObject | boolean) => Promise\<void>
