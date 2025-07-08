@@ -4,7 +4,11 @@ coverage.png
 eslint.config.js
 **/*.test.js
 src/test-utils.js
+src/vitest/vitest-json-schema.config.js
+**/__snapshots__
 tsconfig.json
+.nyc_output/
 scratch/
-docs/
 TODO.md
+docs/
+coverage/
