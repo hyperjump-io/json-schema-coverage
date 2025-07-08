@@ -1,11 +1,15 @@
 {
   "name": "@hyperjump/json-schema-coverage",
   "version": "0.0.1",
-  "description": "Test coverage for JSON Schema",
+  "description": "Test coverage tools for JSON Schema testing",
   "keywords": [
     "JSON Schema",
     "test",
-    "coverage"
+    "coverage",
+    "vitest",
+    "matcher",
+    "toMatchJsonSchema",
+    "matchJsonSchema"
   ],
   "author": "Jason Desrosiers <jdesrosi@gmail.com>",
   "license": "MIT",
