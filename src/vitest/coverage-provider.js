@@ -112,15 +112,20 @@ class JsonSchemaCoverageProvider {
 
     // Build coverage maps
     for (const root of this.roots) {
+      const i = ignore();
+      const gitignorePath = path.resolve(root, ".gitignore");
+      if (existsSync(gitignorePath)) {
+        const gitignore = await fs.readFile(gitignorePath, "utf-8");
+        i.add(gitignore);
+      }
+
       let includedFiles = await glob(this.include, {
         cwd: root,
         dot: true,
         onlyFiles: true
       });
-      const gitignorePath = path.resolve(root, ".gitignore");
-      const gitignore = await fs.readFile(gitignorePath, "utf-8");
-      const files = ignore()
-        .add(gitignore)
+
+      const files = i
         .filter(includedFiles)
         .map((file) => path.resolve(root, file));
 
