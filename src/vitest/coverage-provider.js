@@ -4,12 +4,9 @@ import path from "node:path";
 import coverage from "istanbul-lib-coverage";
 import libReport from "istanbul-lib-report";
 import reports from "istanbul-reports";
-import ignore from "ignore";
-import { glob } from "tinyglobby";
 import { resolve } from "pathe";
 import c from "tinyrainbow";
 import { coverageConfigDefaults } from "vitest/config";
-import { registerSchema } from "./json-schema-matchers.js";
 import { FileCoverageMapService } from "./file-coverage-map-service.js";
 
 /**
@@ -45,11 +42,6 @@ class JsonSchemaCoverageProvider {
   coverageFilesDirectory = ".json-schema-coverage";
   coverageService = new FileCoverageMapService(".json-schema-coverage/maps");
 
-  /** @type string[] */
-  roots = [];
-
-  include = ["**/*.schema.json", "**/*.schema.yaml", "**/*.schema.yml"];
-
   /** @type CoverageProvider["initialize"] */
   initialize(ctx) {
     this.ctx = ctx;
@@ -73,14 +65,8 @@ class JsonSchemaCoverageProvider {
       reporter: resolveCoverageReporters(config.reporter || coverageConfigDefaults.reporter)
     };
 
-    // If --project filter is set pick only roots of resolved projects
-    this.roots = ctx.config.project?.length
-      ? [...new Set(ctx.projects.map((project) => project.config.root))]
-      : [ctx.config.root];
-
-    if ("include" in config) {
-      this.include = config.include;
-    }
+    const buildScriptPath = path.resolve(import.meta.dirname, "./build-coverage-maps.js");
+    /** @type string[] */ (ctx.config.globalSetup).push(buildScriptPath);
   }
 
   /** @type CoverageProvider["resolveOptions"] */
@@ -109,37 +95,6 @@ class JsonSchemaCoverageProvider {
     await this.coverageService.open();
 
     await fs.mkdir(this.coverageFilesDirectory, { recursive: true });
-
-    // Build coverage maps
-    for (const root of this.roots) {
-      const i = ignore();
-      const gitignorePath = path.resolve(root, ".gitignore");
-      if (existsSync(gitignorePath)) {
-        const gitignore = await fs.readFile(gitignorePath, "utf-8");
-        i.add(gitignore);
-      }
-
-      let includedFiles = await glob(this.include, {
-        cwd: root,
-        dot: true,
-        onlyFiles: true
-      });
-
-      const files = i
-        .filter(includedFiles)
-        .map((file) => path.resolve(root, file));
-
-      for (const schemaPath of files) {
-        try {
-          await registerSchema(schemaPath);
-        } catch (_error) {
-        }
-      }
-
-      for (const file of files) {
-        await this.coverageService.addFromFile(file);
-      }
-    }
   }
 
   /** @type () => Promise<void> */

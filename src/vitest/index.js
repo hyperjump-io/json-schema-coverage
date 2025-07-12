@@ -8,4 +8,3 @@ expect.extend({
 });
 
 export * from "./json-schema-matchers.js";
-export { loadDialect, defineVocabulary, addKeyword } from "@hyperjump/json-schema/experimental";

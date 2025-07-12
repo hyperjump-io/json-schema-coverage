@@ -7,7 +7,7 @@ some other integration. It uses the [istanbul] coverage format, so you can
 generate any reports that support [istanbul].
 
 Validation is done by [@hyperjump/json-schema], so you can use any version of
-JSON Schema.
+JSON Schema, or provide your own custom keywords, vocabularies, and dialects.
 
 ```
 -------------|---------|----------|---------|---------|-------------------
@@ -50,14 +50,13 @@ code and schema code at the same time.
 
 By default, it will track coverage for any file with a `*.schema.json`,
 `*.schema.yaml`, or `*.schema.yml` extension. You can change this with the
-`include` option.
+`include` option. For example, if you keep your schemas in a folder called
+`schemas` and they just have plain extensions (`*.json`) instead of schema
+extensions `*.schema.json`, you could use `["schemas/**/*.json"]`.
 
-**Options**
-
-- **include** -- An array of paths of schemas you want to track coverage for.
-  For example, if you keep your schemas in a folder called `schemas` and they
-  just have plain extensions (`*.json`) instead of schema extensions
-  `*.schema.json`, you could use `["schemas/**/*.json"]`.
+If you use custom keywords, vocabularies, and dialects, you'll need to
+register them with a [globalSetup](https://vitest.dev/config/#globalsetup)
+script.
 
 `vitest-schema.config.js`
 ```TypeScript
@@ -66,7 +65,8 @@ import type { JsonSchemaCoverageProviderOptions } from "@hyperjump/json-schema-c
 
 export default defineConfig({
   test: {
-    include: ["schema-tests/"],
+    globalSetup: ["./register-my-dialect.ts"], // Optional
+    include: ["schema-tests/"], // Optional
     coverage: {
       provider: "custom",
       customProviderModule: "@hyperjump/json-schema-coverage/vitest/coverage-provider",
@@ -150,7 +150,7 @@ describe("Worksheet", () => {
 });
 ```
 
-## Vitest API
+### Vitest API
 
 These are the functions available when working with the vitest integration.
 
@@ -182,24 +182,6 @@ import { ... } from "@hyperjump/json-schema-coverage/vitest"
 
     _**NOTE**: This is **not** the same as the function from
     [@hyperjump/json-schema] that takes the schema's `$id`._
-- **defineVocabulary**: (vocabularyUri: string, keywords: Record<string, string>) => void
-
-    If your schemas use a custom vocabulary, you can register your vocabulary
-    with this function.
-
-    _**NOTE**: This is the same as the function from [@hyperjump/json-schema]_
-- **addKeyword**: (keywordHandler: Keyword) => void
-
-    If your schemas use a custom vocabulary, you can register your custom
-    keywords with this function.
-
-    _**NOTE**: This is the same as the function from [@hyperjump/json-schema]_
-- **loadDialect**: (dialectUri: string, dialect: Record<string, boolean>, allowUnknowKeywords?: boolean) => void
-
-    If your schemas use a custom dialect, you can register it with this
-    function.
-
-    _**NOTE**: This is the same as the function from [@hyperjump/json-schema]_
 
 ## Low-Level API
 
