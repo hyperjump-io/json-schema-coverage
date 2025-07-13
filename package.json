@@ -21,8 +21,7 @@
   "type": "module",
   "exports": {
     ".": "./src/index.js",
-    "./vitest": "./src/vitest/index.js",
-    "./vitest/coverage-provider": "./src/vitest/coverage-provider.js"
+    "./vitest": "./src/vitest/index.js"
   },
   "scripts": {
     "lint": "eslint src",

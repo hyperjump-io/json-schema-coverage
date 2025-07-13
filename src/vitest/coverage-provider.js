@@ -30,7 +30,7 @@ const JsonSchemaCoverageProviderModule = {
 
 /** @implements CoverageProvider */
 class JsonSchemaCoverageProvider {
-  name = "@hyperjump/json-schema-coverage/vitest/coverage-provider";
+  name = "@hyperjump/json-schema-coverage/vitest";
 
   ctx = /** @type Vitest */ ({});
 

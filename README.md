@@ -61,17 +61,16 @@ script.
 `vitest-schema.config.js`
 ```TypeScript
 import { defineConfig } from "vitest/config";
-import type { JsonSchemaCoverageProviderOptions } from "@hyperjump/json-schema-coverage/vitest/coverage-provider";
+import { jsonSchemaCoveragePlugin } from "@hyperjump/json-schema-coverage/vitest";
 
 export default defineConfig({
+  plugins: [jsonSchemaCoveragePlugin()],
   test: {
     globalSetup: ["./register-my-dialect.ts"], // Optional
     include: ["schema-tests/"], // Optional
     coverage: {
-      provider: "custom",
-      customProviderModule: "@hyperjump/json-schema-coverage/vitest/coverage-provider",
       include: ["schemas/**/*.json"] // Optional
-    } as JsonSchemaCoverageProviderOptions
+    }
   }
 });
 ```
@@ -85,7 +84,6 @@ if vitest has coverage enabled, it will collect coverage data from those tests.
 
 ```JavaScript
 import { describe, expect, test } from "vitest";
-import "@hyperjump/json-schema-coverage/vitest-matchers";
 
 describe("Worksheet", () => {
   test("matches with chai-style matcher", async () => {
@@ -107,7 +105,6 @@ for the validation to work.
 
 ```JavaScript
 import { describe, expect, test } from "vitest";
-import { registerSchema, unregisterSchema } from "@hyperjump/json-schema-coverage/vitest";
 
 describe("Worksheet", () => {
   beforeEach(async () => {
@@ -135,7 +132,6 @@ schemas from files in your code base.
 
 ```JavaScript
 import { describe, expect, test } from "vitest";
-import "@hyperjump/json-schema-coverage/vitest-matchers";
 
 describe("Worksheet", () => {
   test("matches with schema", async () => {
@@ -158,6 +154,10 @@ These are the functions available when working with the vitest integration.
 import { ... } from "@hyperjump/json-schema-coverage/vitest"
 ```
 
+- **jsonSchemaCoveragePlugin**: () => VitestPlugin
+
+    A function that returns a Vitest plugin that registers matchers and sets up
+    JSON Schema coverage if enabled.
 - **matchJsonSchema**: (uriOrSchema: string | SchemaObject | boolean) => Promise\<void>
 
     A vitest matcher that can be used to validate a JSON-compatible value. It

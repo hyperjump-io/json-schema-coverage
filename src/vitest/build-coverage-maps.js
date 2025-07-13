@@ -3,7 +3,7 @@ import { readFile } from "node:fs/promises";
 import { join, resolve } from "node:path";
 import { glob } from "tinyglobby";
 import ignore from "ignore";
-import { registerSchema } from "./json-schema-matchers.js";
+import { registerSchema } from "./index.js";
 import { FileCoverageMapService } from "./file-coverage-map-service.js";
 
 /**

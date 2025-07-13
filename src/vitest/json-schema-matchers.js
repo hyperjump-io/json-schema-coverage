@@ -1,17 +1,14 @@
 import { randomUUID } from "node:crypto";
 import { existsSync } from "node:fs";
-import { readFile, writeFile } from "node:fs/promises";
-import { extname, join } from "node:path";
-import { pathToFileURL } from "node:url";
-import { registerSchema as register, unregisterSchema as unregister, validate } from "./json-schema.js";
-import { getKeywordId, getKeywordName, BASIC } from "@hyperjump/json-schema/experimental";
-import YAML from "yaml";
+import { writeFile } from "node:fs/promises";
+import { join } from "node:path";
+import { registerSchema, unregisterSchema, validate } from "./json-schema.js";
+import { BASIC } from "@hyperjump/json-schema/experimental";
 import { FileCoverageMapService } from "./file-coverage-map-service.js";
 import { TestCoverageEvaluationPlugin } from "../test-coverage-evaluation-plugin.js";
-import { toAbsoluteIri } from "@hyperjump/uri";
 
 /**
- * @import { OutputUnit, SchemaObject } from "@hyperjump/json-schema"
+ * @import { OutputUnit } from "@hyperjump/json-schema"
  * @import * as API from "./index.d.ts"
  */
 
@@ -51,12 +48,12 @@ export const matchJsonSchema = async (instance, uriOrSchema) => {
   } else {
     const schema = uriOrSchema;
     const uri = `urn:uuid:${randomUUID()}`;
-    register(schema, uri, "https://json-schema.org/draft/2020-12/schema");
+    registerSchema(schema, uri, "https://json-schema.org/draft/2020-12/schema");
     try {
       // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
       output = await validate(uri, instance, BASIC);
     } finally {
-      unregister(uri);
+      unregisterSchema(uri);
     }
   }
 
@@ -67,56 +64,3 @@ export const matchJsonSchema = async (instance, uriOrSchema) => {
 };
 
 export const toMatchJsonSchema = matchJsonSchema;
-
-/** @type API.registerSchema */
-export const registerSchema = async (schemaPath) => {
-  const text = await readFile(schemaPath, "utf-8");
-  const extension = extname(schemaPath);
-
-  /** @type SchemaObject */
-  let schema;
-  switch (extension) {
-    case ".json":
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-      schema = JSON.parse(text);
-      break;
-    case ".yaml":
-    case ".yml":
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-      schema = YAML.parse(text);
-      break;
-    default:
-      throw Error(`File of type '${extension}' is not supported.`);
-  }
-
-  register(schema);
-};
-
-/** @type (schemaPath: string) => Promise<void> */
-export const unregisterSchema = async (schemaPath) => {
-  const text = await readFile(schemaPath, "utf-8");
-  const extension = extname(schemaPath);
-
-  /** @type SchemaObject */
-  let schema;
-  switch (extension) {
-    case ".json":
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-      schema = JSON.parse(text);
-      break;
-    case ".yaml":
-    case ".yml":
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-      schema = YAML.parse(text);
-      break;
-    default:
-      throw Error(`File of type '${extension}' is not supported.`);
-  }
-
-  const dialectUri = toAbsoluteIri(/** @type string */ (schema.$schema));
-  const idToken = getKeywordName(dialectUri, "https://json-schema.org/keyword/id")
-    ?? getKeywordId("https://json-schema.org/keyword/draft-04/id", dialectUri);
-  const schemaUri = /** @type string */ (schema[idToken]) ?? pathToFileURL(schemaPath).toString();
-
-  unregister(schemaUri);
-};

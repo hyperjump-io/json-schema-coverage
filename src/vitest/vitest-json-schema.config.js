@@ -1,10 +1,6 @@
 import { defineConfig } from "vitest/config";
+import { jsonSchemaCoveragePlugin } from "./json-schema-coverage-plugin.js";
 
 export default defineConfig({
-  test: {
-    coverage: {
-      provider: "custom",
-      customProviderModule: "./src/vitest/coverage-provider.js"
-    }
-  }
+  plugins: [jsonSchemaCoveragePlugin()]
 });
