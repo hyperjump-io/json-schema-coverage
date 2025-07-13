@@ -1,5 +1,6 @@
 import { readFile } from "node:fs/promises";
 import { extname } from "node:path";
+import { pathToFileURL } from "node:url";
 import { compile, getKeyword, getSchema } from "@hyperjump/json-schema/experimental";
 import { jrefTypeOf, Reference } from "@hyperjump/browser/jref";
 import * as JsonPointer from "@hyperjump/json-pointer";
@@ -40,7 +41,8 @@ export class CoverageMapService {
 
   /** @type (schemaPath: string) => Promise<string> */
   async addFromFile(schemaPath) {
-    const schema = await getSchema(schemaPath);
+    const schemaUri = pathToFileURL(schemaPath).toString();
+    const schema = await getSchema(schemaUri);
     const compiledSchema = await compile(schema);
     const tree = await this.#parseToAst(schemaPath);
 

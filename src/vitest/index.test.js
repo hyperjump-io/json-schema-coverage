@@ -62,7 +62,7 @@ describe("Worksheet", () => {
       await addSchemaFile("subject.schema.json", `{
   "$schema": "https://json-schema.org/draft/2020-12/schema"
 }`);
-      await expect(42).to.matchJsonSchema(fixturePath);
+      await expect(42).to.matchJsonSchema(`${fixtureDirectory}/subject.schema.json`);
     });
 
     test("match with registered schema's $id (yaml)", async () => {
@@ -78,7 +78,7 @@ $schema: 'https://json-schema.org/draft/2020-12/schema'
       await addSchemaFile("subject.schema.yaml", `
 $schema: 'https://json-schema.org/draft/2020-12/schema'
 `);
-      await expect(42).to.matchJsonSchema(fixturePath);
+      await expect(42).to.matchJsonSchema(`${fixtureDirectory}/subject.schema.yaml`);
     });
 
     test("match with registered schema's $id (yml)", async () => {
@@ -94,7 +94,7 @@ $schema: 'https://json-schema.org/draft/2020-12/schema'
       await addSchemaFile("subject.schema.yml", `
 $schema: 'https://json-schema.org/draft/2020-12/schema'
 `);
-      await expect(42).to.matchJsonSchema(fixturePath);
+      await expect(42).to.matchJsonSchema(`${fixtureDirectory}/subject.schema.yml`);
     });
 
     test("registered with draft-04 id", async () => {

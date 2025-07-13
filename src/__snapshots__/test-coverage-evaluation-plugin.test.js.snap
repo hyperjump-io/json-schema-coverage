@@ -2,7 +2,7 @@
 
 exports[`TestCoverageEvaluationPlugin > both branches of a branching keyword 1`] = `
 {
-  "/.test-coverage-evaluation-plugin-fixtures/subject.schema.json": {
+  ".test-coverage-evaluation-plugin-fixtures/subject.schema.json": {
     "b": {
       ".test-coverage-evaluation-plugin-fixtures/subject.schema.json#/type": [
         1,
@@ -76,7 +76,7 @@ exports[`TestCoverageEvaluationPlugin > both branches of a branching keyword 1`]
         "name": ".test-coverage-evaluation-plugin-fixtures/subject.schema.json#",
       },
     },
-    "path": "/.test-coverage-evaluation-plugin-fixtures/subject.schema.json",
+    "path": ".test-coverage-evaluation-plugin-fixtures/subject.schema.json",
     "s": {
       ".test-coverage-evaluation-plugin-fixtures/subject.schema.json#": 2,
       ".test-coverage-evaluation-plugin-fixtures/subject.schema.json#/type": 2,
@@ -109,7 +109,7 @@ exports[`TestCoverageEvaluationPlugin > both branches of a branching keyword 1`]
 
 exports[`TestCoverageEvaluationPlugin > embedded schema 1`] = `
 {
-  "/.test-coverage-evaluation-plugin-fixtures/subject.schema.json": {
+  ".test-coverage-evaluation-plugin-fixtures/subject.schema.json": {
     "b": {
       ".test-coverage-evaluation-plugin-fixtures/subject.schema.json#/$defs/foo/type": [
         0,
@@ -233,7 +233,7 @@ exports[`TestCoverageEvaluationPlugin > embedded schema 1`] = `
         "name": ".test-coverage-evaluation-plugin-fixtures/subject.schema.json#/properties/foo",
       },
     },
-    "path": "/.test-coverage-evaluation-plugin-fixtures/subject.schema.json",
+    "path": ".test-coverage-evaluation-plugin-fixtures/subject.schema.json",
     "s": {
       ".test-coverage-evaluation-plugin-fixtures/subject.schema.json#": 1,
       ".test-coverage-evaluation-plugin-fixtures/subject.schema.json#/$defs/foo": 1,
@@ -310,7 +310,7 @@ exports[`TestCoverageEvaluationPlugin > embedded schema 1`] = `
 
 exports[`TestCoverageEvaluationPlugin > failing branching keyword 1`] = `
 {
-  "/.test-coverage-evaluation-plugin-fixtures/subject.schema.json": {
+  ".test-coverage-evaluation-plugin-fixtures/subject.schema.json": {
     "b": {
       ".test-coverage-evaluation-plugin-fixtures/subject.schema.json#/type": [
         1,
@@ -384,7 +384,7 @@ exports[`TestCoverageEvaluationPlugin > failing branching keyword 1`] = `
         "name": ".test-coverage-evaluation-plugin-fixtures/subject.schema.json#",
       },
     },
-    "path": "/.test-coverage-evaluation-plugin-fixtures/subject.schema.json",
+    "path": ".test-coverage-evaluation-plugin-fixtures/subject.schema.json",
     "s": {
       ".test-coverage-evaluation-plugin-fixtures/subject.schema.json#": 1,
       ".test-coverage-evaluation-plugin-fixtures/subject.schema.json#/type": 1,
@@ -417,7 +417,7 @@ exports[`TestCoverageEvaluationPlugin > failing branching keyword 1`] = `
 
 exports[`TestCoverageEvaluationPlugin > non-branching keyword 1`] = `
 {
-  "/.test-coverage-evaluation-plugin-fixtures/subject.schema.json": {
+  ".test-coverage-evaluation-plugin-fixtures/subject.schema.json": {
     "b": {},
     "branchMap": {},
     "f": {
@@ -449,7 +449,7 @@ exports[`TestCoverageEvaluationPlugin > non-branching keyword 1`] = `
         "name": ".test-coverage-evaluation-plugin-fixtures/subject.schema.json#",
       },
     },
-    "path": "/.test-coverage-evaluation-plugin-fixtures/subject.schema.json",
+    "path": ".test-coverage-evaluation-plugin-fixtures/subject.schema.json",
     "s": {
       ".test-coverage-evaluation-plugin-fixtures/subject.schema.json#": 1,
       ".test-coverage-evaluation-plugin-fixtures/subject.schema.json#/title": 1,
@@ -482,7 +482,7 @@ exports[`TestCoverageEvaluationPlugin > non-branching keyword 1`] = `
 
 exports[`TestCoverageEvaluationPlugin > non-statement keyword 1`] = `
 {
-  "/.test-coverage-evaluation-plugin-fixtures/subject.schema.json": {
+  ".test-coverage-evaluation-plugin-fixtures/subject.schema.json": {
     "b": {},
     "branchMap": {},
     "f": {
@@ -514,7 +514,7 @@ exports[`TestCoverageEvaluationPlugin > non-statement keyword 1`] = `
         "name": ".test-coverage-evaluation-plugin-fixtures/subject.schema.json#",
       },
     },
-    "path": "/.test-coverage-evaluation-plugin-fixtures/subject.schema.json",
+    "path": ".test-coverage-evaluation-plugin-fixtures/subject.schema.json",
     "s": {
       ".test-coverage-evaluation-plugin-fixtures/subject.schema.json#": 1,
     },
@@ -536,7 +536,7 @@ exports[`TestCoverageEvaluationPlugin > non-statement keyword 1`] = `
 
 exports[`TestCoverageEvaluationPlugin > passing branching keyword 1`] = `
 {
-  "/.test-coverage-evaluation-plugin-fixtures/subject.schema.json": {
+  ".test-coverage-evaluation-plugin-fixtures/subject.schema.json": {
     "b": {
       ".test-coverage-evaluation-plugin-fixtures/subject.schema.json#/type": [
         0,
@@ -610,7 +610,7 @@ exports[`TestCoverageEvaluationPlugin > passing branching keyword 1`] = `
         "name": ".test-coverage-evaluation-plugin-fixtures/subject.schema.json#",
       },
     },
-    "path": "/.test-coverage-evaluation-plugin-fixtures/subject.schema.json",
+    "path": ".test-coverage-evaluation-plugin-fixtures/subject.schema.json",
     "s": {
       ".test-coverage-evaluation-plugin-fixtures/subject.schema.json#": 1,
       ".test-coverage-evaluation-plugin-fixtures/subject.schema.json#/type": 1,
@@ -643,7 +643,7 @@ exports[`TestCoverageEvaluationPlugin > passing branching keyword 1`] = `
 
 exports[`TestCoverageEvaluationPlugin > reference to a non-file schema 1`] = `
 {
-  "/.test-coverage-evaluation-plugin-fixtures/subject.schema.json": {
+  ".test-coverage-evaluation-plugin-fixtures/subject.schema.json": {
     "b": {},
     "branchMap": {},
     "f": {
@@ -675,7 +675,7 @@ exports[`TestCoverageEvaluationPlugin > reference to a non-file schema 1`] = `
         "name": "https://example.com/subject#",
       },
     },
-    "path": "/.test-coverage-evaluation-plugin-fixtures/subject.schema.json",
+    "path": ".test-coverage-evaluation-plugin-fixtures/subject.schema.json",
     "s": {
       "https://example.com/subject#": 1,
       "https://example.com/subject#/$ref": 1,
@@ -708,7 +708,7 @@ exports[`TestCoverageEvaluationPlugin > reference to a non-file schema 1`] = `
 
 exports[`TestCoverageEvaluationPlugin > root schema 1`] = `
 {
-  "/.test-coverage-evaluation-plugin-fixtures/subject.schema.json": {
+  ".test-coverage-evaluation-plugin-fixtures/subject.schema.json": {
     "b": {},
     "branchMap": {},
     "f": {
@@ -740,7 +740,7 @@ exports[`TestCoverageEvaluationPlugin > root schema 1`] = `
         "name": ".test-coverage-evaluation-plugin-fixtures/subject.schema.json#",
       },
     },
-    "path": "/.test-coverage-evaluation-plugin-fixtures/subject.schema.json",
+    "path": ".test-coverage-evaluation-plugin-fixtures/subject.schema.json",
     "s": {
       ".test-coverage-evaluation-plugin-fixtures/subject.schema.json#": 1,
     },
@@ -762,7 +762,7 @@ exports[`TestCoverageEvaluationPlugin > root schema 1`] = `
 
 exports[`TestCoverageEvaluationPlugin > sub-schema 1`] = `
 {
-  "/.test-coverage-evaluation-plugin-fixtures/subject.schema.json": {
+  ".test-coverage-evaluation-plugin-fixtures/subject.schema.json": {
     "b": {},
     "branchMap": {},
     "f": {
@@ -819,7 +819,7 @@ exports[`TestCoverageEvaluationPlugin > sub-schema 1`] = `
         "name": ".test-coverage-evaluation-plugin-fixtures/subject.schema.json#/properties/foo",
       },
     },
-    "path": "/.test-coverage-evaluation-plugin-fixtures/subject.schema.json",
+    "path": ".test-coverage-evaluation-plugin-fixtures/subject.schema.json",
     "s": {
       ".test-coverage-evaluation-plugin-fixtures/subject.schema.json#": 1,
       ".test-coverage-evaluation-plugin-fixtures/subject.schema.json#/properties": 1,
@@ -863,7 +863,7 @@ exports[`TestCoverageEvaluationPlugin > sub-schema 1`] = `
 
 exports[`TestCoverageEvaluationPlugin > sub-schema that isn't evaluated 1`] = `
 {
-  "/.test-coverage-evaluation-plugin-fixtures/subject.schema.json": {
+  ".test-coverage-evaluation-plugin-fixtures/subject.schema.json": {
     "b": {},
     "branchMap": {},
     "f": {
@@ -920,7 +920,7 @@ exports[`TestCoverageEvaluationPlugin > sub-schema that isn't evaluated 1`] = `
         "name": ".test-coverage-evaluation-plugin-fixtures/subject.schema.json#/properties/foo",
       },
     },
-    "path": "/.test-coverage-evaluation-plugin-fixtures/subject.schema.json",
+    "path": ".test-coverage-evaluation-plugin-fixtures/subject.schema.json",
     "s": {
       ".test-coverage-evaluation-plugin-fixtures/subject.schema.json#": 1,
       ".test-coverage-evaluation-plugin-fixtures/subject.schema.json#/properties": 1,

@@ -43,7 +43,7 @@ describe("TestCoverageEvaluationPlugin", () => {
   "$schema": "https://json-schema.org/draft/2020-12/schema"
 }`);
     const testCoveragePlugin = new TestCoverageEvaluationPlugin(coverageMapService);
-    await validate(fixturePath, 42, { plugins: [testCoveragePlugin] });
+    await validate(`${fixtureDirectory}/subject.schema.json`, 42, { plugins: [testCoveragePlugin] });
 
     expect(censorCoverageMap(testCoveragePlugin.coverage)).toMatchSnapshot();
   });
@@ -54,7 +54,7 @@ describe("TestCoverageEvaluationPlugin", () => {
   "type": "number"
 }`);
     const testCoveragePlugin = new TestCoverageEvaluationPlugin(coverageMapService);
-    await validate(fixturePath, 42, { plugins: [testCoveragePlugin] });
+    await validate(`${fixtureDirectory}/subject.schema.json`, 42, { plugins: [testCoveragePlugin] });
 
     expect(censorCoverageMap(testCoveragePlugin.coverage)).toMatchSnapshot();
   });
@@ -65,7 +65,7 @@ describe("TestCoverageEvaluationPlugin", () => {
   "type": "number"
 }`);
     const testCoveragePlugin = new TestCoverageEvaluationPlugin(coverageMapService);
-    await validate(fixturePath, "foo", { plugins: [testCoveragePlugin] });
+    await validate(`${fixtureDirectory}/subject.schema.json`, "foo", { plugins: [testCoveragePlugin] });
 
     expect(censorCoverageMap(testCoveragePlugin.coverage)).toMatchSnapshot();
   });
@@ -76,8 +76,8 @@ describe("TestCoverageEvaluationPlugin", () => {
   "type": "number"
 }`);
     const testCoveragePlugin = new TestCoverageEvaluationPlugin(coverageMapService);
-    await validate(fixturePath, 42, { plugins: [testCoveragePlugin] });
-    await validate(fixturePath, "foo", { plugins: [testCoveragePlugin] });
+    await validate(`${fixtureDirectory}/subject.schema.json`, 42, { plugins: [testCoveragePlugin] });
+    await validate(`${fixtureDirectory}/subject.schema.json`, "foo", { plugins: [testCoveragePlugin] });
 
     expect(censorCoverageMap(testCoveragePlugin.coverage)).toMatchSnapshot();
   });
@@ -88,7 +88,7 @@ describe("TestCoverageEvaluationPlugin", () => {
   "title": "Foo"
 }`);
     const testCoveragePlugin = new TestCoverageEvaluationPlugin(coverageMapService);
-    await validate(fixturePath, 42, { plugins: [testCoveragePlugin] });
+    await validate(`${fixtureDirectory}/subject.schema.json`, 42, { plugins: [testCoveragePlugin] });
 
     expect(censorCoverageMap(testCoveragePlugin.coverage)).toMatchSnapshot();
   });
@@ -99,7 +99,7 @@ describe("TestCoverageEvaluationPlugin", () => {
   "$comment": "Foo"
 }`);
     const testCoveragePlugin = new TestCoverageEvaluationPlugin(coverageMapService);
-    await validate(fixturePath, 42, { plugins: [testCoveragePlugin] });
+    await validate(`${fixtureDirectory}/subject.schema.json`, 42, { plugins: [testCoveragePlugin] });
 
     expect(censorCoverageMap(testCoveragePlugin.coverage)).toMatchSnapshot();
   });
@@ -112,7 +112,7 @@ describe("TestCoverageEvaluationPlugin", () => {
   }
 }`);
     const testCoveragePlugin = new TestCoverageEvaluationPlugin(coverageMapService);
-    await validate(fixturePath, { foo: 42 }, { plugins: [testCoveragePlugin] });
+    await validate(`${fixtureDirectory}/subject.schema.json`, { foo: 42 }, { plugins: [testCoveragePlugin] });
 
     expect(censorCoverageMap(testCoveragePlugin.coverage)).toMatchSnapshot();
   });
@@ -125,7 +125,7 @@ describe("TestCoverageEvaluationPlugin", () => {
   }
 }`);
     const testCoveragePlugin = new TestCoverageEvaluationPlugin(coverageMapService);
-    await validate(fixturePath, 42, { plugins: [testCoveragePlugin] });
+    await validate(`${fixtureDirectory}/subject.schema.json`, 42, { plugins: [testCoveragePlugin] });
 
     expect(censorCoverageMap(testCoveragePlugin.coverage)).toMatchSnapshot();
   });
@@ -141,7 +141,7 @@ describe("TestCoverageEvaluationPlugin", () => {
   }
 }`);
     const testCoveragePlugin = new TestCoverageEvaluationPlugin(coverageMapService);
-    await validate(fixturePath, { foo: 42 }, { plugins: [testCoveragePlugin] });
+    await validate(`${fixtureDirectory}/subject.schema.json`, { foo: 42 }, { plugins: [testCoveragePlugin] });
 
     expect(censorCoverageMap(testCoveragePlugin.coverage)).toMatchSnapshot();
   });
@@ -154,7 +154,7 @@ describe("TestCoverageEvaluationPlugin", () => {
   "$ref": "/foo"
 }`);
     const testCoveragePlugin = new TestCoverageEvaluationPlugin(coverageMapService);
-    await validate(fixturePath, 42, { plugins: [testCoveragePlugin] });
+    await validate(`${fixtureDirectory}/subject.schema.json`, 42, { plugins: [testCoveragePlugin] });
 
     expect(censorCoverageMap(testCoveragePlugin.coverage)).toMatchSnapshot();
   });

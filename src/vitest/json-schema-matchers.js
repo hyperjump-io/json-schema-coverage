@@ -1,7 +1,7 @@
 import { randomUUID } from "node:crypto";
 import { existsSync } from "node:fs";
 import { readFile, writeFile } from "node:fs/promises";
-import { extname } from "node:path";
+import { extname, join } from "node:path";
 import { pathToFileURL } from "node:url";
 import { registerSchema as register, unregisterSchema as unregister, validate } from "./json-schema.js";
 import { getKeywordId, getKeywordName, BASIC } from "@hyperjump/json-schema/experimental";
@@ -16,7 +16,7 @@ import { toAbsoluteIri } from "@hyperjump/uri";
  */
 
 const coverageFilesDirectory = ".json-schema-coverage";
-const coverageMapsDirectory = ".json-schema-coverage/maps";
+const coverageMapsDirectory = join(".json-schema-coverage", "maps");
 
 /** @type FileCoverageMapService */
 let coverageService;
@@ -41,7 +41,7 @@ export const matchJsonSchema = async (instance, uriOrSchema) => {
         plugins: [testCoveragePlugin]
       });
 
-      const coverageMapPath = `${coverageFilesDirectory}/${randomUUID()}.json`;
+      const coverageMapPath = join(coverageFilesDirectory, `${randomUUID()}.json`);
       const coverageMapJson = JSON.stringify(testCoveragePlugin.coverage);
       await writeFile(coverageMapPath, coverageMapJson);
     } else {

@@ -40,7 +40,7 @@ class JsonSchemaCoverageProvider {
   globCache = new Map();
 
   coverageFilesDirectory = ".json-schema-coverage";
-  coverageService = new FileCoverageMapService(".json-schema-coverage/maps");
+  coverageService = new FileCoverageMapService(path.join(".json-schema-coverage", "maps"));
 
   /** @type CoverageProvider["initialize"] */
   initialize(ctx) {
@@ -65,7 +65,7 @@ class JsonSchemaCoverageProvider {
       reporter: resolveCoverageReporters(config.reporter || coverageConfigDefaults.reporter)
     };
 
-    const buildScriptPath = path.resolve(import.meta.dirname, "./build-coverage-maps.js");
+    const buildScriptPath = path.resolve(import.meta.dirname, "build-coverage-maps.js");
     /** @type string[] */ (ctx.config.globalSetup).push(buildScriptPath);
   }
 

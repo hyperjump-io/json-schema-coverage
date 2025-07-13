@@ -1,6 +1,6 @@
 import { existsSync } from "node:fs";
 import { readFile } from "node:fs/promises";
-import { resolve } from "node:path";
+import { join, resolve } from "node:path";
 import { glob } from "tinyglobby";
 import ignore from "ignore";
 import { registerSchema } from "./json-schema-matchers.js";
@@ -14,7 +14,7 @@ import { FileCoverageMapService } from "./file-coverage-map-service.js";
 export const setup = async (projects) => {
   const config = projects.vitest.config;
 
-  const coverageService = new FileCoverageMapService(".json-schema-coverage/maps");
+  const coverageService = new FileCoverageMapService(join(".json-schema-coverage", "maps"));
 
   // If --project filter is set pick only roots of resolved projects
   const roots = config.project?.length
