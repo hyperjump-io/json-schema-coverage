@@ -67,7 +67,7 @@ export default defineConfig({
   plugins: [jsonSchemaCoveragePlugin()],
   test: {
     globalSetup: ["./register-my-dialect.ts"], // Optional
-    include: ["schema-tests/"], // Optional
+    include: ["schema-tests/**/*.test.ts"], // Optional
     coverage: {
       include: ["schemas/**/*.json"] // Optional
     }

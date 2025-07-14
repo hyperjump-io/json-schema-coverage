@@ -25,7 +25,7 @@
   },
   "scripts": {
     "lint": "eslint src",
-    "test": "vitest run --config src/vitest/vitest-json-schema.config.js",
+    "test": "vitest run --config src/vitest/vitest-json-schema.config.js --coverage",
     "test:coverage": "vitest run --coverage",
     "type-check": "tsc --noEmit",
     "docs": "typedoc"
@@ -37,6 +37,7 @@
     "@types/istanbul-reports": "^3.0.4",
     "@types/moo": "^0.5.10",
     "@types/node": "*",
+    "@types/picomatch": "^4.0.0",
     "@types/unist": "^3.0.3",
     "@vitest/coverage-v8": "^3.2.4",
     "eslint-import-resolver-typescript": "*",
@@ -56,6 +57,7 @@
     "istanbul-reports": "^3.1.7",
     "moo": "^0.5.2",
     "pathe": "^2.0.3",
+    "picomatch": "^4.0.2",
     "tinyglobby": "^0.2.14",
     "vfile": "^6.0.3",
     "yaml": "^2.8.0",
