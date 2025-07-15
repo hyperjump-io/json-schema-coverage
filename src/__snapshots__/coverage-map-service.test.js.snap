@@ -13,7 +13,7 @@ exports[`CoverageMapService JSON > $comment isn't a statement 1`] = `
         "decl": {
           "end": {
             "column": 0,
-            "line": 1,
+            "line": 4,
           },
           "start": {
             "column": 0,
@@ -35,21 +35,8 @@ exports[`CoverageMapService JSON > $comment isn't a statement 1`] = `
       },
     },
     "path": ".coverage-map-service-fixtures/subject.schema.json",
-    "s": {
-      ".coverage-map-service-fixtures/subject.schema.json#": 0,
-    },
-    "statementMap": {
-      ".coverage-map-service-fixtures/subject.schema.json#": {
-        "end": {
-          "column": 0,
-          "line": 4,
-        },
-        "start": {
-          "column": 0,
-          "line": 1,
-        },
-      },
-    },
+    "s": {},
+    "statementMap": {},
   },
 }
 `;
@@ -67,7 +54,7 @@ exports[`CoverageMapService JSON > $defs isn't a statement 1`] = `
         "decl": {
           "end": {
             "column": 0,
-            "line": 1,
+            "line": 4,
           },
           "start": {
             "column": 0,
@@ -89,21 +76,8 @@ exports[`CoverageMapService JSON > $defs isn't a statement 1`] = `
       },
     },
     "path": ".coverage-map-service-fixtures/subject.schema.json",
-    "s": {
-      ".coverage-map-service-fixtures/subject.schema.json#": 0,
-    },
-    "statementMap": {
-      ".coverage-map-service-fixtures/subject.schema.json#": {
-        "end": {
-          "column": 0,
-          "line": 4,
-        },
-        "start": {
-          "column": 0,
-          "line": 1,
-        },
-      },
-    },
+    "s": {},
+    "statementMap": {},
   },
 }
 `;
@@ -121,7 +95,7 @@ exports[`CoverageMapService JSON > $dynamicRef doesn't branch 1`] = `
         "decl": {
           "end": {
             "column": 0,
-            "line": 1,
+            "line": 5,
           },
           "start": {
             "column": 0,
@@ -144,20 +118,9 @@ exports[`CoverageMapService JSON > $dynamicRef doesn't branch 1`] = `
     },
     "path": ".coverage-map-service-fixtures/subject.schema.json",
     "s": {
-      ".coverage-map-service-fixtures/subject.schema.json#": 0,
       ".coverage-map-service-fixtures/subject.schema.json#/$dynamicRef": 0,
     },
     "statementMap": {
-      ".coverage-map-service-fixtures/subject.schema.json#": {
-        "end": {
-          "column": 0,
-          "line": 5,
-        },
-        "start": {
-          "column": 0,
-          "line": 1,
-        },
-      },
       ".coverage-map-service-fixtures/subject.schema.json#/$dynamicRef": {
         "end": {
           "column": 22,
@@ -187,7 +150,7 @@ exports[`CoverageMapService JSON > $ref doesn't branch 1`] = `
         "decl": {
           "end": {
             "column": 0,
-            "line": 1,
+            "line": 7,
           },
           "start": {
             "column": 0,
@@ -210,11 +173,11 @@ exports[`CoverageMapService JSON > $ref doesn't branch 1`] = `
       ".coverage-map-service-fixtures/subject.schema.json#/$defs/foo": {
         "decl": {
           "end": {
-            "column": 8,
+            "column": 14,
             "line": 5,
           },
           "start": {
-            "column": 4,
+            "column": 11,
             "line": 5,
           },
         },
@@ -225,7 +188,7 @@ exports[`CoverageMapService JSON > $ref doesn't branch 1`] = `
             "line": 5,
           },
           "start": {
-            "column": 4,
+            "column": 11,
             "line": 5,
           },
         },
@@ -234,31 +197,9 @@ exports[`CoverageMapService JSON > $ref doesn't branch 1`] = `
     },
     "path": ".coverage-map-service-fixtures/subject.schema.json",
     "s": {
-      ".coverage-map-service-fixtures/subject.schema.json#": 0,
-      ".coverage-map-service-fixtures/subject.schema.json#/$defs/foo": 0,
       ".coverage-map-service-fixtures/subject.schema.json#/$ref": 0,
     },
     "statementMap": {
-      ".coverage-map-service-fixtures/subject.schema.json#": {
-        "end": {
-          "column": 0,
-          "line": 7,
-        },
-        "start": {
-          "column": 0,
-          "line": 1,
-        },
-      },
-      ".coverage-map-service-fixtures/subject.schema.json#/$defs/foo": {
-        "end": {
-          "column": 14,
-          "line": 5,
-        },
-        "start": {
-          "column": 4,
-          "line": 5,
-        },
-      },
       ".coverage-map-service-fixtures/subject.schema.json#/$ref": {
         "end": {
           "column": 22,
@@ -288,7 +229,7 @@ exports[`CoverageMapService JSON > additionalItems doesn't branch 1`] = `
         "decl": {
           "end": {
             "column": 0,
-            "line": 1,
+            "line": 4,
           },
           "start": {
             "column": 0,
@@ -311,11 +252,11 @@ exports[`CoverageMapService JSON > additionalItems doesn't branch 1`] = `
       ".coverage-map-service-fixtures/subject.schema.json#/additionalItems": {
         "decl": {
           "end": {
-            "column": 18,
+            "column": 24,
             "line": 3,
           },
           "start": {
-            "column": 2,
+            "column": 21,
             "line": 3,
           },
         },
@@ -326,7 +267,7 @@ exports[`CoverageMapService JSON > additionalItems doesn't branch 1`] = `
             "line": 3,
           },
           "start": {
-            "column": 2,
+            "column": 21,
             "line": 3,
           },
         },
@@ -335,20 +276,9 @@ exports[`CoverageMapService JSON > additionalItems doesn't branch 1`] = `
     },
     "path": ".coverage-map-service-fixtures/subject.schema.json",
     "s": {
-      ".coverage-map-service-fixtures/subject.schema.json#": 0,
       ".coverage-map-service-fixtures/subject.schema.json#/additionalItems": 0,
     },
     "statementMap": {
-      ".coverage-map-service-fixtures/subject.schema.json#": {
-        "end": {
-          "column": 0,
-          "line": 4,
-        },
-        "start": {
-          "column": 0,
-          "line": 1,
-        },
-      },
       ".coverage-map-service-fixtures/subject.schema.json#/additionalItems": {
         "end": {
           "column": 24,
@@ -377,7 +307,7 @@ exports[`CoverageMapService JSON > addtionalProperties doesn't branch 1`] = `
         "decl": {
           "end": {
             "column": 0,
-            "line": 1,
+            "line": 4,
           },
           "start": {
             "column": 0,
@@ -400,20 +330,9 @@ exports[`CoverageMapService JSON > addtionalProperties doesn't branch 1`] = `
     },
     "path": ".coverage-map-service-fixtures/subject.schema.json",
     "s": {
-      ".coverage-map-service-fixtures/subject.schema.json#": 0,
       ".coverage-map-service-fixtures/subject.schema.json#/addtionalProperties": 0,
     },
     "statementMap": {
-      ".coverage-map-service-fixtures/subject.schema.json#": {
-        "end": {
-          "column": 0,
-          "line": 4,
-        },
-        "start": {
-          "column": 0,
-          "line": 1,
-        },
-      },
       ".coverage-map-service-fixtures/subject.schema.json#/addtionalProperties": {
         "end": {
           "column": 28,
@@ -443,7 +362,7 @@ exports[`CoverageMapService JSON > allOf doesn't branch 1`] = `
         "decl": {
           "end": {
             "column": 0,
-            "line": 1,
+            "line": 4,
           },
           "start": {
             "column": 0,
@@ -466,7 +385,7 @@ exports[`CoverageMapService JSON > allOf doesn't branch 1`] = `
       ".coverage-map-service-fixtures/subject.schema.json#/allOf/0": {
         "decl": {
           "end": {
-            "column": 12,
+            "column": 15,
             "line": 3,
           },
           "start": {
@@ -490,21 +409,9 @@ exports[`CoverageMapService JSON > allOf doesn't branch 1`] = `
     },
     "path": ".coverage-map-service-fixtures/subject.schema.json",
     "s": {
-      ".coverage-map-service-fixtures/subject.schema.json#": 0,
       ".coverage-map-service-fixtures/subject.schema.json#/allOf": 0,
-      ".coverage-map-service-fixtures/subject.schema.json#/allOf/0": 0,
     },
     "statementMap": {
-      ".coverage-map-service-fixtures/subject.schema.json#": {
-        "end": {
-          "column": 0,
-          "line": 4,
-        },
-        "start": {
-          "column": 0,
-          "line": 1,
-        },
-      },
       ".coverage-map-service-fixtures/subject.schema.json#/allOf": {
         "end": {
           "column": 16,
@@ -512,16 +419,6 @@ exports[`CoverageMapService JSON > allOf doesn't branch 1`] = `
         },
         "start": {
           "column": 2,
-          "line": 3,
-        },
-      },
-      ".coverage-map-service-fixtures/subject.schema.json#/allOf/0": {
-        "end": {
-          "column": 15,
-          "line": 3,
-        },
-        "start": {
-          "column": 12,
           "line": 3,
         },
       },
@@ -543,7 +440,7 @@ exports[`CoverageMapService JSON > default doesn't branch 1`] = `
         "decl": {
           "end": {
             "column": 0,
-            "line": 1,
+            "line": 4,
           },
           "start": {
             "column": 0,
@@ -566,20 +463,9 @@ exports[`CoverageMapService JSON > default doesn't branch 1`] = `
     },
     "path": ".coverage-map-service-fixtures/subject.schema.json",
     "s": {
-      ".coverage-map-service-fixtures/subject.schema.json#": 0,
       ".coverage-map-service-fixtures/subject.schema.json#/default": 0,
     },
     "statementMap": {
-      ".coverage-map-service-fixtures/subject.schema.json#": {
-        "end": {
-          "column": 0,
-          "line": 4,
-        },
-        "start": {
-          "column": 0,
-          "line": 1,
-        },
-      },
       ".coverage-map-service-fixtures/subject.schema.json#/default": {
         "end": {
           "column": 17,
@@ -609,7 +495,7 @@ exports[`CoverageMapService JSON > dependentSchemas doesn't branch 1`] = `
         "decl": {
           "end": {
             "column": 0,
-            "line": 1,
+            "line": 6,
           },
           "start": {
             "column": 0,
@@ -632,11 +518,11 @@ exports[`CoverageMapService JSON > dependentSchemas doesn't branch 1`] = `
       ".coverage-map-service-fixtures/subject.schema.json#/dependentSchemas/foo": {
         "decl": {
           "end": {
-            "column": 8,
+            "column": 14,
             "line": 4,
           },
           "start": {
-            "column": 4,
+            "column": 11,
             "line": 4,
           },
         },
@@ -647,7 +533,7 @@ exports[`CoverageMapService JSON > dependentSchemas doesn't branch 1`] = `
             "line": 4,
           },
           "start": {
-            "column": 4,
+            "column": 11,
             "line": 4,
           },
         },
@@ -656,21 +542,9 @@ exports[`CoverageMapService JSON > dependentSchemas doesn't branch 1`] = `
     },
     "path": ".coverage-map-service-fixtures/subject.schema.json",
     "s": {
-      ".coverage-map-service-fixtures/subject.schema.json#": 0,
       ".coverage-map-service-fixtures/subject.schema.json#/dependentSchemas": 0,
-      ".coverage-map-service-fixtures/subject.schema.json#/dependentSchemas/foo": 0,
     },
     "statementMap": {
-      ".coverage-map-service-fixtures/subject.schema.json#": {
-        "end": {
-          "column": 0,
-          "line": 6,
-        },
-        "start": {
-          "column": 0,
-          "line": 1,
-        },
-      },
       ".coverage-map-service-fixtures/subject.schema.json#/dependentSchemas": {
         "end": {
           "column": 2,
@@ -679,16 +553,6 @@ exports[`CoverageMapService JSON > dependentSchemas doesn't branch 1`] = `
         "start": {
           "column": 2,
           "line": 3,
-        },
-      },
-      ".coverage-map-service-fixtures/subject.schema.json#/dependentSchemas/foo": {
-        "end": {
-          "column": 14,
-          "line": 4,
-        },
-        "start": {
-          "column": 4,
-          "line": 4,
         },
       },
     },
@@ -709,7 +573,7 @@ exports[`CoverageMapService JSON > deprecated doesn't branch 1`] = `
         "decl": {
           "end": {
             "column": 0,
-            "line": 1,
+            "line": 4,
           },
           "start": {
             "column": 0,
@@ -732,20 +596,9 @@ exports[`CoverageMapService JSON > deprecated doesn't branch 1`] = `
     },
     "path": ".coverage-map-service-fixtures/subject.schema.json",
     "s": {
-      ".coverage-map-service-fixtures/subject.schema.json#": 0,
       ".coverage-map-service-fixtures/subject.schema.json#/deprecated": 0,
     },
     "statementMap": {
-      ".coverage-map-service-fixtures/subject.schema.json#": {
-        "end": {
-          "column": 0,
-          "line": 4,
-        },
-        "start": {
-          "column": 0,
-          "line": 1,
-        },
-      },
       ".coverage-map-service-fixtures/subject.schema.json#/deprecated": {
         "end": {
           "column": 19,
@@ -774,7 +627,7 @@ exports[`CoverageMapService JSON > description doesn't branch 1`] = `
         "decl": {
           "end": {
             "column": 0,
-            "line": 1,
+            "line": 4,
           },
           "start": {
             "column": 0,
@@ -797,20 +650,9 @@ exports[`CoverageMapService JSON > description doesn't branch 1`] = `
     },
     "path": ".coverage-map-service-fixtures/subject.schema.json",
     "s": {
-      ".coverage-map-service-fixtures/subject.schema.json#": 0,
       ".coverage-map-service-fixtures/subject.schema.json#/description": 0,
     },
     "statementMap": {
-      ".coverage-map-service-fixtures/subject.schema.json#": {
-        "end": {
-          "column": 0,
-          "line": 4,
-        },
-        "start": {
-          "column": 0,
-          "line": 1,
-        },
-      },
       ".coverage-map-service-fixtures/subject.schema.json#/description": {
         "end": {
           "column": 21,
@@ -840,7 +682,7 @@ exports[`CoverageMapService JSON > draft-04 items doesn't branch 1`] = `
         "decl": {
           "end": {
             "column": 0,
-            "line": 1,
+            "line": 4,
           },
           "start": {
             "column": 0,
@@ -863,11 +705,11 @@ exports[`CoverageMapService JSON > draft-04 items doesn't branch 1`] = `
       ".coverage-map-service-fixtures/subject.schema.json#/items": {
         "decl": {
           "end": {
-            "column": 8,
+            "column": 14,
             "line": 3,
           },
           "start": {
-            "column": 2,
+            "column": 11,
             "line": 3,
           },
         },
@@ -878,7 +720,7 @@ exports[`CoverageMapService JSON > draft-04 items doesn't branch 1`] = `
             "line": 3,
           },
           "start": {
-            "column": 2,
+            "column": 11,
             "line": 3,
           },
         },
@@ -887,20 +729,9 @@ exports[`CoverageMapService JSON > draft-04 items doesn't branch 1`] = `
     },
     "path": ".coverage-map-service-fixtures/subject.schema.json",
     "s": {
-      ".coverage-map-service-fixtures/subject.schema.json#": 0,
       ".coverage-map-service-fixtures/subject.schema.json#/items": 0,
     },
     "statementMap": {
-      ".coverage-map-service-fixtures/subject.schema.json#": {
-        "end": {
-          "column": 0,
-          "line": 4,
-        },
-        "start": {
-          "column": 0,
-          "line": 1,
-        },
-      },
       ".coverage-map-service-fixtures/subject.schema.json#/items": {
         "end": {
           "column": 14,
@@ -929,7 +760,7 @@ exports[`CoverageMapService JSON > else doesn't branch 1`] = `
         "decl": {
           "end": {
             "column": 0,
-            "line": 1,
+            "line": 4,
           },
           "start": {
             "column": 0,
@@ -952,20 +783,9 @@ exports[`CoverageMapService JSON > else doesn't branch 1`] = `
     },
     "path": ".coverage-map-service-fixtures/subject.schema.json",
     "s": {
-      ".coverage-map-service-fixtures/subject.schema.json#": 0,
       ".coverage-map-service-fixtures/subject.schema.json#/else": 0,
     },
     "statementMap": {
-      ".coverage-map-service-fixtures/subject.schema.json#": {
-        "end": {
-          "column": 0,
-          "line": 4,
-        },
-        "start": {
-          "column": 0,
-          "line": 1,
-        },
-      },
       ".coverage-map-service-fixtures/subject.schema.json#/else": {
         "end": {
           "column": 13,
@@ -1037,7 +857,7 @@ exports[`CoverageMapService JSON > embedded schema 1`] = `
         "decl": {
           "end": {
             "column": 0,
-            "line": 1,
+            "line": 10,
           },
           "start": {
             "column": 0,
@@ -1060,8 +880,8 @@ exports[`CoverageMapService JSON > embedded schema 1`] = `
       "https://example.com/foo#": {
         "decl": {
           "end": {
-            "column": 11,
-            "line": 5,
+            "column": 4,
+            "line": 8,
           },
           "start": {
             "column": 11,
@@ -1084,22 +904,10 @@ exports[`CoverageMapService JSON > embedded schema 1`] = `
     },
     "path": ".coverage-map-service-fixtures/subject.schema.json",
     "s": {
-      ".coverage-map-service-fixtures/subject.schema.json#": 0,
       ".coverage-map-service-fixtures/subject.schema.json#/$ref": 0,
-      "https://example.com/foo#": 0,
       "https://example.com/foo#/type": 0,
     },
     "statementMap": {
-      ".coverage-map-service-fixtures/subject.schema.json#": {
-        "end": {
-          "column": 0,
-          "line": 10,
-        },
-        "start": {
-          "column": 0,
-          "line": 1,
-        },
-      },
       ".coverage-map-service-fixtures/subject.schema.json#/$ref": {
         "end": {
           "column": 34,
@@ -1108,16 +916,6 @@ exports[`CoverageMapService JSON > embedded schema 1`] = `
         "start": {
           "column": 2,
           "line": 3,
-        },
-      },
-      "https://example.com/foo#": {
-        "end": {
-          "column": 4,
-          "line": 8,
-        },
-        "start": {
-          "column": 11,
-          "line": 5,
         },
       },
       "https://example.com/foo#/type": {
@@ -1148,7 +946,7 @@ exports[`CoverageMapService JSON > examples doesn't branch 1`] = `
         "decl": {
           "end": {
             "column": 0,
-            "line": 1,
+            "line": 4,
           },
           "start": {
             "column": 0,
@@ -1171,20 +969,9 @@ exports[`CoverageMapService JSON > examples doesn't branch 1`] = `
     },
     "path": ".coverage-map-service-fixtures/subject.schema.json",
     "s": {
-      ".coverage-map-service-fixtures/subject.schema.json#": 0,
       ".coverage-map-service-fixtures/subject.schema.json#/examples": 0,
     },
     "statementMap": {
-      ".coverage-map-service-fixtures/subject.schema.json#": {
-        "end": {
-          "column": 0,
-          "line": 4,
-        },
-        "start": {
-          "column": 0,
-          "line": 1,
-        },
-      },
       ".coverage-map-service-fixtures/subject.schema.json#/examples": {
         "end": {
           "column": 20,
@@ -1213,7 +1000,7 @@ exports[`CoverageMapService JSON > format doesn't branch 1`] = `
         "decl": {
           "end": {
             "column": 0,
-            "line": 1,
+            "line": 4,
           },
           "start": {
             "column": 0,
@@ -1236,20 +1023,9 @@ exports[`CoverageMapService JSON > format doesn't branch 1`] = `
     },
     "path": ".coverage-map-service-fixtures/subject.schema.json",
     "s": {
-      ".coverage-map-service-fixtures/subject.schema.json#": 0,
       ".coverage-map-service-fixtures/subject.schema.json#/format": 0,
     },
     "statementMap": {
-      ".coverage-map-service-fixtures/subject.schema.json#": {
-        "end": {
-          "column": 0,
-          "line": 4,
-        },
-        "start": {
-          "column": 0,
-          "line": 1,
-        },
-      },
       ".coverage-map-service-fixtures/subject.schema.json#/format": {
         "end": {
           "column": 17,
@@ -1279,7 +1055,7 @@ exports[`CoverageMapService JSON > if doesn't branch 1`] = `
         "decl": {
           "end": {
             "column": 0,
-            "line": 1,
+            "line": 4,
           },
           "start": {
             "column": 0,
@@ -1302,11 +1078,11 @@ exports[`CoverageMapService JSON > if doesn't branch 1`] = `
       ".coverage-map-service-fixtures/subject.schema.json#/if": {
         "decl": {
           "end": {
-            "column": 5,
+            "column": 11,
             "line": 3,
           },
           "start": {
-            "column": 2,
+            "column": 8,
             "line": 3,
           },
         },
@@ -1317,7 +1093,7 @@ exports[`CoverageMapService JSON > if doesn't branch 1`] = `
             "line": 3,
           },
           "start": {
-            "column": 2,
+            "column": 8,
             "line": 3,
           },
         },
@@ -1326,20 +1102,9 @@ exports[`CoverageMapService JSON > if doesn't branch 1`] = `
     },
     "path": ".coverage-map-service-fixtures/subject.schema.json",
     "s": {
-      ".coverage-map-service-fixtures/subject.schema.json#": 0,
       ".coverage-map-service-fixtures/subject.schema.json#/if": 0,
     },
     "statementMap": {
-      ".coverage-map-service-fixtures/subject.schema.json#": {
-        "end": {
-          "column": 0,
-          "line": 4,
-        },
-        "start": {
-          "column": 0,
-          "line": 1,
-        },
-      },
       ".coverage-map-service-fixtures/subject.schema.json#/if": {
         "end": {
           "column": 11,
@@ -1369,7 +1134,7 @@ exports[`CoverageMapService JSON > items doesn't branch 1`] = `
         "decl": {
           "end": {
             "column": 0,
-            "line": 1,
+            "line": 4,
           },
           "start": {
             "column": 0,
@@ -1392,11 +1157,11 @@ exports[`CoverageMapService JSON > items doesn't branch 1`] = `
       ".coverage-map-service-fixtures/subject.schema.json#/items": {
         "decl": {
           "end": {
-            "column": 8,
+            "column": 14,
             "line": 3,
           },
           "start": {
-            "column": 2,
+            "column": 11,
             "line": 3,
           },
         },
@@ -1407,7 +1172,7 @@ exports[`CoverageMapService JSON > items doesn't branch 1`] = `
             "line": 3,
           },
           "start": {
-            "column": 2,
+            "column": 11,
             "line": 3,
           },
         },
@@ -1416,20 +1181,9 @@ exports[`CoverageMapService JSON > items doesn't branch 1`] = `
     },
     "path": ".coverage-map-service-fixtures/subject.schema.json",
     "s": {
-      ".coverage-map-service-fixtures/subject.schema.json#": 0,
       ".coverage-map-service-fixtures/subject.schema.json#/items": 0,
     },
     "statementMap": {
-      ".coverage-map-service-fixtures/subject.schema.json#": {
-        "end": {
-          "column": 0,
-          "line": 4,
-        },
-        "start": {
-          "column": 0,
-          "line": 1,
-        },
-      },
       ".coverage-map-service-fixtures/subject.schema.json#/items": {
         "end": {
           "column": 14,
@@ -1500,7 +1254,7 @@ exports[`CoverageMapService JSON > keywords 1`] = `
         "decl": {
           "end": {
             "column": 0,
-            "line": 1,
+            "line": 4,
           },
           "start": {
             "column": 0,
@@ -1523,20 +1277,9 @@ exports[`CoverageMapService JSON > keywords 1`] = `
     },
     "path": ".coverage-map-service-fixtures/subject.schema.json",
     "s": {
-      ".coverage-map-service-fixtures/subject.schema.json#": 0,
       ".coverage-map-service-fixtures/subject.schema.json#/type": 0,
     },
     "statementMap": {
-      ".coverage-map-service-fixtures/subject.schema.json#": {
-        "end": {
-          "column": 0,
-          "line": 4,
-        },
-        "start": {
-          "column": 0,
-          "line": 1,
-        },
-      },
       ".coverage-map-service-fixtures/subject.schema.json#/type": {
         "end": {
           "column": 17,
@@ -1565,7 +1308,7 @@ exports[`CoverageMapService JSON > minimal schema 1`] = `
         "decl": {
           "end": {
             "column": 0,
-            "line": 1,
+            "line": 3,
           },
           "start": {
             "column": 0,
@@ -1587,21 +1330,8 @@ exports[`CoverageMapService JSON > minimal schema 1`] = `
       },
     },
     "path": ".coverage-map-service-fixtures/subject.schema.json",
-    "s": {
-      ".coverage-map-service-fixtures/subject.schema.json#": 0,
-    },
-    "statementMap": {
-      ".coverage-map-service-fixtures/subject.schema.json#": {
-        "end": {
-          "column": 0,
-          "line": 3,
-        },
-        "start": {
-          "column": 0,
-          "line": 1,
-        },
-      },
-    },
+    "s": {},
+    "statementMap": {},
   },
 }
 `;
@@ -1662,7 +1392,7 @@ exports[`CoverageMapService JSON > nested keywords 1`] = `
         "decl": {
           "end": {
             "column": 0,
-            "line": 1,
+            "line": 6,
           },
           "start": {
             "column": 0,
@@ -1685,11 +1415,11 @@ exports[`CoverageMapService JSON > nested keywords 1`] = `
       ".coverage-map-service-fixtures/subject.schema.json#/properties/foo": {
         "decl": {
           "end": {
-            "column": 8,
+            "column": 30,
             "line": 4,
           },
           "start": {
-            "column": 4,
+            "column": 11,
             "line": 4,
           },
         },
@@ -1700,7 +1430,7 @@ exports[`CoverageMapService JSON > nested keywords 1`] = `
             "line": 4,
           },
           "start": {
-            "column": 4,
+            "column": 11,
             "line": 4,
           },
         },
@@ -1709,22 +1439,10 @@ exports[`CoverageMapService JSON > nested keywords 1`] = `
     },
     "path": ".coverage-map-service-fixtures/subject.schema.json",
     "s": {
-      ".coverage-map-service-fixtures/subject.schema.json#": 0,
       ".coverage-map-service-fixtures/subject.schema.json#/properties": 0,
-      ".coverage-map-service-fixtures/subject.schema.json#/properties/foo": 0,
       ".coverage-map-service-fixtures/subject.schema.json#/properties/foo/type": 0,
     },
     "statementMap": {
-      ".coverage-map-service-fixtures/subject.schema.json#": {
-        "end": {
-          "column": 0,
-          "line": 6,
-        },
-        "start": {
-          "column": 0,
-          "line": 1,
-        },
-      },
       ".coverage-map-service-fixtures/subject.schema.json#/properties": {
         "end": {
           "column": 2,
@@ -1733,16 +1451,6 @@ exports[`CoverageMapService JSON > nested keywords 1`] = `
         "start": {
           "column": 2,
           "line": 3,
-        },
-      },
-      ".coverage-map-service-fixtures/subject.schema.json#/properties/foo": {
-        "end": {
-          "column": 30,
-          "line": 4,
-        },
-        "start": {
-          "column": 4,
-          "line": 4,
         },
       },
       ".coverage-map-service-fixtures/subject.schema.json#/properties/foo/type": {
@@ -1773,7 +1481,7 @@ exports[`CoverageMapService JSON > patternProperties doesn't branch 1`] = `
         "decl": {
           "end": {
             "column": 0,
-            "line": 1,
+            "line": 4,
           },
           "start": {
             "column": 0,
@@ -1796,20 +1504,9 @@ exports[`CoverageMapService JSON > patternProperties doesn't branch 1`] = `
     },
     "path": ".coverage-map-service-fixtures/subject.schema.json",
     "s": {
-      ".coverage-map-service-fixtures/subject.schema.json#": 0,
       ".coverage-map-service-fixtures/subject.schema.json#/patternProperties": 0,
     },
     "statementMap": {
-      ".coverage-map-service-fixtures/subject.schema.json#": {
-        "end": {
-          "column": 0,
-          "line": 4,
-        },
-        "start": {
-          "column": 0,
-          "line": 1,
-        },
-      },
       ".coverage-map-service-fixtures/subject.schema.json#/patternProperties": {
         "end": {
           "column": 24,
@@ -1839,7 +1536,7 @@ exports[`CoverageMapService JSON > prefixItems doesn't branch 1`] = `
         "decl": {
           "end": {
             "column": 0,
-            "line": 1,
+            "line": 4,
           },
           "start": {
             "column": 0,
@@ -1862,7 +1559,7 @@ exports[`CoverageMapService JSON > prefixItems doesn't branch 1`] = `
       ".coverage-map-service-fixtures/subject.schema.json#/prefixItems/0": {
         "decl": {
           "end": {
-            "column": 18,
+            "column": 21,
             "line": 3,
           },
           "start": {
@@ -1886,21 +1583,9 @@ exports[`CoverageMapService JSON > prefixItems doesn't branch 1`] = `
     },
     "path": ".coverage-map-service-fixtures/subject.schema.json",
     "s": {
-      ".coverage-map-service-fixtures/subject.schema.json#": 0,
       ".coverage-map-service-fixtures/subject.schema.json#/prefixItems": 0,
-      ".coverage-map-service-fixtures/subject.schema.json#/prefixItems/0": 0,
     },
     "statementMap": {
-      ".coverage-map-service-fixtures/subject.schema.json#": {
-        "end": {
-          "column": 0,
-          "line": 4,
-        },
-        "start": {
-          "column": 0,
-          "line": 1,
-        },
-      },
       ".coverage-map-service-fixtures/subject.schema.json#/prefixItems": {
         "end": {
           "column": 22,
@@ -1908,16 +1593,6 @@ exports[`CoverageMapService JSON > prefixItems doesn't branch 1`] = `
         },
         "start": {
           "column": 2,
-          "line": 3,
-        },
-      },
-      ".coverage-map-service-fixtures/subject.schema.json#/prefixItems/0": {
-        "end": {
-          "column": 21,
-          "line": 3,
-        },
-        "start": {
-          "column": 18,
           "line": 3,
         },
       },
@@ -1939,7 +1614,7 @@ exports[`CoverageMapService JSON > properties doesn't branch 1`] = `
         "decl": {
           "end": {
             "column": 0,
-            "line": 1,
+            "line": 4,
           },
           "start": {
             "column": 0,
@@ -1962,20 +1637,9 @@ exports[`CoverageMapService JSON > properties doesn't branch 1`] = `
     },
     "path": ".coverage-map-service-fixtures/subject.schema.json",
     "s": {
-      ".coverage-map-service-fixtures/subject.schema.json#": 0,
       ".coverage-map-service-fixtures/subject.schema.json#/properties": 0,
     },
     "statementMap": {
-      ".coverage-map-service-fixtures/subject.schema.json#": {
-        "end": {
-          "column": 0,
-          "line": 4,
-        },
-        "start": {
-          "column": 0,
-          "line": 1,
-        },
-      },
       ".coverage-map-service-fixtures/subject.schema.json#/properties": {
         "end": {
           "column": 17,
@@ -2005,7 +1669,7 @@ exports[`CoverageMapService JSON > propertyNames doesn't branch 1`] = `
         "decl": {
           "end": {
             "column": 0,
-            "line": 1,
+            "line": 4,
           },
           "start": {
             "column": 0,
@@ -2028,11 +1692,11 @@ exports[`CoverageMapService JSON > propertyNames doesn't branch 1`] = `
       ".coverage-map-service-fixtures/subject.schema.json#/propertyNames": {
         "decl": {
           "end": {
-            "column": 16,
+            "column": 22,
             "line": 3,
           },
           "start": {
-            "column": 2,
+            "column": 19,
             "line": 3,
           },
         },
@@ -2043,7 +1707,7 @@ exports[`CoverageMapService JSON > propertyNames doesn't branch 1`] = `
             "line": 3,
           },
           "start": {
-            "column": 2,
+            "column": 19,
             "line": 3,
           },
         },
@@ -2052,20 +1716,9 @@ exports[`CoverageMapService JSON > propertyNames doesn't branch 1`] = `
     },
     "path": ".coverage-map-service-fixtures/subject.schema.json",
     "s": {
-      ".coverage-map-service-fixtures/subject.schema.json#": 0,
       ".coverage-map-service-fixtures/subject.schema.json#/propertyNames": 0,
     },
     "statementMap": {
-      ".coverage-map-service-fixtures/subject.schema.json#": {
-        "end": {
-          "column": 0,
-          "line": 4,
-        },
-        "start": {
-          "column": 0,
-          "line": 1,
-        },
-      },
       ".coverage-map-service-fixtures/subject.schema.json#/propertyNames": {
         "end": {
           "column": 22,
@@ -2094,7 +1747,7 @@ exports[`CoverageMapService JSON > readOnly doesn't branch 1`] = `
         "decl": {
           "end": {
             "column": 0,
-            "line": 1,
+            "line": 4,
           },
           "start": {
             "column": 0,
@@ -2117,20 +1770,9 @@ exports[`CoverageMapService JSON > readOnly doesn't branch 1`] = `
     },
     "path": ".coverage-map-service-fixtures/subject.schema.json",
     "s": {
-      ".coverage-map-service-fixtures/subject.schema.json#": 0,
       ".coverage-map-service-fixtures/subject.schema.json#/readOnly": 0,
     },
     "statementMap": {
-      ".coverage-map-service-fixtures/subject.schema.json#": {
-        "end": {
-          "column": 0,
-          "line": 4,
-        },
-        "start": {
-          "column": 0,
-          "line": 1,
-        },
-      },
       ".coverage-map-service-fixtures/subject.schema.json#/readOnly": {
         "end": {
           "column": 17,
@@ -2160,7 +1802,7 @@ exports[`CoverageMapService JSON > schemas 1`] = `
         "decl": {
           "end": {
             "column": 0,
-            "line": 1,
+            "line": 6,
           },
           "start": {
             "column": 0,
@@ -2183,11 +1825,11 @@ exports[`CoverageMapService JSON > schemas 1`] = `
       ".coverage-map-service-fixtures/subject.schema.json#/properties/foo": {
         "decl": {
           "end": {
-            "column": 8,
+            "column": 14,
             "line": 4,
           },
           "start": {
-            "column": 4,
+            "column": 11,
             "line": 4,
           },
         },
@@ -2198,7 +1840,7 @@ exports[`CoverageMapService JSON > schemas 1`] = `
             "line": 4,
           },
           "start": {
-            "column": 4,
+            "column": 11,
             "line": 4,
           },
         },
@@ -2207,21 +1849,9 @@ exports[`CoverageMapService JSON > schemas 1`] = `
     },
     "path": ".coverage-map-service-fixtures/subject.schema.json",
     "s": {
-      ".coverage-map-service-fixtures/subject.schema.json#": 0,
       ".coverage-map-service-fixtures/subject.schema.json#/properties": 0,
-      ".coverage-map-service-fixtures/subject.schema.json#/properties/foo": 0,
     },
     "statementMap": {
-      ".coverage-map-service-fixtures/subject.schema.json#": {
-        "end": {
-          "column": 0,
-          "line": 6,
-        },
-        "start": {
-          "column": 0,
-          "line": 1,
-        },
-      },
       ".coverage-map-service-fixtures/subject.schema.json#/properties": {
         "end": {
           "column": 2,
@@ -2230,16 +1860,6 @@ exports[`CoverageMapService JSON > schemas 1`] = `
         "start": {
           "column": 2,
           "line": 3,
-        },
-      },
-      ".coverage-map-service-fixtures/subject.schema.json#/properties/foo": {
-        "end": {
-          "column": 14,
-          "line": 4,
-        },
-        "start": {
-          "column": 4,
-          "line": 4,
         },
       },
     },
@@ -2260,7 +1880,7 @@ exports[`CoverageMapService JSON > self-identifying schema 1`] = `
         "decl": {
           "end": {
             "column": 0,
-            "line": 1,
+            "line": 4,
           },
           "start": {
             "column": 0,
@@ -2282,21 +1902,8 @@ exports[`CoverageMapService JSON > self-identifying schema 1`] = `
       },
     },
     "path": ".coverage-map-service-fixtures/subject.schema.json",
-    "s": {
-      "https://example.com/subject#": 0,
-    },
-    "statementMap": {
-      "https://example.com/subject#": {
-        "end": {
-          "column": 0,
-          "line": 4,
-        },
-        "start": {
-          "column": 0,
-          "line": 1,
-        },
-      },
-    },
+    "s": {},
+    "statementMap": {},
   },
 }
 `;
@@ -2314,7 +1921,7 @@ exports[`CoverageMapService JSON > then doesn't branch 1`] = `
         "decl": {
           "end": {
             "column": 0,
-            "line": 1,
+            "line": 4,
           },
           "start": {
             "column": 0,
@@ -2337,20 +1944,9 @@ exports[`CoverageMapService JSON > then doesn't branch 1`] = `
     },
     "path": ".coverage-map-service-fixtures/subject.schema.json",
     "s": {
-      ".coverage-map-service-fixtures/subject.schema.json#": 0,
       ".coverage-map-service-fixtures/subject.schema.json#/then": 0,
     },
     "statementMap": {
-      ".coverage-map-service-fixtures/subject.schema.json#": {
-        "end": {
-          "column": 0,
-          "line": 4,
-        },
-        "start": {
-          "column": 0,
-          "line": 1,
-        },
-      },
       ".coverage-map-service-fixtures/subject.schema.json#/then": {
         "end": {
           "column": 13,
@@ -2379,7 +1975,7 @@ exports[`CoverageMapService JSON > title doesn't branch 1`] = `
         "decl": {
           "end": {
             "column": 0,
-            "line": 1,
+            "line": 4,
           },
           "start": {
             "column": 0,
@@ -2402,20 +1998,9 @@ exports[`CoverageMapService JSON > title doesn't branch 1`] = `
     },
     "path": ".coverage-map-service-fixtures/subject.schema.json",
     "s": {
-      ".coverage-map-service-fixtures/subject.schema.json#": 0,
       ".coverage-map-service-fixtures/subject.schema.json#/title": 0,
     },
     "statementMap": {
-      ".coverage-map-service-fixtures/subject.schema.json#": {
-        "end": {
-          "column": 0,
-          "line": 4,
-        },
-        "start": {
-          "column": 0,
-          "line": 1,
-        },
-      },
       ".coverage-map-service-fixtures/subject.schema.json#/title": {
         "end": {
           "column": 15,
@@ -2445,7 +2030,7 @@ exports[`CoverageMapService JSON > unevaluatedItems doesn't branch 1`] = `
         "decl": {
           "end": {
             "column": 0,
-            "line": 1,
+            "line": 4,
           },
           "start": {
             "column": 0,
@@ -2468,11 +2053,11 @@ exports[`CoverageMapService JSON > unevaluatedItems doesn't branch 1`] = `
       ".coverage-map-service-fixtures/subject.schema.json#/unevaluatedItems": {
         "decl": {
           "end": {
-            "column": 19,
+            "column": 25,
             "line": 3,
           },
           "start": {
-            "column": 2,
+            "column": 22,
             "line": 3,
           },
         },
@@ -2483,7 +2068,7 @@ exports[`CoverageMapService JSON > unevaluatedItems doesn't branch 1`] = `
             "line": 3,
           },
           "start": {
-            "column": 2,
+            "column": 22,
             "line": 3,
           },
         },
@@ -2492,20 +2077,9 @@ exports[`CoverageMapService JSON > unevaluatedItems doesn't branch 1`] = `
     },
     "path": ".coverage-map-service-fixtures/subject.schema.json",
     "s": {
-      ".coverage-map-service-fixtures/subject.schema.json#": 0,
       ".coverage-map-service-fixtures/subject.schema.json#/unevaluatedItems": 0,
     },
     "statementMap": {
-      ".coverage-map-service-fixtures/subject.schema.json#": {
-        "end": {
-          "column": 0,
-          "line": 4,
-        },
-        "start": {
-          "column": 0,
-          "line": 1,
-        },
-      },
       ".coverage-map-service-fixtures/subject.schema.json#/unevaluatedItems": {
         "end": {
           "column": 25,
@@ -2535,7 +2109,7 @@ exports[`CoverageMapService JSON > unevaluatedProperties doesn't branch 1`] = `
         "decl": {
           "end": {
             "column": 0,
-            "line": 1,
+            "line": 4,
           },
           "start": {
             "column": 0,
@@ -2558,11 +2132,11 @@ exports[`CoverageMapService JSON > unevaluatedProperties doesn't branch 1`] = `
       ".coverage-map-service-fixtures/subject.schema.json#/unevaluatedProperties": {
         "decl": {
           "end": {
-            "column": 24,
+            "column": 30,
             "line": 3,
           },
           "start": {
-            "column": 2,
+            "column": 27,
             "line": 3,
           },
         },
@@ -2573,7 +2147,7 @@ exports[`CoverageMapService JSON > unevaluatedProperties doesn't branch 1`] = `
             "line": 3,
           },
           "start": {
-            "column": 2,
+            "column": 27,
             "line": 3,
           },
         },
@@ -2582,20 +2156,9 @@ exports[`CoverageMapService JSON > unevaluatedProperties doesn't branch 1`] = `
     },
     "path": ".coverage-map-service-fixtures/subject.schema.json",
     "s": {
-      ".coverage-map-service-fixtures/subject.schema.json#": 0,
       ".coverage-map-service-fixtures/subject.schema.json#/unevaluatedProperties": 0,
     },
     "statementMap": {
-      ".coverage-map-service-fixtures/subject.schema.json#": {
-        "end": {
-          "column": 0,
-          "line": 4,
-        },
-        "start": {
-          "column": 0,
-          "line": 1,
-        },
-      },
       ".coverage-map-service-fixtures/subject.schema.json#/unevaluatedProperties": {
         "end": {
           "column": 30,
@@ -2624,7 +2187,7 @@ exports[`CoverageMapService JSON > unknown keywords don't branch 1`] = `
         "decl": {
           "end": {
             "column": 0,
-            "line": 1,
+            "line": 4,
           },
           "start": {
             "column": 0,
@@ -2647,20 +2210,9 @@ exports[`CoverageMapService JSON > unknown keywords don't branch 1`] = `
     },
     "path": ".coverage-map-service-fixtures/subject.schema.json",
     "s": {
-      ".coverage-map-service-fixtures/subject.schema.json#": 0,
       ".coverage-map-service-fixtures/subject.schema.json#/x-foo": 0,
     },
     "statementMap": {
-      ".coverage-map-service-fixtures/subject.schema.json#": {
-        "end": {
-          "column": 0,
-          "line": 4,
-        },
-        "start": {
-          "column": 0,
-          "line": 1,
-        },
-      },
       ".coverage-map-service-fixtures/subject.schema.json#/x-foo": {
         "end": {
           "column": 15,
@@ -2855,8 +2407,8 @@ exports[`CoverageMapService JSON > with YAML media type plugin > YAML features 1
       "https://example.com/main#": {
         "decl": {
           "end": {
-            "column": 0,
-            "line": 2,
+            "column": 16,
+            "line": 12,
           },
           "start": {
             "column": 0,
@@ -2879,23 +2431,23 @@ exports[`CoverageMapService JSON > with YAML media type plugin > YAML features 1
       "https://example.com/main#/$defs/foo": {
         "decl": {
           "end": {
-            "column": 5,
-            "line": 11,
+            "column": 16,
+            "line": 12,
           },
           "start": {
-            "column": 2,
-            "line": 11,
+            "column": 4,
+            "line": 12,
           },
         },
-        "line": 11,
+        "line": 12,
         "loc": {
           "end": {
             "column": 16,
             "line": 12,
           },
           "start": {
-            "column": 2,
-            "line": 11,
+            "column": 4,
+            "line": 12,
           },
         },
         "name": "https://example.com/main#/$defs/foo",
@@ -2903,7 +2455,7 @@ exports[`CoverageMapService JSON > with YAML media type plugin > YAML features 1
       "https://example.com/main#/anyOf/0": {
         "decl": {
           "end": {
-            "column": 4,
+            "column": 19,
             "line": 8,
           },
           "start": {
@@ -2927,7 +2479,7 @@ exports[`CoverageMapService JSON > with YAML media type plugin > YAML features 1
       "https://example.com/main#/anyOf/1": {
         "decl": {
           "end": {
-            "column": 4,
+            "column": 19,
             "line": 9,
           },
           "start": {
@@ -2951,11 +2503,11 @@ exports[`CoverageMapService JSON > with YAML media type plugin > YAML features 1
       "https://example.com/main#/properties/bar": {
         "decl": {
           "end": {
-            "column": 5,
+            "column": 11,
             "line": 6,
           },
           "start": {
-            "column": 2,
+            "column": 7,
             "line": 6,
           },
         },
@@ -2966,7 +2518,7 @@ exports[`CoverageMapService JSON > with YAML media type plugin > YAML features 1
             "line": 6,
           },
           "start": {
-            "column": 2,
+            "column": 7,
             "line": 6,
           },
         },
@@ -2975,11 +2527,11 @@ exports[`CoverageMapService JSON > with YAML media type plugin > YAML features 1
       "https://example.com/main#/properties/foo": {
         "decl": {
           "end": {
-            "column": 5,
+            "column": 30,
             "line": 5,
           },
           "start": {
-            "column": 2,
+            "column": 7,
             "line": 5,
           },
         },
@@ -2990,7 +2542,7 @@ exports[`CoverageMapService JSON > with YAML media type plugin > YAML features 1
             "line": 5,
           },
           "start": {
-            "column": 2,
+            "column": 7,
             "line": 5,
           },
         },
@@ -2999,40 +2551,14 @@ exports[`CoverageMapService JSON > with YAML media type plugin > YAML features 1
     },
     "path": ".coverage-map-service-fixtures/subject.yml",
     "s": {
-      "https://example.com/main#": 0,
-      "https://example.com/main#/$defs/foo": 0,
       "https://example.com/main#/$defs/foo/type": 0,
       "https://example.com/main#/anyOf": 0,
-      "https://example.com/main#/anyOf/0": 0,
       "https://example.com/main#/anyOf/0/required": 0,
-      "https://example.com/main#/anyOf/1": 0,
       "https://example.com/main#/anyOf/1/required": 0,
       "https://example.com/main#/properties": 0,
-      "https://example.com/main#/properties/bar": 0,
-      "https://example.com/main#/properties/foo": 0,
       "https://example.com/main#/properties/foo/$ref": 0,
     },
     "statementMap": {
-      "https://example.com/main#": {
-        "end": {
-          "column": 16,
-          "line": 12,
-        },
-        "start": {
-          "column": 0,
-          "line": 2,
-        },
-      },
-      "https://example.com/main#/$defs/foo": {
-        "end": {
-          "column": 16,
-          "line": 12,
-        },
-        "start": {
-          "column": 2,
-          "line": 11,
-        },
-      },
       "https://example.com/main#/$defs/foo/type": {
         "end": {
           "column": 16,
@@ -3053,16 +2579,6 @@ exports[`CoverageMapService JSON > with YAML media type plugin > YAML features 1
           "line": 7,
         },
       },
-      "https://example.com/main#/anyOf/0": {
-        "end": {
-          "column": 19,
-          "line": 8,
-        },
-        "start": {
-          "column": 4,
-          "line": 8,
-        },
-      },
       "https://example.com/main#/anyOf/0/required": {
         "end": {
           "column": 19,
@@ -3071,16 +2587,6 @@ exports[`CoverageMapService JSON > with YAML media type plugin > YAML features 1
         "start": {
           "column": 4,
           "line": 8,
-        },
-      },
-      "https://example.com/main#/anyOf/1": {
-        "end": {
-          "column": 19,
-          "line": 9,
-        },
-        "start": {
-          "column": 4,
-          "line": 9,
         },
       },
       "https://example.com/main#/anyOf/1/required": {
@@ -3101,26 +2607,6 @@ exports[`CoverageMapService JSON > with YAML media type plugin > YAML features 1
         "start": {
           "column": 0,
           "line": 4,
-        },
-      },
-      "https://example.com/main#/properties/bar": {
-        "end": {
-          "column": 11,
-          "line": 6,
-        },
-        "start": {
-          "column": 2,
-          "line": 6,
-        },
-      },
-      "https://example.com/main#/properties/foo": {
-        "end": {
-          "column": 30,
-          "line": 5,
-        },
-        "start": {
-          "column": 2,
-          "line": 5,
         },
       },
       "https://example.com/main#/properties/foo/$ref": {
@@ -3150,8 +2636,8 @@ exports[`CoverageMapService JSON > with YAML media type plugin > with .schema.ya
       "https://example.com/main#": {
         "decl": {
           "end": {
-            "column": 0,
-            "line": 2,
+            "column": 55,
+            "line": 3,
           },
           "start": {
             "column": 0,
@@ -3173,21 +2659,8 @@ exports[`CoverageMapService JSON > with YAML media type plugin > with .schema.ya
       },
     },
     "path": ".coverage-map-service-fixtures/subject.schema.yaml",
-    "s": {
-      "https://example.com/main#": 0,
-    },
-    "statementMap": {
-      "https://example.com/main#": {
-        "end": {
-          "column": 55,
-          "line": 3,
-        },
-        "start": {
-          "column": 0,
-          "line": 2,
-        },
-      },
-    },
+    "s": {},
+    "statementMap": {},
   },
 }
 `;
@@ -3204,8 +2677,8 @@ exports[`CoverageMapService JSON > with YAML media type plugin > with .schema.ym
       "https://example.com/main#": {
         "decl": {
           "end": {
-            "column": 0,
-            "line": 2,
+            "column": 55,
+            "line": 3,
           },
           "start": {
             "column": 0,
@@ -3227,21 +2700,8 @@ exports[`CoverageMapService JSON > with YAML media type plugin > with .schema.ym
       },
     },
     "path": ".coverage-map-service-fixtures/subject.schema.yml",
-    "s": {
-      "https://example.com/main#": 0,
-    },
-    "statementMap": {
-      "https://example.com/main#": {
-        "end": {
-          "column": 55,
-          "line": 3,
-        },
-        "start": {
-          "column": 0,
-          "line": 2,
-        },
-      },
-    },
+    "s": {},
+    "statementMap": {},
   },
 }
 `;
@@ -3258,8 +2718,8 @@ exports[`CoverageMapService JSON > with YAML media type plugin > with .yaml exte
       "https://example.com/main#": {
         "decl": {
           "end": {
-            "column": 0,
-            "line": 2,
+            "column": 55,
+            "line": 3,
           },
           "start": {
             "column": 0,
@@ -3281,21 +2741,8 @@ exports[`CoverageMapService JSON > with YAML media type plugin > with .yaml exte
       },
     },
     "path": ".coverage-map-service-fixtures/subject.yaml",
-    "s": {
-      "https://example.com/main#": 0,
-    },
-    "statementMap": {
-      "https://example.com/main#": {
-        "end": {
-          "column": 55,
-          "line": 3,
-        },
-        "start": {
-          "column": 0,
-          "line": 2,
-        },
-      },
-    },
+    "s": {},
+    "statementMap": {},
   },
 }
 `;
@@ -3312,8 +2759,8 @@ exports[`CoverageMapService JSON > with YAML media type plugin > with .yml exten
       "https://example.com/main#": {
         "decl": {
           "end": {
-            "column": 0,
-            "line": 2,
+            "column": 55,
+            "line": 3,
           },
           "start": {
             "column": 0,
@@ -3335,21 +2782,8 @@ exports[`CoverageMapService JSON > with YAML media type plugin > with .yml exten
       },
     },
     "path": ".coverage-map-service-fixtures/subject.yml",
-    "s": {
-      "https://example.com/main#": 0,
-    },
-    "statementMap": {
-      "https://example.com/main#": {
-        "end": {
-          "column": 55,
-          "line": 3,
-        },
-        "start": {
-          "column": 0,
-          "line": 2,
-        },
-      },
-    },
+    "s": {},
+    "statementMap": {},
   },
 }
 `;
@@ -3367,7 +2801,7 @@ exports[`CoverageMapService JSON > with non-file schema > reference to non-file 
         "decl": {
           "end": {
             "column": 0,
-            "line": 1,
+            "line": 5,
           },
           "start": {
             "column": 0,
@@ -3390,20 +2824,9 @@ exports[`CoverageMapService JSON > with non-file schema > reference to non-file 
     },
     "path": ".coverage-map-service-fixtures/subject.schema.json",
     "s": {
-      "https://example.com/subject#": 0,
       "https://example.com/subject#/$ref": 0,
     },
     "statementMap": {
-      "https://example.com/subject#": {
-        "end": {
-          "column": 0,
-          "line": 5,
-        },
-        "start": {
-          "column": 0,
-          "line": 1,
-        },
-      },
       "https://example.com/subject#/$ref": {
         "end": {
           "column": 15,
@@ -3432,7 +2855,7 @@ exports[`CoverageMapService JSON > writeOnly doesn't branch 1`] = `
         "decl": {
           "end": {
             "column": 0,
-            "line": 1,
+            "line": 4,
           },
           "start": {
             "column": 0,
@@ -3455,20 +2878,9 @@ exports[`CoverageMapService JSON > writeOnly doesn't branch 1`] = `
     },
     "path": ".coverage-map-service-fixtures/subject.schema.json",
     "s": {
-      ".coverage-map-service-fixtures/subject.schema.json#": 0,
       ".coverage-map-service-fixtures/subject.schema.json#/readOnly": 0,
     },
     "statementMap": {
-      ".coverage-map-service-fixtures/subject.schema.json#": {
-        "end": {
-          "column": 0,
-          "line": 4,
-        },
-        "start": {
-          "column": 0,
-          "line": 1,
-        },
-      },
       ".coverage-map-service-fixtures/subject.schema.json#/readOnly": {
         "end": {
           "column": 17,

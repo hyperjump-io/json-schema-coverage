@@ -25,7 +25,7 @@ aren't terms that makes sense for JSON Schema. I've mapped those concepts to
 what makes sense for schemas.
 
 **Legend**
-- **Statements** = Keywords and subschemas
+- **Statements** = Keywords
 - **Branches** = true/false branches for each keyword (except for keywords that
   don't branch such as annotation-only keywords like `title` and `description`)
 - **Functions** = Subschemas

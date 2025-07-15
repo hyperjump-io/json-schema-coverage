@@ -61,10 +61,13 @@ export class CoverageMapService {
   /** @type (coverageMap: CoverageMapData) => void */
   addCoverageMap(coverageMap) {
     for (const filePath in coverageMap) {
-      const [schemaUri] = Object.keys(coverageMap[filePath].statementMap);
+      const [schemaUri] = Object.keys(coverageMap[filePath].fnMap);
       this.#coverageMaps[schemaUri] = coverageMap;
 
       for (const fileCoveragePath in coverageMap) {
+        for (const location in coverageMap[fileCoveragePath].fnMap) {
+          this.#filePathFor[location] = fileCoveragePath;
+        }
         for (const location in coverageMap[fileCoveragePath].statementMap) {
           this.#filePathFor[location] = fileCoveragePath;
         }
@@ -157,25 +160,13 @@ export class CoverageMapService {
       }
 
       const pointer = decodeURI(/** @type string */ (parseIri(schemaLocation).fragment));
-      const node = getNodeFromPointer(schemaNodes[toAbsoluteIri(schemaLocation)], pointer, true);
-
-      const declRange = node.type === "json-property"
-        ? this.#positionToRange(node.children[0].position)
-        : {
-            start: { line: node.position.start.line, column: node.position.start.column - 1 },
-            end: { line: node.position.start.line, column: node.position.start.column - 1 }
-          };
-
+      const node = getNodeFromPointer(schemaNodes[toAbsoluteIri(schemaLocation)], pointer);
       const locRange = this.#positionToRange(node.position);
-
-      // Create statement
-      fileCoverage.statementMap[schemaLocation] = locRange;
-      fileCoverage.s[schemaLocation] = 0;
 
       // Create function
       fileCoverage.fnMap[schemaLocation] = {
         name: schemaLocation,
-        decl: declRange,
+        decl: locRange,
         loc: locRange,
         line: node.position.start.line
       };

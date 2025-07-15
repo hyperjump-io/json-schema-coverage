@@ -53,7 +53,6 @@ export class TestCoverageEvaluationPlugin {
     }
 
     const fileCoverage = this.coverage[schemaPath];
-    fileCoverage.s[schemaUri]++;
     fileCoverage.f[schemaUri]++;
   }
 }

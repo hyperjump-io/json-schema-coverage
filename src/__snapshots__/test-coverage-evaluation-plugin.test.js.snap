@@ -55,7 +55,7 @@ exports[`TestCoverageEvaluationPlugin > both branches of a branching keyword 1`]
         "decl": {
           "end": {
             "column": 0,
-            "line": 1,
+            "line": 4,
           },
           "start": {
             "column": 0,
@@ -78,20 +78,9 @@ exports[`TestCoverageEvaluationPlugin > both branches of a branching keyword 1`]
     },
     "path": ".test-coverage-evaluation-plugin-fixtures/subject.schema.json",
     "s": {
-      ".test-coverage-evaluation-plugin-fixtures/subject.schema.json#": 2,
       ".test-coverage-evaluation-plugin-fixtures/subject.schema.json#/type": 2,
     },
     "statementMap": {
-      ".test-coverage-evaluation-plugin-fixtures/subject.schema.json#": {
-        "end": {
-          "column": 0,
-          "line": 4,
-        },
-        "start": {
-          "column": 0,
-          "line": 1,
-        },
-      },
       ".test-coverage-evaluation-plugin-fixtures/subject.schema.json#/type": {
         "end": {
           "column": 17,
@@ -164,7 +153,7 @@ exports[`TestCoverageEvaluationPlugin > embedded schema 1`] = `
         "decl": {
           "end": {
             "column": 0,
-            "line": 1,
+            "line": 9,
           },
           "start": {
             "column": 0,
@@ -187,11 +176,11 @@ exports[`TestCoverageEvaluationPlugin > embedded schema 1`] = `
       ".test-coverage-evaluation-plugin-fixtures/subject.schema.json#/$defs/foo": {
         "decl": {
           "end": {
-            "column": 8,
+            "column": 30,
             "line": 7,
           },
           "start": {
-            "column": 4,
+            "column": 11,
             "line": 7,
           },
         },
@@ -202,7 +191,7 @@ exports[`TestCoverageEvaluationPlugin > embedded schema 1`] = `
             "line": 7,
           },
           "start": {
-            "column": 4,
+            "column": 11,
             "line": 7,
           },
         },
@@ -211,11 +200,11 @@ exports[`TestCoverageEvaluationPlugin > embedded schema 1`] = `
       ".test-coverage-evaluation-plugin-fixtures/subject.schema.json#/properties/foo": {
         "decl": {
           "end": {
-            "column": 8,
+            "column": 35,
             "line": 4,
           },
           "start": {
-            "column": 4,
+            "column": 11,
             "line": 4,
           },
         },
@@ -226,7 +215,7 @@ exports[`TestCoverageEvaluationPlugin > embedded schema 1`] = `
             "line": 4,
           },
           "start": {
-            "column": 4,
+            "column": 11,
             "line": 4,
           },
         },
@@ -235,34 +224,11 @@ exports[`TestCoverageEvaluationPlugin > embedded schema 1`] = `
     },
     "path": ".test-coverage-evaluation-plugin-fixtures/subject.schema.json",
     "s": {
-      ".test-coverage-evaluation-plugin-fixtures/subject.schema.json#": 1,
-      ".test-coverage-evaluation-plugin-fixtures/subject.schema.json#/$defs/foo": 1,
       ".test-coverage-evaluation-plugin-fixtures/subject.schema.json#/$defs/foo/type": 1,
       ".test-coverage-evaluation-plugin-fixtures/subject.schema.json#/properties": 1,
-      ".test-coverage-evaluation-plugin-fixtures/subject.schema.json#/properties/foo": 1,
       ".test-coverage-evaluation-plugin-fixtures/subject.schema.json#/properties/foo/$ref": 1,
     },
     "statementMap": {
-      ".test-coverage-evaluation-plugin-fixtures/subject.schema.json#": {
-        "end": {
-          "column": 0,
-          "line": 9,
-        },
-        "start": {
-          "column": 0,
-          "line": 1,
-        },
-      },
-      ".test-coverage-evaluation-plugin-fixtures/subject.schema.json#/$defs/foo": {
-        "end": {
-          "column": 30,
-          "line": 7,
-        },
-        "start": {
-          "column": 4,
-          "line": 7,
-        },
-      },
       ".test-coverage-evaluation-plugin-fixtures/subject.schema.json#/$defs/foo/type": {
         "end": {
           "column": 28,
@@ -281,16 +247,6 @@ exports[`TestCoverageEvaluationPlugin > embedded schema 1`] = `
         "start": {
           "column": 2,
           "line": 3,
-        },
-      },
-      ".test-coverage-evaluation-plugin-fixtures/subject.schema.json#/properties/foo": {
-        "end": {
-          "column": 35,
-          "line": 4,
-        },
-        "start": {
-          "column": 4,
-          "line": 4,
         },
       },
       ".test-coverage-evaluation-plugin-fixtures/subject.schema.json#/properties/foo/$ref": {
@@ -363,7 +319,7 @@ exports[`TestCoverageEvaluationPlugin > failing branching keyword 1`] = `
         "decl": {
           "end": {
             "column": 0,
-            "line": 1,
+            "line": 4,
           },
           "start": {
             "column": 0,
@@ -386,20 +342,9 @@ exports[`TestCoverageEvaluationPlugin > failing branching keyword 1`] = `
     },
     "path": ".test-coverage-evaluation-plugin-fixtures/subject.schema.json",
     "s": {
-      ".test-coverage-evaluation-plugin-fixtures/subject.schema.json#": 1,
       ".test-coverage-evaluation-plugin-fixtures/subject.schema.json#/type": 1,
     },
     "statementMap": {
-      ".test-coverage-evaluation-plugin-fixtures/subject.schema.json#": {
-        "end": {
-          "column": 0,
-          "line": 4,
-        },
-        "start": {
-          "column": 0,
-          "line": 1,
-        },
-      },
       ".test-coverage-evaluation-plugin-fixtures/subject.schema.json#/type": {
         "end": {
           "column": 17,
@@ -428,7 +373,7 @@ exports[`TestCoverageEvaluationPlugin > non-branching keyword 1`] = `
         "decl": {
           "end": {
             "column": 0,
-            "line": 1,
+            "line": 4,
           },
           "start": {
             "column": 0,
@@ -451,20 +396,9 @@ exports[`TestCoverageEvaluationPlugin > non-branching keyword 1`] = `
     },
     "path": ".test-coverage-evaluation-plugin-fixtures/subject.schema.json",
     "s": {
-      ".test-coverage-evaluation-plugin-fixtures/subject.schema.json#": 1,
       ".test-coverage-evaluation-plugin-fixtures/subject.schema.json#/title": 1,
     },
     "statementMap": {
-      ".test-coverage-evaluation-plugin-fixtures/subject.schema.json#": {
-        "end": {
-          "column": 0,
-          "line": 4,
-        },
-        "start": {
-          "column": 0,
-          "line": 1,
-        },
-      },
       ".test-coverage-evaluation-plugin-fixtures/subject.schema.json#/title": {
         "end": {
           "column": 15,
@@ -493,7 +427,7 @@ exports[`TestCoverageEvaluationPlugin > non-statement keyword 1`] = `
         "decl": {
           "end": {
             "column": 0,
-            "line": 1,
+            "line": 4,
           },
           "start": {
             "column": 0,
@@ -515,21 +449,8 @@ exports[`TestCoverageEvaluationPlugin > non-statement keyword 1`] = `
       },
     },
     "path": ".test-coverage-evaluation-plugin-fixtures/subject.schema.json",
-    "s": {
-      ".test-coverage-evaluation-plugin-fixtures/subject.schema.json#": 1,
-    },
-    "statementMap": {
-      ".test-coverage-evaluation-plugin-fixtures/subject.schema.json#": {
-        "end": {
-          "column": 0,
-          "line": 4,
-        },
-        "start": {
-          "column": 0,
-          "line": 1,
-        },
-      },
-    },
+    "s": {},
+    "statementMap": {},
   },
 }
 `;
@@ -589,7 +510,7 @@ exports[`TestCoverageEvaluationPlugin > passing branching keyword 1`] = `
         "decl": {
           "end": {
             "column": 0,
-            "line": 1,
+            "line": 4,
           },
           "start": {
             "column": 0,
@@ -612,20 +533,9 @@ exports[`TestCoverageEvaluationPlugin > passing branching keyword 1`] = `
     },
     "path": ".test-coverage-evaluation-plugin-fixtures/subject.schema.json",
     "s": {
-      ".test-coverage-evaluation-plugin-fixtures/subject.schema.json#": 1,
       ".test-coverage-evaluation-plugin-fixtures/subject.schema.json#/type": 1,
     },
     "statementMap": {
-      ".test-coverage-evaluation-plugin-fixtures/subject.schema.json#": {
-        "end": {
-          "column": 0,
-          "line": 4,
-        },
-        "start": {
-          "column": 0,
-          "line": 1,
-        },
-      },
       ".test-coverage-evaluation-plugin-fixtures/subject.schema.json#/type": {
         "end": {
           "column": 17,
@@ -654,7 +564,7 @@ exports[`TestCoverageEvaluationPlugin > reference to a non-file schema 1`] = `
         "decl": {
           "end": {
             "column": 0,
-            "line": 1,
+            "line": 5,
           },
           "start": {
             "column": 0,
@@ -677,20 +587,9 @@ exports[`TestCoverageEvaluationPlugin > reference to a non-file schema 1`] = `
     },
     "path": ".test-coverage-evaluation-plugin-fixtures/subject.schema.json",
     "s": {
-      "https://example.com/subject#": 1,
       "https://example.com/subject#/$ref": 1,
     },
     "statementMap": {
-      "https://example.com/subject#": {
-        "end": {
-          "column": 0,
-          "line": 5,
-        },
-        "start": {
-          "column": 0,
-          "line": 1,
-        },
-      },
       "https://example.com/subject#/$ref": {
         "end": {
           "column": 15,
@@ -719,7 +618,7 @@ exports[`TestCoverageEvaluationPlugin > root schema 1`] = `
         "decl": {
           "end": {
             "column": 0,
-            "line": 1,
+            "line": 3,
           },
           "start": {
             "column": 0,
@@ -741,21 +640,8 @@ exports[`TestCoverageEvaluationPlugin > root schema 1`] = `
       },
     },
     "path": ".test-coverage-evaluation-plugin-fixtures/subject.schema.json",
-    "s": {
-      ".test-coverage-evaluation-plugin-fixtures/subject.schema.json#": 1,
-    },
-    "statementMap": {
-      ".test-coverage-evaluation-plugin-fixtures/subject.schema.json#": {
-        "end": {
-          "column": 0,
-          "line": 3,
-        },
-        "start": {
-          "column": 0,
-          "line": 1,
-        },
-      },
-    },
+    "s": {},
+    "statementMap": {},
   },
 }
 `;
@@ -774,7 +660,7 @@ exports[`TestCoverageEvaluationPlugin > sub-schema 1`] = `
         "decl": {
           "end": {
             "column": 0,
-            "line": 1,
+            "line": 6,
           },
           "start": {
             "column": 0,
@@ -797,11 +683,11 @@ exports[`TestCoverageEvaluationPlugin > sub-schema 1`] = `
       ".test-coverage-evaluation-plugin-fixtures/subject.schema.json#/properties/foo": {
         "decl": {
           "end": {
-            "column": 8,
+            "column": 14,
             "line": 4,
           },
           "start": {
-            "column": 4,
+            "column": 11,
             "line": 4,
           },
         },
@@ -812,7 +698,7 @@ exports[`TestCoverageEvaluationPlugin > sub-schema 1`] = `
             "line": 4,
           },
           "start": {
-            "column": 4,
+            "column": 11,
             "line": 4,
           },
         },
@@ -821,21 +707,9 @@ exports[`TestCoverageEvaluationPlugin > sub-schema 1`] = `
     },
     "path": ".test-coverage-evaluation-plugin-fixtures/subject.schema.json",
     "s": {
-      ".test-coverage-evaluation-plugin-fixtures/subject.schema.json#": 1,
       ".test-coverage-evaluation-plugin-fixtures/subject.schema.json#/properties": 1,
-      ".test-coverage-evaluation-plugin-fixtures/subject.schema.json#/properties/foo": 1,
     },
     "statementMap": {
-      ".test-coverage-evaluation-plugin-fixtures/subject.schema.json#": {
-        "end": {
-          "column": 0,
-          "line": 6,
-        },
-        "start": {
-          "column": 0,
-          "line": 1,
-        },
-      },
       ".test-coverage-evaluation-plugin-fixtures/subject.schema.json#/properties": {
         "end": {
           "column": 2,
@@ -844,16 +718,6 @@ exports[`TestCoverageEvaluationPlugin > sub-schema 1`] = `
         "start": {
           "column": 2,
           "line": 3,
-        },
-      },
-      ".test-coverage-evaluation-plugin-fixtures/subject.schema.json#/properties/foo": {
-        "end": {
-          "column": 14,
-          "line": 4,
-        },
-        "start": {
-          "column": 4,
-          "line": 4,
         },
       },
     },
@@ -875,7 +739,7 @@ exports[`TestCoverageEvaluationPlugin > sub-schema that isn't evaluated 1`] = `
         "decl": {
           "end": {
             "column": 0,
-            "line": 1,
+            "line": 6,
           },
           "start": {
             "column": 0,
@@ -898,11 +762,11 @@ exports[`TestCoverageEvaluationPlugin > sub-schema that isn't evaluated 1`] = `
       ".test-coverage-evaluation-plugin-fixtures/subject.schema.json#/properties/foo": {
         "decl": {
           "end": {
-            "column": 8,
+            "column": 14,
             "line": 4,
           },
           "start": {
-            "column": 4,
+            "column": 11,
             "line": 4,
           },
         },
@@ -913,7 +777,7 @@ exports[`TestCoverageEvaluationPlugin > sub-schema that isn't evaluated 1`] = `
             "line": 4,
           },
           "start": {
-            "column": 4,
+            "column": 11,
             "line": 4,
           },
         },
@@ -922,21 +786,9 @@ exports[`TestCoverageEvaluationPlugin > sub-schema that isn't evaluated 1`] = `
     },
     "path": ".test-coverage-evaluation-plugin-fixtures/subject.schema.json",
     "s": {
-      ".test-coverage-evaluation-plugin-fixtures/subject.schema.json#": 1,
       ".test-coverage-evaluation-plugin-fixtures/subject.schema.json#/properties": 1,
-      ".test-coverage-evaluation-plugin-fixtures/subject.schema.json#/properties/foo": 0,
     },
     "statementMap": {
-      ".test-coverage-evaluation-plugin-fixtures/subject.schema.json#": {
-        "end": {
-          "column": 0,
-          "line": 6,
-        },
-        "start": {
-          "column": 0,
-          "line": 1,
-        },
-      },
       ".test-coverage-evaluation-plugin-fixtures/subject.schema.json#/properties": {
         "end": {
           "column": 2,
@@ -945,16 +797,6 @@ exports[`TestCoverageEvaluationPlugin > sub-schema that isn't evaluated 1`] = `
         "start": {
           "column": 2,
           "line": 3,
-        },
-      },
-      ".test-coverage-evaluation-plugin-fixtures/subject.schema.json#/properties/foo": {
-        "end": {
-          "column": 14,
-          "line": 4,
-        },
-        "start": {
-          "column": 4,
-          "line": 4,
         },
       },
     },
