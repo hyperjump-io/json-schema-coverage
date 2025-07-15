@@ -113,6 +113,11 @@ class JsonSchemaCoverageProvider {
     }
   }
 
+  async onTestFailure() {
+    await this.coverageService.close();
+    await fs.rm(this.coverageFilesDirectory, { recursive: true });
+  }
+
   /** @type CoverageProvider["reportCoverage"] */
   async reportCoverage(coverageMap) {
     this.#generateReports(/** @type CoverageMap */ (coverageMap) ?? coverage.createCoverageMap());
