@@ -52,7 +52,7 @@ By default, it will track coverage for any file with a `*.schema.json`,
 `*.schema.yaml`, or `*.schema.yml` extension. You can change this with the
 `include` option. For example, if you keep your schemas in a folder called
 `schemas` and they just have plain extensions (`*.json`) instead of schema
-extensions `*.schema.json`, you could use `["schemas/**/*.json"]`.
+extensions (`*.schema.json`), you could use `["schemas/**/*.json"]`.
 
 If you use custom keywords, vocabularies, and dialects, you'll need to
 register them with a [globalSetup](https://vitest.dev/config/#globalsetup)
@@ -105,6 +105,7 @@ for the validation to work.
 
 ```JavaScript
 import { describe, expect, test } from "vitest";
+import { registerSchema, unregisterSchema } from "@hyperjump/json-schema-coverage/vitest";
 
 describe("Worksheet", () => {
   beforeEach(async () => {
@@ -127,7 +128,7 @@ describe("Worksheet", () => {
 });
 ```
 
-You can also use the matcher with inline schemas, but you only get coverage for
+You can also use the matchers with inline schemas, but you only get coverage for
 schemas from files in your code base.
 
 ```JavaScript
@@ -228,15 +229,16 @@ example of how to use the evaluation plugin.
 ### Nyc Example
 
 The following is an example of using the Low-Level API to generate coverage
-without Vitest. This uses the [nyc] CLI to generate reports from the coverage
-files that are generated. Once you run the script, you can run the following
-command to generate a report.
+without Vitest. This uses [istanbul]'s [nyc] CLI to generate reports from the
+coverage files that are generated.
 
 Keep in mind that with the Low-Level API approach, you need to configure
 [@hyperjump/json-schema] yourself. That means that you need to import the
 dialects you need and will need to provide `MediaTypePlugin`s for anything other
 than `*.schema.json` file extension support. YAML support is only provided
 out-of-the-box for the Vitest integration.
+
+Once you run the script, you can run the following command to generate a report.
 
 ```bash
 npx nyc report --extension .schema.json
