@@ -8,7 +8,7 @@ import { FileCoverageMapService } from "./file-coverage-map-service.js";
 import { TestCoverageEvaluationPlugin } from "../test-coverage-evaluation-plugin.js";
 
 /**
- * @import { OutputUnit } from "@hyperjump/json-schema"
+ * @import { Output } from "@hyperjump/json-schema"
  * @import * as API from "./index.d.ts"
  */
 
@@ -23,7 +23,7 @@ if (existsSync(coverageMapsDirectory)) {
 
 /** @type API.matchJsonSchema */
 export const matchJsonSchema = async (instance, uriOrSchema) => {
-  /** @type OutputUnit */
+  /** @type Output */
   let output;
 
   if (typeof uriOrSchema === "string") {
