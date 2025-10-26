@@ -2,6 +2,7 @@ import type { AsyncExpectationResult } from "@vitest/expect";
 import type { Plugin } from "vite";
 import type { SchemaObject } from "@hyperjump/json-schema";
 import JsonSchemaCoverageProvider from "./coverage-provider.js";
+import "./register-matchers.js";
 
 /**
  * Register a schema in your code base by it's path.
