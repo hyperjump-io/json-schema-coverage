@@ -66,7 +66,7 @@ import { jsonSchemaCoveragePlugin } from "@hyperjump/json-schema-coverage/vitest
 export default defineConfig({
   plugins: [jsonSchemaCoveragePlugin()],
   test: {
-    globalSetup: ["./register-my-dialect.ts"], // Optional
+    globalSetup: ["./register-dialect-or-formats-or-whatever.ts"], // Optional
     include: ["schema-tests/**/*.test.ts"], // Optional
     coverage: {
       include: ["schemas/**/*.json"] // Optional

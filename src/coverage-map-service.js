@@ -1,6 +1,7 @@
 import { readFile } from "node:fs/promises";
 import { extname } from "node:path";
 import { pathToFileURL } from "node:url";
+import { getShouldValidateFormat } from "@hyperjump/json-schema";
 import { compile, getKeyword, getSchema } from "@hyperjump/json-schema/experimental";
 import { jrefTypeOf, Reference } from "@hyperjump/browser/jref";
 import * as JsonPointer from "@hyperjump/json-pointer";
@@ -27,17 +28,34 @@ export class CoverageMapService {
     "https://json-schema.org/keyword/definitions"
   ]);
 
-  #nonBranchingKeywords = new Set([
-    "https://json-schema.org/keyword/title",
-    "https://json-schema.org/keyword/description",
-    "https://json-schema.org/keyword/default",
-    "https://json-schema.org/keyword/deprecated",
-    "https://json-schema.org/keyword/readOnly",
-    "https://json-schema.org/keyword/writeOnly",
-    "https://json-schema.org/keyword/examples",
-    "https://json-schema.org/keyword/format",
-    "https://json-schema.org/keyword/unknown"
-  ]);
+  /** @type Set<string> */
+  #nonBranchingKeywords;
+
+  constructor() {
+    this.#nonBranchingKeywords = new Set([
+      "https://json-schema.org/keyword/title",
+      "https://json-schema.org/keyword/description",
+      "https://json-schema.org/keyword/default",
+      "https://json-schema.org/keyword/deprecated",
+      "https://json-schema.org/keyword/readOnly",
+      "https://json-schema.org/keyword/writeOnly",
+      "https://json-schema.org/keyword/examples",
+      "https://json-schema.org/keyword/unknown"
+    ]);
+
+    switch (getShouldValidateFormat()) {
+      case false:
+        this.#nonBranchingKeywords.add("https://json-schema.org/keyword/draft-04/format");
+        this.#nonBranchingKeywords.add("https://json-schema.org/keyword/draft-06/format");
+        this.#nonBranchingKeywords.add("https://json-schema.org/keyword/draft-07/format");
+        // Missing "break" is intentional
+      case undefined:
+        this.#nonBranchingKeywords.add("https://json-schema.org/keyword/draft-2019-09/format");
+        this.#nonBranchingKeywords.add("https://json-schema.org/keyword/draft-2020-12/format");
+        this.#nonBranchingKeywords.add("https://json-schema.org/keyword/draft/format");
+        break;
+    }
+  }
 
   /** @type (schemaPath: string) => Promise<string> */
   async addFromFile(schemaPath) {

@@ -146,9 +146,18 @@ describe("CoverageMapService JSON", () => {
     expect(coverageMap).toMatchSnapshot();
   });
 
-  test("format doesn't branch", async () => {
+  test("2020-12 format doesn't branch", async () => {
     const coverageMap = await coverageMapFor("subject.schema.json", `{
   "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "format": "date"
+}`);
+
+    expect(coverageMap).toMatchSnapshot();
+  });
+
+  test("2019-09 format doesn't branch", async () => {
+    const coverageMap = await coverageMapFor("subject.schema.json", `{
+  "$schema": "https://json-schema.org/draft/2019-09/schema",
   "format": "date"
 }`);
 
