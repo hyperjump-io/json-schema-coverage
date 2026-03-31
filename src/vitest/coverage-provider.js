@@ -12,7 +12,7 @@ import { FileCoverageMapService } from "./file-coverage-map-service.js";
 
 /**
  * @import {
- *   BaseCoverageOptions,
+ *   CoverageOptions,
  *   CoverageProvider,
  *   CoverageProviderModule,
  *   ResolvedCoverageOptions,
@@ -35,7 +35,7 @@ class JsonSchemaCoverageProvider {
 
   ctx = /** @type Vitest */ ({});
 
-  options = /** @type ResolvedCoverageOptions<"istanbul"> */ ({});
+  options = /** @type ResolvedCoverageOptions */ ({});
 
   /** @type Map<string, boolean> */
   globCache = new Map();
@@ -47,9 +47,9 @@ class JsonSchemaCoverageProvider {
   initialize(ctx) {
     this.ctx = ctx;
 
-    const config = /** @type ResolvedCoverageOptions<"istanbul"> */ (ctx.config.coverage);
+    const config = /** @type ResolvedCoverageOptions */ (ctx.config.coverage);
 
-    this.options = /** @type ResolvedCoverageOptions<"istanbul"> */ ({
+    this.options = /** @type ResolvedCoverageOptions */ ({
       ...coverageConfigDefaults,
 
       // User's options
@@ -343,7 +343,7 @@ class JsonSchemaCoverageProvider {
   }
 }
 
-/** @type (configReporters: NonNullable<BaseCoverageOptions["reporter"]>) => [string, Record<string, unknown>][] */
+/** @type (configReporters: NonNullable<CoverageOptions["reporter"]>) => [string, Record<string, unknown>][] */
 const resolveCoverageReporters = (configReporters) => {
   // E.g. { reporter: "html" }
   if (!Array.isArray(configReporters)) {

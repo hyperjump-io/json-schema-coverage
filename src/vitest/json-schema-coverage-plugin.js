@@ -14,7 +14,7 @@ export const jsonSchemaCoveragePlugin = () => {
     configureVitest(context) {
       const config = context.vitest.config;
 
-      const coverage = /** @type ResolvedCoverageOptions<"custom"> */ (config.coverage);
+      const coverage = /** @type ResolvedCoverageOptions */ (config.coverage);
       coverage.provider = "custom";
       coverage.customProviderModule = resolve(import.meta.dirname, "./coverage-provider.js");
 
