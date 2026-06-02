@@ -35,7 +35,7 @@
     "@types/content-type": "*",
     "@types/istanbul-lib-coverage": "*",
     "@types/istanbul-reports": "*",
-    "@types/moo": "*0",
+    "@types/moo": "*",
     "@types/node": "*",
     "@types/picomatch": "*",
     "@types/unist": "*",
