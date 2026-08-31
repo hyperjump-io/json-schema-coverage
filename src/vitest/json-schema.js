@@ -7,7 +7,7 @@ import "@hyperjump/json-schema/openapi-3-0";
 import "@hyperjump/json-schema/openapi-3-1";
 import { buildSchemaDocument } from "@hyperjump/json-schema/experimental";
 import { addMediaTypePlugin } from "@hyperjump/browser";
-import contentTypeParser from "content-type";
+import * as contentTypeParser from "content-type";
 import YAML from "yaml";
 
 /**

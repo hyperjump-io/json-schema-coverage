@@ -6,7 +6,7 @@ import { registerSchema, unregisterSchema } from "@hyperjump/json-schema/draft-2
 import "@hyperjump/json-schema/draft-07";
 import { buildSchemaDocument } from "@hyperjump/json-schema/experimental";
 import { addMediaTypePlugin, removeMediaTypePlugin } from "@hyperjump/browser";
-import contentTypeParser from "content-type";
+import * as contentTypeParser from "content-type";
 import YAML from "yaml";
 import { censorCoverageMap } from "./test-utils.js";
 
