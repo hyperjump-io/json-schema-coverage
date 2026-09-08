@@ -5,7 +5,7 @@ import coverage from "istanbul-lib-coverage";
 import libReport from "istanbul-lib-report";
 import reports from "istanbul-reports";
 import { resolve } from "pathe";
-import c from "tinyrainbow";
+import c from "picocolors";
 import pm from "picomatch";
 import { coverageConfigDefaults } from "vitest/config";
 import { FileCoverageMapService } from "./file-coverage-map-service.js";
