@@ -33,8 +33,6 @@
   "devDependencies": {
     "@stylistic/eslint-plugin": "*",
     "@types/content-type": "*",
-    "@types/istanbul-lib-coverage": "*",
-    "@types/istanbul-reports": "*",
     "@types/moo": "*",
     "@types/node": "*",
     "@types/picomatch": "*",
@@ -43,17 +41,16 @@
     "eslint-plugin-import": "*",
     "typedoc": "*",
     "typescript-eslint": "*",
-    "vitest": "^4.0.0"
+    "vitest": "*"
   },
   "dependencies": {
     "@hyperjump/browser": "^1.3.1",
     "@hyperjump/json-schema": "^1.17.2",
     "@hyperjump/uri": "^1.3.1",
+    "@vitest/istanbul-lib-coverage": "^1.0.1",
+    "@vitest/istanbul-lib-report": "^1.0.1",
     "content-type": "^3.0.0",
     "ignore": "^7.0.5",
-    "istanbul-lib-coverage": "^3.2.2",
-    "istanbul-lib-report": "^3.0.1",
-    "istanbul-reports": "^3.1.7",
     "moo": "^0.5.2",
     "pathe": "^2.0.3",
     "picocolors": "^1.1.1",
@@ -64,7 +61,7 @@
     "yaml-unist-parser": "^3.1.0"
   },
   "peerDependencies": {
-    "vitest": "^4.0.0"
+    "vitest": "^4.0.0 || ^5.0.0"
   },
   "allowScripts": {
     "unrs-resolver@1.12.2": true

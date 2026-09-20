@@ -11,6 +11,7 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest, windows-latest, macos-latest]
+        vitest: [4, 5]
 
     steps:
       - uses: actions/checkout@v7
@@ -18,7 +19,9 @@ jobs:
         with:
           node-version: lts/*
       - run: npm install
+      - run: npm install vitest@${{ matrix.vitest }} --no-save
       - run: npm test
       - run: npm run lint
       - run: npm run type-check
       - run: npm run docs
+        if: matrix.os == 'ubuntu-latest' && matrix.vitest == 5

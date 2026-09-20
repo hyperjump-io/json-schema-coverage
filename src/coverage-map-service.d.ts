@@ -1,4 +1,4 @@
-import { CoverageMapData } from "istanbul-lib-coverage";
+import { CoverageMapData } from "@vitest/istanbul-lib-coverage";
 
 /**
  * The `CoverageMapService` creates [istanbul](https://istanbul.js.org/)

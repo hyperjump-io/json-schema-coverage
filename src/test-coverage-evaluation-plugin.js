@@ -1,7 +1,7 @@
 import { toAbsoluteIri } from "@hyperjump/uri";
 
 /**
- * @import { CoverageMapData } from "istanbul-lib-coverage"
+ * @import { CoverageMapData } from "@vitest/istanbul-lib-coverage"
  * @import { EvaluationPlugin } from "@hyperjump/json-schema/experimental"
  * @import { CoverageMapService } from "./coverage-map-service.js";
  */

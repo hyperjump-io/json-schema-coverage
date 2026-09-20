@@ -9,7 +9,7 @@ import { parseIri, toAbsoluteIri } from "@hyperjump/uri";
 import { fromJson, fromYaml, getNodeFromPointer } from "./json-util.js";
 
 /**
- * @import { CoverageMapData, FileCoverageData, Range } from "istanbul-lib-coverage"
+ * @import { CoverageMapData, FileCoverageData, Range } from "@vitest/istanbul-lib-coverage"
  * @import { Position } from "unist"
  * @import { CompiledSchema } from "@hyperjump/json-schema/experimental";
  * @import { JRef } from "@hyperjump/browser/jref"

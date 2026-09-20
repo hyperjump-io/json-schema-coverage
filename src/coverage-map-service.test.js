@@ -11,7 +11,7 @@ import YAML from "yaml";
 import { censorCoverageMap } from "./test-utils.js";
 
 /**
- * @import { CoverageMapData } from "istanbul-lib-coverage"
+ * @import { CoverageMapData } from "@vitest/istanbul-lib-coverage"
  * @import { SchemaObject } from "@hyperjump/json-schema"
  */
 

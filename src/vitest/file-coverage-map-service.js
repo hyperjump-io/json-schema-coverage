@@ -5,7 +5,7 @@ import { resolve } from "node:path";
 import { CoverageMapService } from "../coverage-map-service.js";
 
 /**
- * @import { CoverageMapData } from "istanbul-lib-coverage"
+ * @import { CoverageMapData } from "@vitest/istanbul-lib-coverage"
  */
 
 export class FileCoverageMapService extends CoverageMapService {

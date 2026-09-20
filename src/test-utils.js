@@ -2,7 +2,7 @@ import { cwd } from "node:process";
 import { pathToFileURL } from "node:url";
 
 /**
- * @import { CoverageMapData } from "istanbul-lib-coverage"
+ * @import { CoverageMapData, FileCoverageData } from "@vitest/istanbul-lib-coverage"
  */
 
 const root = pathToFileURL(cwd()).toString();
@@ -12,7 +12,9 @@ export const censorCoverageMap = (coverageMap) => {
   /** @type CoverageMapData */
   const censoredCoverageMap = {};
   for (const filePath in coverageMap) {
-    const fileCoverageData = coverageMap[filePath];
+    // Always plain, parsed-JSON data here, never a `FileCoverage` class instance
+    // (whose `path` is a readonly getter), so this narrowing is safe.
+    const fileCoverageData = /** @type FileCoverageData */ (coverageMap[filePath]);
 
     const censoredFilePath = pathToFileURL(filePath).toString().slice(root.length + 1);
     censoredCoverageMap[censoredFilePath] = fileCoverageData;
@@ -45,6 +47,6 @@ export const censorCoverageMap = (coverageMap) => {
   }
   const [filePath] = Object.keys(coverageMap);
   const censoredFilePath = pathToFileURL(filePath).toString().slice(root.length + 1);
-  coverageMap[filePath].path = censoredFilePath;
+  /** @type FileCoverageData */ (coverageMap[filePath]).path = censoredFilePath;
   return { [censoredFilePath]: coverageMap[filePath] };
 };
