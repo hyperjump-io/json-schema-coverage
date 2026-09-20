@@ -37,9 +37,6 @@ class JsonSchemaCoverageProvider {
 
   options = /** @type ResolvedCoverageOptions */ ({});
 
-  /** @type Map<string, boolean> */
-  globCache = new Map();
-
   coverageFilesDirectory = ".json-schema-coverage";
   coverageService = new FileCoverageMapService(path.join(".json-schema-coverage", "maps"));
 
