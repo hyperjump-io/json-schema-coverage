@@ -81,14 +81,14 @@ export class CoverageMapService {
     for (const filePath in coverageMap) {
       const [schemaUri] = Object.keys(coverageMap[filePath].fnMap);
       this.#coverageMaps[schemaUri] = coverageMap;
+    }
 
-      for (const fileCoveragePath in coverageMap) {
-        for (const location in coverageMap[fileCoveragePath].fnMap) {
-          this.#filePathFor[location] = fileCoveragePath;
-        }
-        for (const location in coverageMap[fileCoveragePath].statementMap) {
-          this.#filePathFor[location] = fileCoveragePath;
-        }
+    for (const fileCoveragePath in coverageMap) {
+      for (const location in coverageMap[fileCoveragePath].fnMap) {
+        this.#filePathFor[location] = fileCoveragePath;
+      }
+      for (const location in coverageMap[fileCoveragePath].statementMap) {
+        this.#filePathFor[location] = fileCoveragePath;
       }
     }
   }

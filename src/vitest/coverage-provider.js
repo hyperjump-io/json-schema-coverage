@@ -106,7 +106,7 @@ class JsonSchemaCoverageProvider {
   /** @type () => Promise<void> */
   async cleanAfterRun() {
     await this.coverageService.close();
-    await fs.rm(this.coverageFilesDirectory, { recursive: true });
+    await fs.rm(this.coverageFilesDirectory, { recursive: true, force: true, maxRetries: 10 });
 
     // Remove empty reports directory, e.g. when only text-reporter is used
     if (existsSync(this.options.reportsDirectory) && readdirSync(this.options.reportsDirectory).length === 0) {
@@ -117,7 +117,7 @@ class JsonSchemaCoverageProvider {
   async onTestFailure() {
     if (!this.options.reportOnFailure) {
       await this.coverageService.close();
-      await fs.rm(this.coverageFilesDirectory, { recursive: true });
+      await fs.rm(this.coverageFilesDirectory, { recursive: true, force: true, maxRetries: 10 });
     }
   }
 
