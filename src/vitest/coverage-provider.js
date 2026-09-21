@@ -109,7 +109,7 @@ class JsonSchemaCoverageProvider {
     await fs.rm(this.coverageFilesDirectory, { recursive: true });
 
     // Remove empty reports directory, e.g. when only text-reporter is used
-    if (readdirSync(this.options.reportsDirectory).length === 0) {
+    if (existsSync(this.options.reportsDirectory) && readdirSync(this.options.reportsDirectory).length === 0) {
       await fs.rm(this.options.reportsDirectory, { recursive: true });
     }
   }

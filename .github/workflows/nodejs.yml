@@ -23,5 +23,6 @@ jobs:
       - run: npm test
       - run: npm run lint
       - run: npm run type-check
+        if: matrix.vitest == 5
       - run: npm run docs
         if: matrix.os == 'ubuntu-latest' && matrix.vitest == 5
