@@ -89,7 +89,7 @@ export class JsonLexer {
 
   /** @type (message: string, token?: JsonToken) => VFileMessage */
   syntaxError(message, token) {
-    throw new VFileMessage(message, {
+    return new VFileMessage(message, {
       source: "json",
       ruleId: "syntax-error",
       place: {

@@ -17,13 +17,11 @@ export const censorCoverageMap = (coverageMap) => {
     const fileCoverageData = /** @type FileCoverageData */ (coverageMap[filePath]);
 
     const censoredFilePath = pathToFileURL(filePath).toString().slice(root.length + 1);
+    fileCoverageData.path = censoredFilePath;
     censoredCoverageMap[censoredFilePath] = fileCoverageData;
 
     for (const key in fileCoverageData) {
       switch (key) {
-        case "path":
-          fileCoverageData.path = censoredFilePath;
-          break;
         case "statementMap":
         case "branchMap":
         case "fnMap":
@@ -45,8 +43,5 @@ export const censorCoverageMap = (coverageMap) => {
       }
     }
   }
-  const [filePath] = Object.keys(coverageMap);
-  const censoredFilePath = pathToFileURL(filePath).toString().slice(root.length + 1);
-  /** @type FileCoverageData */ (coverageMap[filePath]).path = censoredFilePath;
-  return { [censoredFilePath]: coverageMap[filePath] };
+  return censoredCoverageMap;
 };

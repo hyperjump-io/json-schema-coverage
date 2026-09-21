@@ -52,7 +52,10 @@ export const setup = async (projects) => {
     }
 
     for (const file of files) {
-      await coverageService.addFromFile(file);
+      try {
+        await coverageService.addFromFile(file);
+      } catch (_error) {
+      }
     }
   }
 };

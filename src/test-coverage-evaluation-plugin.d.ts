@@ -17,8 +17,9 @@ import type { CoverageMapService } from "./coverage-map-service.d.ts";
  * used to generate any report that supports [istanbul](https://istanbul.js.org/).
  */
 export class TestCoverageEvaluationPlugin implements EvaluationPlugin {
-  constructor(coverageService?: CoverageMapService);
+  constructor(coverageService: CoverageMapService);
   coverage: CoverageMapData;
   beforeSchema(url: string, instance: JsonNode, context: ValidationContext): void;
-  beforeKeyword(keywordNode: Node<unknown>, instance: JsonNode, context: ValidationContext, schemaContext: ValidationContext, keyword: Keyword): void;
+  afterKeyword(keywordNode: Node<unknown>, instance: JsonNode, context: ValidationContext, valid: boolean, schemaContext: ValidationContext, keyword: Keyword): void;
+  afterSchema(url: string, instance: JsonNode, context: ValidationContext, valid: boolean): void;
 }

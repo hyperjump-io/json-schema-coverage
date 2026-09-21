@@ -11,7 +11,7 @@ export class TestCoverageEvaluationPlugin {
   /** @type CoverageMapData */
   coverage = {};
 
-  /** @ype CoverageMapService */
+  /** @type CoverageMapService */
   #coverageService;
 
   /**
