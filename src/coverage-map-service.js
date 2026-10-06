@@ -40,6 +40,7 @@ export class CoverageMapService {
       "https://json-schema.org/keyword/readOnly",
       "https://json-schema.org/keyword/writeOnly",
       "https://json-schema.org/keyword/examples",
+      "https://json-schema.org/keyword/if",
       "https://json-schema.org/keyword/unknown"
     ]);
 
